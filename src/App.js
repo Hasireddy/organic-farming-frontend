@@ -1,10 +1,14 @@
 import React from 'react';
 import Register from './components/Register.js';
+import MyMap from './components/Maps.js';
+
+
 
 function App() {
   return (
     <div className="App">
-      <h1>Hello</h1>
+      {/* <MyMap /> */}
+      <Register />
     </div>
   );
 }
