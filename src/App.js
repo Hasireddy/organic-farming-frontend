@@ -3,14 +3,15 @@ import Register from './components/Register.js';
 import MyMap from './components/Maps.js';
 import Header from './components/Header.js';
 import Footer from './components/Footer.js';
+import Navbar from './components/Navbar.js';
 
 function App() {
   return (
     <div className="App">
-      {/* <MyMap /> */}
-      {/* <Register /> */}
+      <Navbar />
       <Header />
-      {/* <Footer /> */}
+      {/* <MyMap /> */}
+      <Footer />
     </div>
   );
 }
