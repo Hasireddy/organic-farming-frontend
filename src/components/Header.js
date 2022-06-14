@@ -20,14 +20,25 @@ const Header = () => {
 
                 <div className="carousel-inner">
                     <div className="carousel-item active" style={{ backgroundImage: `url(${image1}` }}>
-
-                        <h1>slide1</h1>
-                        <p>this is slide1</p>
-
+                        <div class="carousel-caption d-none d-md-block">
+                            <h1>ORGANIC & NATURAL</h1>
+                            <p> Organic farming offers an alternative agricultural system.  It initially began in the early in the 20th century.  The advent of pesticides brought in its benefits and pitfalls simultaneously.  It is more healthy relying on compost manure, green manure, and bone meal.
+                            </p>
+                        </div>
                     </div>
                     <div className="carousel-item" style={{ backgroundImage: `url(${image2}` }}>
+                        <div class="carousel-caption d-none d-md-block">
+                            <h1>ORGANIC & NATURAL</h1>
+                            <p> Organic farming offers an alternative agricultural system.  It initially began in the early in the 20th century.  The advent of pesticides brought in its benefits and pitfalls simultaneously.  It is more healthy relying on compost manure, green manure, and bone meal.
+                            </p>
+                        </div>
                     </div>
                     <div className="carousel-item" style={{ backgroundImage: `url(${image3}` }}>
+                        <div class="carousel-caption d-none d-md-block">
+                            <h1>ORGANIC & NATURAL</h1>
+                            <p> Organic farming offers an alternative agricultural system.  It initially began in the early in the 20th century.  The advent of pesticides brought in its benefits and pitfalls simultaneously.  It is more healthy relying on compost manure, green manure, and bone meal.
+                            </p>
+                        </div>
                     </div>
 
                 </div>
