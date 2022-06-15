@@ -1,5 +1,6 @@
-import React from 'react'; // Type shortcut 'raf' to get the basic structure
+import React from 'react';
 import image from "../assets/666-1.jpg";
+
 const Register = () => {
     return (
         <div className="container" style={{ backgroundImage: `url(${image}` }}>
