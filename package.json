@@ -1,5 +1,4 @@
 {
-
   "name": "organic-farming-frontend",
 
   "version": "0.1.0",
@@ -79,7 +78,6 @@
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
 
   "main": "index.js",
-
   "repository": {
 
     "type": "git",
@@ -103,4 +101,3 @@
   "homepage": "https://github.com/Hasireddy/organic-farming-frontend#readme"
 
 }
-
