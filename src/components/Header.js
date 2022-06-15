@@ -1,4 +1,4 @@
-
+import React from 'react';
 import '../App.css';
 import image1 from "../assets/img_slider-01.jpg";
 import image2 from "../assets/img_slider-02.jpg";
