@@ -1,12 +1,16 @@
 import React from 'react'
+import './Footer.css'
+import '../assets/Facebook.png'
+
+
 
 function Footer() {
   return (
     <div>	
         <footer>
-  <div className="container">
+  <div className="container" id="footerContainer">
     <div className="row">
-      <div className="col-md-4 footer-column">
+      <div className="col-md-4 footer-column" id="footerProducts">
         <ul className="nav flex-column">
           <li className="nav-item">
             <span className="footer-title">Product</span>
@@ -44,7 +48,7 @@ function Footer() {
       <div className="col-md-4 footer-column">
         <ul className="nav flex-column">
           <li className="nav-item">
-            <span className="footer-title">Contact & Support</span>
+            <span className="footer-title">Contact </span>
           </li>
           <li className="nav-item">
             <span className="nav-link"><i className="fas fa-phone"></i>+47 45 80 80 80</span>
@@ -73,22 +77,32 @@ function Footer() {
         <ul className="list-inline social-buttons">
           <li className="list-inline-item">
             <a href="#">
-            <i className="fab fa-twitter"></i>
+            <i className="bi bi-twitter"></i>
+          </a>
+          </li>
+          <li className="list-inline-item">
+            <a href="../assets/Facebook.png">
+            <i className="bi bi-facebook"></i>
           </a>
           </li>
           <li className="list-inline-item">
             <a href="#">
-            <i className="fab fa-facebook-f"></i>
+            <i className="bi bi-linkedin"></i>
           </a>
           </li>
           <li className="list-inline-item">
             <a href="#">
-            <i className="fab fa-linkedin-in"></i>
+            <i className="bi bi-whatsapp"></i>
+          </a>
+          </li>
+          <li className="list-inline-item">
+            <a href="#">
+            <i className="bi bi-github"></i>
           </a>
           </li>
         </ul>
       </div>
-      <div className="col-md-4 box">
+     {/*  <div className="col-md-4 box">
         <ul className="list-inline quick-links">
           <li className="list-inline-item">
             <a href="#">Privacy Policy</a>
@@ -97,7 +111,7 @@ function Footer() {
             <a href="#">Terms of Use</a>
           </li>
         </ul>
-      </div>
+      </div> */}
     </div>
   </div>
 </footer>
