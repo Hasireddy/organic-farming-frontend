@@ -1,9 +1,8 @@
 import React from 'react';
 import NavBar from './components/Navbar';
 import Header from './components/Header';
-import Register from './components/Register.js';
-import MyMap from './components/Maps.js';
-import Header from './components/Header.js';
+// import Register from './components/Register.js';
+// import MyMap from './components/Maps.js';
 import Footer from './components/Footer.js';
 
 function App() {
@@ -13,7 +12,7 @@ function App() {
       {/* <MyMap /> */}
       {/* <Register /> */}
       <Header />
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }
