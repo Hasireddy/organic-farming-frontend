@@ -16,16 +16,16 @@ function Footer() {
                   <span className="footer-title">Product</span>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="#">Product 1</a>
+                  <a className="nav-link" href="/#">Product 1</a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="#">Product 2</a>
+                  <a className="nav-link" href="/#">Product 2</a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="#">Plans & Prices</a>
+                  <a className="nav-link" href="/#">Plans & Prices</a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="#">Frequently asked questions</a>
+                  <a className="nav-link" href="/#">Frequently asked questions</a>
                 </li>
               </ul>
             </div>
@@ -35,13 +35,13 @@ function Footer() {
                   <span className="footer-title">Company</span>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="#">About us</a>
+                  <a className="nav-link" href="/#">About us</a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="#">Job postings</a>
+                  <a className="nav-link" href="/#">Job postings</a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="#">News and articles</a>
+                  <a className="nav-link" href="/#">News and articles</a>
                 </li>
               </ul>
             </div>
@@ -54,13 +54,13 @@ function Footer() {
                   <span className="nav-link"><i className="fas fa-phone"></i>+47 45 80 80 80</span>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="#"><i className="fas fa-comments"></i>Live chat</a>
+                  <a className="nav-link" href="/#"><i className="fas fa-comments"></i>Live chat</a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="#"><i className="fas fa-envelope"></i>Contact us</a>
+                  <a className="nav-link" href="/#"><i className="fas fa-envelope"></i>Contact us</a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="#"><i className="fas fa-star"></i>Give feedback</a>
+                  <a className="nav-link" href="/#"><i className="fas fa-star"></i>Give feedback</a>
                 </li>
               </ul>
             </div>
@@ -105,10 +105,10 @@ function Footer() {
             {/*  <div className="col-md-4 box">
         <ul className="list-inline quick-links">
           <li className="list-inline-item">
-            <a href="#">Privacy Policy</a>
+            <a href="/#">Privacy Policy</a>
           </li>
           <li className="list-inline-item">
-            <a href="#">Terms of Use</a>
+            <a href="/#">Terms of Use</a>
           </li>
         </ul>
       </div> */}

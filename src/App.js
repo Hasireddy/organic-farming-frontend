@@ -11,7 +11,7 @@ function App() {
     <div className="App">
       <Navbar />
       {/* <MyMap /> */}
-      <Register />
+
       <Header />
       <Footer />
     </div>
