@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Map, Marker } from "pigeon-maps"
 import { osm } from 'pigeon-maps/providers';
+import '../App.css';
 
 const MyMap = () => {
     const [center, setCenter] = useState([50.879, 4.6997]);

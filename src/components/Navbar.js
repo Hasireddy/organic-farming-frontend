@@ -2,10 +2,10 @@ import React from 'react';
 
 const Navbar = () => {
   return (
-    <nav className='navbar navbar-expand-lg navbar-light bg-light'>
-      <a className='navbar-brand' href='/#'>
+    <nav className='navbar navbar-expand-lg navbar-light bg-success'>
+      < a className='navbar-brand' href=' /#' >
         ORGANIC FARMING COMMUNITY
-      </a>
+      </a >
       <button
         className='navbar-toggler'
         type='button'
@@ -39,7 +39,7 @@ const Navbar = () => {
       </li> */}
         </ul>
       </div>
-    </nav>
+    </nav >
   );
 };
 
