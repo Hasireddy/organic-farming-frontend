@@ -1,10 +1,6 @@
 .App {
     text-align: center;
-}
-
-body {
-    margin: 0;
-    padding: 0;
+    font-family: 'Roboto', sans-serif;
 }
 
 
@@ -23,7 +19,7 @@ body {
 }
 
 .container {
-    position: absolute;
+    position: relative;
     bottom: 0;
     left: 0;
     right: 0;
@@ -31,7 +27,7 @@ body {
 }
 
 .overlay-image {
-    position: absolute;
+    position: relative;
     bottom: 0;
     left: 0;
     right: 0;
@@ -77,3 +73,28 @@ body {
     margin-right: 80px;
 }
 
+.container {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+}
+
+.btn btn-success {
+    padding-top: 30px;
+}
+
+bs-example {
+    width: 50%;
+}
+
+
+/* uma */
+
+
+/*test*/
+
+
+/* 
+#1DB82C-Navbar & Footer color */
