@@ -6,7 +6,8 @@ function Footer() {
   return (
     <div>
       <footer>
-        <div className='container' id='footerContainer'>
+        
+        <div className='footerContainer' id='footerContainer'>
           <div className='row'>
             <div className='col-md-4 footer-column' id='footerProducts'>
               <ul className='nav flex-column'>
@@ -126,19 +127,11 @@ function Footer() {
                 </li>
               </ul>
             </div>
-            {/*  <div className="col-md-4 box">
-        <ul className="list-inline quick-links">
-          <li className="list-inline-item">
-            <a href="/#">Privacy Policy</a>
-          </li>
-          <li className="list-inline-item">
-            <a href="/#">Terms of Use</a>
-          </li>
-        </ul>
-      </div> */}
+          
           </div>
         </div>
       </footer>
+         
     </div>
   );
 }

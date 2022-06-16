@@ -87,10 +87,31 @@ bs-example {
 }
 
 
-/* uma */
+/* footer  */
+.footerContainer{
+    background-color: #1DB82C !important; 
+    border-bottom: #165c1c solid 50px;
+    color: rgb(5, 5, 5);
+    font-size: small;
+    padding-top: 35px;
+}
 
+/* .overlayFooter{
+    background: url("./assets/slidecarabao.jpg");
+    background-size: cover;
+} */
 
-/*test*/
+.footer-title{
+    color: rgb(10, 10, 10);
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.nav-link{
+    color: black !important;
+    font-size: small;
+    justify-content: center;
+}
 
 
 /* 
