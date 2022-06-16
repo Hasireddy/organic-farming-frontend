@@ -1,8 +1,14 @@
 import React from 'react';
-import FarmerDashbord from './FarmerDashbord.css'
-function FarmersDashbord() {
+import ProductsCatalog from './ProductsCatalog .css'
+import Navbar from './Navbar';
+import Footer from './Footer'
+
+
+
+function ProductCatalog() {
     return (
         <div>
+            <Navbar />
             {/* Dropdown */}
             <div classNameName="dropdown show">
                 <a classNameName="btn btn-secondary dropdown-toggle" href="/#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -58,8 +64,9 @@ function FarmersDashbord() {
                     </div>
                 </div>
             </div>
+            <Footer />
         </div>
     )
 }
 
-export default FarmersDashbord
+export default ProductCatalog
