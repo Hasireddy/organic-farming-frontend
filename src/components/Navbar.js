@@ -4,9 +4,9 @@ import logo from "../assets/logo.png";
 const Navbar = () => {
   return (
     <div id='navBarContainer'>
-        <nav className='navbar navbar-expand-lg navbar-light bg-light'>
-        <a class="navbar-brand" href="#">
-      <img src={logo} alt="" width="50" height="50" class="d-inline-block align-text-center" />
+      <nav className='navbar navbar-expand-lg navbar-light bg-light'>
+      <a className="navbar-brand" href="#">
+      <img src={logo} alt="" width="50" height="50" className="d-inline-block align-text-center" />
       </a>
         <a className='navbar-brand' href='/#'>
         ORGANIC FARMING COMMUNITY
@@ -31,7 +31,7 @@ const Navbar = () => {
         </li>
         </ul>
       </div>
-    </nav>
+      </nav>
     </div>
   );
 };
