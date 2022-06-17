@@ -10,15 +10,15 @@ function ProductCatalog() {
         <div>
             <Navbar />
             {/* Dropdown */}
-            <div classNameName="dropdown show">
-                <a classNameName="btn btn-secondary dropdown-toggle" href="/#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <div className="dropdown show">
+                <a className="btn btn-secondary dropdown-toggle" href="/#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Dropdown link
                 </a>
 
-                <div classNameName="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <a classNameName="dropdown-item" href="/#">Action</a>
-                    <a classNameName="dropdown-item" href="/#">Another action</a>
-                    <a classNameName="dropdown-item" href="/#">Something else here</a>
+                <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <a className="dropdown-item" href="/#">Action</a>
+                    <a className="dropdown-item" href="/#">Another action</a>
+                    <a className="dropdown-item" href="/#">Something else here</a>
                 </div>
                 {/* Cards */}
                 <div className="card-group">
