@@ -112,13 +112,38 @@ bs-example {
 }
 
 
-/* .custom-file {
-    overflow: hidden;
+/* Style the search field */
+
+.main {
+    width: 50%;
+    margin: 50px auto;
 }
 
-.custom-file-input {
-    white-space: nowrap;
+#msearch {
+    background-color: lightblue;
+}
+
+
+/* .input-group {
+    margin: 20px 20px;
 } */
+
+.has-search .form-control {
+    padding-left: 2rem;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2rem;
+    height: 2rem;
+    line-height: 2rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+    margin-top: 10px;
+}
 
 
 /* uma */

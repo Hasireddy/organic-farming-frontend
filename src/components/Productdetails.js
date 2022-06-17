@@ -2,7 +2,7 @@ import image from "../assets/fattoria-banner-1.jpg";
 import image1 from "../assets/farmer.jpg";
 import '../App.css';
 
-const Products = () => {
+const Productdetails = () => {
     return (
 
         < div className="container" style={{ backgroundImage: `url(${image}` }
@@ -61,4 +61,4 @@ const Products = () => {
     );
 }
 
-export default Products;
+export default Productdetails;
