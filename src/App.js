@@ -7,18 +7,17 @@ import Login from './components/Login';
 import Productdetails from './components/Productdetails';
 // import Footer from './components/Footer';
 
+
 function App() {
   return (
     <div className="App">
-      <div className="container">
-        <Navbar />
-        <Routes>
-          <Route path='/' element={<Homepage />} />
-          <Route path='/Register' element={<Register />} />
-          <Route path='/Products' element={<Productdetails />} />
-          <Route path='/login' element={<Login />} />
-        </Routes>
-      </div>
+      <Navbar />
+      <Routes>
+        <Route path='/' element={<Homepage />} />
+        <Route path='/Register' element={<Register />} />
+        <Route path='/Products' element={<Productdetails />} />
+        <Route path='/login' element={<Login />} />
+      </Routes>
     </div>
   );
 }
