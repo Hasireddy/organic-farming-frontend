@@ -79,8 +79,9 @@ bs-example {
     margin: 40px 20px;
     border: none;
     cursor: pointer;
-    width: 50%;
+    width: 30%;
     opacity: 0.9;
+    border-radius: 12px;
 }
 
 .signin {

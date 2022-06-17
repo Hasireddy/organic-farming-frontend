@@ -3,6 +3,7 @@ import image from "../assets/fattoria-banner-1.jpg";
 import image1 from "../assets/farmer.jpg";
 import '../App.css';
 
+
 const Register = () => {
     return (
         <div className="container" style={{ backgroundImage: `url(${image}` }}>
