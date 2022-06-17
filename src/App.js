@@ -6,7 +6,7 @@ import Register from './components/Register';
 import Login from './components/Login';
 import Products from './components/Products';
 import Footer from './components/Footer';
-import ProductCatalog from './components/Productcatalog';
+import ProductCatalog from './components/ProductCatalog';
 
 function App() {
   return (

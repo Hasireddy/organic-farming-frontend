@@ -1,5 +1,5 @@
 import React from 'react';
-import ProductsCatalog from './ProductsCatalog .css'
+import ProductsCatalog from './ProductsCatalog.css'
 import Navbar from './Navbar';
 import Footer from './Footer'
 
