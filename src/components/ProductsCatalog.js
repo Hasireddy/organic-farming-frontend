@@ -3,7 +3,7 @@ import Product from './Product.css'
 
 
 
-function Products() {
+function ProductsCatalog() {
     return (
         <div>
 
@@ -157,4 +157,4 @@ function Products() {
     )
 }
 
-export default Products
+export default ProductsCatalog
