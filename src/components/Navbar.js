@@ -7,7 +7,7 @@ const Navbar = () => {
     <div id='navBarContainer'>
       <nav className='navbar navbar-expand-lg navbar-light bg-light'>
       <a className="navbar-brand" href="#">
-      <img src={logo} alt="" width="50" height="50" className="d-inline-block align-text-center" />
+      <img src={logo} alt="" width="70" height="70" className="d-inline-block align-text-center" />
       </a>
         <a className='navbar-brand' href='/#'>
           ORGANIC FARMING COMMUNITY

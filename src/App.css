@@ -120,11 +120,6 @@ bs-example {
     padding-top: 35px;
 }
 
-/* .overlayFooter{
-    background: url("./assets/slidecarabao.jpg");
-    background-size: cover;
-} */
-
 .footer-title{
     color: rgb(10, 10, 10);
     font-size: 18px;
@@ -137,4 +132,62 @@ bs-example {
     justify-content: center;
 }
 
+/* register */
 
+.form-control {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+}
+
+.registerbtn {
+    background-color: #04aa6d;
+    color: white;
+    padding: 16px 20px;
+    margin: 40px 20px;
+    border: none;
+    cursor: pointer;
+    width: 30%;
+    opacity: 0.9;
+    border-radius: 12px;
+}
+
+.signin {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.icon {
+    padding: 10px;
+    color: white;
+    min-width: 50px;
+    text-align: center;
+}
+
+#farmer {
+    margin-top: 10px;
+    height: 540px;
+    width: 300px;
+}
+
+.bi{
+    font-size: xx-large;
+}
+
+.form-control1{
+    width: 50%;
+    border-radius: 6px;
+    
+}
+
+.btnFooter{
+    color: white;
+}
+
+.contactLink{
+    
+    margin-right: 70px;
+    margin-bottom: 20px;
+}
