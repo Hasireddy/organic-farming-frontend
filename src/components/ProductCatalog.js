@@ -21,7 +21,7 @@ function ProductCatalog() {
                     <a classNameName="dropdown-item" href="/#">Something else here</a>
                 </div>
                 {/* Cards */}
-                <div className="card-group">
+                <div className="card-group" id='card-groupProductcatalog'>
                     <div className="card">
                         <img className="card-img-top" src="..." alt="img" />
                         <div className="card-body">
