@@ -107,8 +107,8 @@ bs-example {
     font-weight: bold;
 }
 
-.nav-link{
-    color: black !important;
+.nav-footer{
+    color: rgb(15, 15, 15) !important;
     font-size: small;
     justify-content: center;
 }
