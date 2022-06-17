@@ -1,5 +1,4 @@
 import React from 'react';
-import ProductsCatalog from './ProductsCatalog .css'
 import Navbar from './Navbar';
 import Footer from './Footer'
 
@@ -8,7 +7,7 @@ import Footer from './Footer'
 function ProductCatalog() {
     return (
         <div>
-            <Navbar />
+            {/* <Navbar /> */}
             {/* Dropdown */}
             <div classNameName="dropdown show">
                 <a classNameName="btn btn-secondary dropdown-toggle" href="/#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
