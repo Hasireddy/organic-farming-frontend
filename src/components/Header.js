@@ -7,7 +7,7 @@ import image3 from "../assets/img_slider-03.jpg";
 const Header = () => {
     return (
 
-        <div className="container">
+        <div>
             <div id="demo" className="carousel slide" data-bs-ride="carousel">
                 <div className="carousel-indicators">
                     <button type="button" data-bs-target="#demo" data-bs-slide-to="0" className="active"></button>
@@ -17,21 +17,21 @@ const Header = () => {
 
                 <div className="carousel-inner">
                     <div className="carousel-item active" style={{ backgroundImage: `url(${image2}` }}>
-                        <div className="carousel-caption d-none d-md-block">
+                        <div className="carousel-caption d-none d-md-block content">
                             <h1 className="jumbotron">ORGANIC AND NATURAL</h1>
                             <p className="lead">Organic farming offers an alternative agricultural system.  It initially began in the early in the 20th century.  The advent of pesticides brought in its benefits and pitfalls simultaneously.  It is more healthy relying on compost manure, green manure, and bone meal.
                             </p>
                         </div>
                     </div>
                     <div className="carousel-item" style={{ backgroundImage: `url(${image3}` }}>
-                        <div className="carousel-caption d-none d-md-block">
+                        <div className="carousel-caption d-none d-md-block content">
                             <h1 className="jumbotron">SAVE OUR SOILS</h1>
                             <p className="lead">Organic farming offers an alternative agricultural system.  It initially began in the early in the 20th century.  The advent of pesticides brought in its benefits and pitfalls simultaneously.  It is more healthy relying on compost manure, green manure, and bone meal.
                             </p>
                         </div>
                     </div>
                     <div className="carousel-item" style={{ backgroundImage: `url(${image1}` }}>
-                        <div className="carousel-caption d-none d-md-block">
+                        <div className="carousel-caption d-none d-md-block content">
                             <h1 className="jumbotron">ORGANIC AND NATURAL</h1>
                             <p className="lead">Organic farming offers an alternative agricultural system.  It initially began in the early in the 20th century.  The advent of pesticides brought in its benefits and pitfalls simultaneously.  It is more healthy relying on compost manure, green manure, and bone meal.
                             </p>
