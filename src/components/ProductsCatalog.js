@@ -1,7 +1,6 @@
 import React from 'react';
 import Product from './Product.css'
-
-
+import strawbarry from '../assets/strawbarry.jpg'
 
 function ProductsCatalog() {
     return (
@@ -13,9 +12,9 @@ function ProductsCatalog() {
                 </a>
 
                 <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <a className="dropdown-item" href="/#">Action</a>
-                    <a className="dropdown-item" href="/#">Another action</a>
-                    <a className="dropdown-item" href="/#">Something else here</a>
+                    <a className="dropdown-item" href="/#">Fruits/Vagetables</a>
+                    <a className="dropdown-item" href="/#">Dairy</a>
+                    <a className="dropdown-item" href="/#">Nearest Farm</a>
                 </div>
                 {/* Cards */}
                 <div className="card-groupProductcatalog row" >
@@ -40,8 +39,9 @@ function ProductsCatalog() {
                         </div>
                     </div>
                     <div className="card col-sm-3">
-                        <img className="card-img-top" src="..." alt="img" />
-                        <div className="card-body">
+                        <img className="card-img-top" style={{ backgroundImage: `url(${strawbarry}` }} alt="img"/>
+                        <div className="card-body" >
+                            
                             <h5 className="card-title">Card title3</h5>
                             <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
                         </div>
