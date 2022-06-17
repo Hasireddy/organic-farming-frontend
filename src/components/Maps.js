@@ -10,7 +10,7 @@ const MyMap = () => {
     const [hue, setHue] = useState(0);
     const color = `hsl(${hue % 360}deg 39% 70%)`;
     return (
-        <div>
+        <div className="googleMap">
             <Map
                 height={300}
                 defaultCenter={center}
