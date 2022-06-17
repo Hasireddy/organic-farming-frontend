@@ -4,8 +4,8 @@ import Navbar from './components/Navbar';
 import Homepage from './components/Homepage';
 import Register from './components/Register';
 import Login from './components/Login';
-import Productdetails from './components/Productdetails';
-// import Footer from './components/Footer';
+import ProductCatalog from './components/ProductCatalog';
+
 
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Homepage />} />
         <Route path='/Register' element={<Register />} />
-        <Route path='/Products' element={<Productdetails />} />
+        <Route path='/Products' element={<ProductCatalog />} />
         <Route path='/login' element={<Login />} />
       </Routes>
     </div>

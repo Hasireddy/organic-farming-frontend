@@ -1,7 +1,7 @@
 import React from 'react';
 
+function ProductsCatalog() {
 
-const Productdetails = () => {
     return (
         <div>
 
@@ -155,4 +155,7 @@ const Productdetails = () => {
     )
 }
 
-export default Productdetails;
+
+
+export default ProductsCatalog
+
