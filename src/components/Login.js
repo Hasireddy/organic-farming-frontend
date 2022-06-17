@@ -3,7 +3,7 @@ import '../App.css';
 
 const Login = () => {
     return (
-        <div className="container" style={{ backgroundImage: `url(${image}` }}>
+        <div className="container fluid" style={{ backgroundImage: `url(${image}` }}>
             <div className="row">
                 <h1>Signin</h1>
                 <div className="col">
