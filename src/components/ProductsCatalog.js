@@ -3,6 +3,7 @@ import Product from './Product.css'
 import strawbarry from '../assets/strawbarry.jpg'
 
 function ProductsCatalog() {
+
     return (
         <div>
 
@@ -157,4 +158,7 @@ function ProductsCatalog() {
     )
 }
 
+
+
 export default ProductsCatalog
+

@@ -10,7 +10,19 @@ const MyMap = () => {
     const [hue, setHue] = useState(0);
     const color = `hsl(${hue % 360}deg 39% 70%)`;
     return (
-        <div>
+
+        <div id="msearch">
+            <div className="main">
+                <div className="input-group">
+                    <input type="text" className="form-control" placeholder="Search here" />
+                    <div className="input-group-append">
+                        <button className="btn btn-secondary" type="button">
+                            <i className="fa fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
             <Map
                 height={300}
                 defaultCenter={center}
@@ -19,8 +31,7 @@ const MyMap = () => {
                 onBoundsChanged={({ center, zoom }) => {
                     setCenter(center);
                     setZoom(zoom);
-                }}
-            >
+                }} >
                 <Marker
                     width={30}
                     anchor={center}
@@ -29,6 +40,7 @@ const MyMap = () => {
                 />
             </Map>
         </div>
+
     );
 };
 
