@@ -14,14 +14,23 @@ function App() {
     <div className="App">
 
       <Navbar />
+<<<<<<< HEAD
   
   
+=======
+
+>>>>>>> 85418c88a706371332b94b2bf720b608bb654d71
       <Routes>
         <Route path='/' element={<Homepage />} />
         <Route path='/Register' element={<Register />} />
         <Route path='/Products' element={<ProductsCatalog />} />
         <Route path='/login' element={<Login />} />
+<<<<<<< HEAD
         <Route path='/About' element={<About />} />
+=======
+        <Route path='/details' element={<Details />} />
+
+>>>>>>> 85418c88a706371332b94b2bf720b608bb654d71
       </Routes>
     </div>
   );
