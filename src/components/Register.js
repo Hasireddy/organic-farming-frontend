@@ -20,12 +20,6 @@ const Register = () => {
         postcode: ''
     });
 
-    const diffToast = () => {
-        toast.success("Registration Successful", {
-            position: "bottom-center",
-            autoClose: 3000
-        });
-    }
 
     const handleChange = e => setFormState(prev => ({ ...prev, [e.target.id]: e.target.value }));
 
@@ -59,7 +53,7 @@ const Register = () => {
             });
             const { token, error } = await res.json();
             if (token) {
-                toast.success('Loggedin  Successfully.', {
+                toast.success('Registered successfully.', {
                     position: "bottom-center",
                     autoClose: 3000,
                     hideProgressBar: false,
