@@ -143,7 +143,7 @@ bs-example {
 }
 
 .registerbtn {
-    background-color: #04aa6d;
+    background-color: #006400;
     color: white;
     padding: 16px 20px;
     margin: 40px 20px;
@@ -152,6 +152,27 @@ bs-example {
     width: 30%;
     opacity: 0.9;
     border-radius: 12px;
+}
+
+#registerFormArea{
+    background-color: #1DB82C;
+    width: 100%;
+    padding-top: 50px;
+    padding-left: 50px;
+    padding-right: 50px;
+    margin-left: 100px;
+    border-radius: 10px;
+    box-shadow: 3px 5px 10px #bda4a4;
+}
+
+.containerReg{
+   padding-bottom: 25px;
+   background: url(./assets/fattoria-banner-2.jpg) no-repeat;
+   background-size: cover;
+}
+
+.regHeader{
+    padding-top: 50px;
 }
 
 .signin {

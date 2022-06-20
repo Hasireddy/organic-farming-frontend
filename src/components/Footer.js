@@ -68,7 +68,7 @@ function Footer() {
                   <input
                     type="text"
                     className="form-control1"
-                    placeholder="Recipient's username"
+                    placeholder="Enter email address"
                     aria-label="Recipient's username"
                     aria-describedby="button-addon2"
                   />
