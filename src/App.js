@@ -6,7 +6,7 @@ import Register from './components/Register';
 import Login from './components/Login';
 import Details from './components/Details';
 import ProductsCatalog from './components/ProductsCatalog';
-
+import About from './components/About';
 
 
 function App() {
@@ -14,13 +14,14 @@ function App() {
     <div className="App">
 
       <Navbar />
-      <Navbar />
-      <Details />
+  
+  
       <Routes>
         <Route path='/' element={<Homepage />} />
         <Route path='/Register' element={<Register />} />
         <Route path='/Products' element={<ProductsCatalog />} />
         <Route path='/login' element={<Login />} />
+        <Route path='/About' element={<About />} />
       </Routes>
     </div>
   );
