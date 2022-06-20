@@ -1,11 +1,23 @@
-.card-groupProductcatalog {
-  background-color: aquamarine;
+
+#product-catalog {
+  background-color: rgba(16, 18, 17, 0.795);
+  border: 3px black solid;
+  box-shadow: 0 0 0 3px #77b81e;
+  border-radius: 0.5rem;
+   margin: 2rem 2rem 2rem 2rem;
+  padding: 1rem;
+  /* height: 10vh; */
+  font-size: 20px;
+  color: #77b81e;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-evenly;
 }
+
 #rowProductCatalog {
   background-color: rgba(16, 18, 17, 0.795);
-  margin: 3rem 2rem 3rem 2rem;
+  margin: 2rem 2rem 3rem 2rem;
   padding: 4rem;
   height: 25vh;
   background-repeat: no-repeat;
@@ -17,52 +29,36 @@
   align-items: center;
   justify-content: center;
 }
-#product-catalog {
-  background-color: rgba(16, 18, 17, 0.795);
-  border: 3px black solid;
-  box-shadow: 0 0 0 3px #77b81e;
-  border-radius: 0.5rem;
-  margin: 3rem 5rem 3rem 2rem;
-  padding: 3rem;
-  height: 10vh;
-  font-size: x-large;
-  color: #77b81e;
+
+  .card-title-catalog {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-#dropdownProductCaltalog {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 3rem;
-  display: flex;
-  padding-left: 2rem;
-  height: 4rem;
-  width: 10rem;
-}
-@media screen and (max-width: 1080px) {
-  #product-catalog {
+  justify-content: space-evenly;
+  align-items: flex-start;
+  font-size: 24px;
+ 
+  }
+  .card-text-catalog {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    font-size: 14px;
-  }
-  #rowProductCatalog {
-    background-color: rgba(16, 18, 17, 0.795);
-    margin: 1rem 1rem 1rem 2rem;
-    padding: 3rem;
-    height: 2rem;
-    background-repeat: no-repeat;
-    background-size: cover;
-    border: 3px black solid;
-    box-shadow: 0 0 0 3px #77b81e;
-    border-radius: 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-}
-/* Work css ends here */
+    justify-content: flex-start;
+    align-items: flex-start;
+    font-size: 18px;}
+   
+  
+    @media screen and (max-width: 680px) {
+      .card-title-catalog {
+      
+        font-size: 14px;
+       
+        }
+   
+        .card-text-catalog {
+        
+          font-size: 14px;
+         
+          }
+       
+      }
+    
+    
