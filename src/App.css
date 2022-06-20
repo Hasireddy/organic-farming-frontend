@@ -34,6 +34,16 @@
     font-family: "Times New Roman", Times, serif;
 }
 
+.carousel-caption{
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.jumbotron{
+    background-color: #1db82c;
+    font-weight: bold;
+}
+
 .overlay-image {
     position: relative;
     bottom: 0;
