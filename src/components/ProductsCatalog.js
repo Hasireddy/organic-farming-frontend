@@ -1,9 +1,7 @@
 import React from 'react';
-import Product from './Product.css'
 
+function ProductsCatalog() {
 
-
-function Products() {
     return (
         <div>
 
@@ -157,4 +155,7 @@ function Products() {
     )
 }
 
-export default Products
+
+
+export default ProductsCatalog
+
