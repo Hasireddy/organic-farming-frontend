@@ -7,22 +7,24 @@ import Footer from './components/Footer';
 import Login from './components/Login';
 import Details from './components/Details';
 import ProductsCatalog from './components/ProductsCatalog';
-
+import About from './components/About';
 
 
 function App() {
   return (
     <div className="App">
-      <Navbar />
 
+      <Navbar />
       <Routes>
         <Route path='/' element={<Homepage />} />
         <Route path='/Register' element={<Register />} />
         <Route path='/Products' element={<ProductsCatalog />} />
-        <Route path='/login' element={<Login />} /> 
-        </Routes>
-        {<Footer />}
+        <Route path='/login' element={<Login />} />
+        <Route path='/details' element={<Details />} />
+      </Routes>
+      {<Footer />}
     </div>
+    
   );
 }
 
