@@ -1,24 +1,39 @@
-import React, { useState } from 'react';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import React, { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import image from "../assets/fattoria-banner-1.jpg";
 import image1 from "../assets/farmer.jpg";
-import '../App.css';
-
-
+import "../App.css";
 
 const Register = () => {
+  const [
+    {
+      firstname,
+      lastname,
+      email,
+      password,
+      address,
+      certificationNum,
+      postcode,
+    },
+    setFormState,
+  ] = useState({
+    firstname1: "",
+    firstname: "",
+    lastname: "",
+    email: "",
+    password: "",
+    address: "",
+    certificationNum: "",
+    postcode: "",
+  });
 
-    const [{ firstname, lastname, email, password, address, certificationNum, postcode }, setFormState] = useState({
-        firstname1: '',
-        firstname: '',
-        lastname: '',
-        email: '',
-        password: '',
-        address: '',
-        certificationNum: '',
-        postcode: ''
+  const diffToast = () => {
+    toast.success("Registration Successful", {
+      position: "bottom-center",
+      autoClose: 3000,
     });
+  };
 
 
     const handleChange = e => setFormState(prev => ({ ...prev, [e.target.id]: e.target.value }));
@@ -131,10 +146,11 @@ const Register = () => {
                     </div>
                 </div>
             </div>
-            <ToastContainer />
+            
         </>
-
-    );
-}
+      
+    
+  );
+};
 
 export default Register;
