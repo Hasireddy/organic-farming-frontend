@@ -20,6 +20,7 @@ function App() {
         <Route path='/Register' element={<Register />} />
         <Route path='/Products' element={<ProductsCatalog />} />
         <Route path='/login' element={<Login />} />
+        <Route path='/about' element={<About />} />
         <Route path='/details' element={<Details />} />
       </Routes>
       {<Footer />}
