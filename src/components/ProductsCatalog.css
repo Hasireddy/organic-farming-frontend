@@ -13,6 +13,7 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-evenly;
+  overflow: hidden;
 }
 
 #rowProductCatalog {
@@ -28,6 +29,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 }
 
   .card-title-catalog {
@@ -44,6 +46,20 @@
     justify-content: flex-start;
     align-items: flex-start;
     font-size: 18px;}
+    .btnAddItem{
+      height: 5rem;
+      width: 10rem;
+      display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bolder;
+    border: 3px black solid;
+    box-shadow: 0 0 0 3px #77b81e;
+    background-color: rgba(16, 18, 17, 0.795);
+    
+    }
    
   
     @media screen and (max-width: 680px) {

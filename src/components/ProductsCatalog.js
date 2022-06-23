@@ -234,7 +234,7 @@ function ProductsCatalog() {
 
                     </div>
                     <div className='col col-9 row-cols-md-3 g-4 ' id='product-catalog'>
-                        <h3 className="card-title">watermelone</h3>
+                        <h3 className="card-title">Watermelone</h3>
                         <p className="card-text">Price:</p>
                     </div>
                 </div>
@@ -272,12 +272,12 @@ function ProductsCatalog() {
 
 
                     </div>
-                    <div className="card-body" id='rowProductCatalog' style={{ backgroundImage: `url(${watermelone}` }}>
+                    <div className="card-body" id='rowProductCatalog' >
 
                     </div>
                     <div className='col col-9 row-cols-md-3 g-4 ' id='product-catalog'>
-                        <h3 className="card-title">watermelone</h3>
-                        <p className="card-text">Price:</p>
+                    <a href="#" class="btnAddItem btn-primary btn-xl " tabindex="-1" role="button" aria-disabled="true">ADD ITEM</a>
+
                     </div>
                 </div>
 
