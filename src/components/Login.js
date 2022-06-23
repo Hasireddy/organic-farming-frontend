@@ -44,7 +44,7 @@ const Login = () => {
                     draggable: true,
                     progress: undefined,
                 });
-                return localStorage.setItem('token', token);
+                return localStorage.setItem('logintoken', token);
 
             }
             if (error) {
