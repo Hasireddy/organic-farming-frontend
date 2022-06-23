@@ -33,7 +33,6 @@ const Navbar = () => {
             <li className='nav-item'>
               <NavLink to="/About" className='nav-link'>About</NavLink>
             </li>
-          
             <li className="nav-item">
               <NavLink to="/Register" className='nav-link'>Register</NavLink>
               <li className="nav-item">
