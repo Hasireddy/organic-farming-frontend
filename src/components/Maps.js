@@ -14,7 +14,7 @@ const MyMap = () => {
         <div id="msearch">
             <div className="main">
                 <div className="input-group">
-                    <input type="text" className="form-control" placeholder="Search here" />
+                    <input type="text" className="form-control2" placeholder="Search here" />
                     <div className="input-group-append">
                         <button className="btn btn-secondary" type="button">
                             <i className="fa fa-search"></i>

@@ -4,6 +4,7 @@ import { toast } from 'react-toastify';
 import Navbar from './components/Navbar';
 import Homepage from './components/Homepage';
 import Register from './components/Register';
+import Footer from './components/Footer';
 import Login from './components/Login';
 import Details from './components/Details';
 import ProductsCatalog from './components/ProductsCatalog';
@@ -36,17 +37,28 @@ function App() {
     <div className="App">
 
       <Navbar />
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
       <Routes>
         <Route path='/' element={<Homepage />} />
         <Route path='/Register' element={<Register />} />
         <Route path='/Products' element={<ProductsCatalog />} />
         <Route path='/login' element={<Login />} />
+<<<<<<< HEAD
         <Route path='/About' element={<About />} />
+=======
+>>>>>>> origin/master
         <Route path='/details' element={<Details />} />
       </Routes>
+      {<Footer />}
     </div>
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> origin/master
   );
 }
 
