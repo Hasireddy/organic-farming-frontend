@@ -18,7 +18,7 @@ const Register = () => {
     },
     setFormState,
   ] = useState({
-    firstname1: "",
+  
     firstname: "",
     lastname: "",
     email: "",
