@@ -15,6 +15,7 @@ import lingonberry from '../assets/fruits/lingonberry.jpg'
 import grapes from '../assets/fruits/pink-grapes.jpg'
 import rasberries from '../assets/fruits/raspberries.jpg'
 import apples from '../assets/fruits/apples.jpg'
+import kivi from '../assets/fruits/kivi.png'
 
 
 function ProductsCatalog() {
@@ -272,12 +273,13 @@ function ProductsCatalog() {
 
 
                     </div>
-                    <div className="card-body" id='rowProductCatalog' >
+                    <div className="card-body" id='rowProductCatalog'style={{ backgroundImage: `url(${kivi}` }} >
 
                     </div>
                     <div className='col col-9 row-cols-md-3 g-4 ' id='product-catalog'>
-                    <a href="#" class="btnAddItem btn-primary btn-xl " tabindex="-1" role="button" aria-disabled="true">ADD ITEM</a>
-
+                  
+                    <h3 className="card-title">Kivi</h3>
+                        <p className="card-text">Price:</p>
                     </div>
                 </div>
 

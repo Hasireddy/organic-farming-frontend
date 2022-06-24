@@ -1,0 +1,73 @@
+body{
+    background-color: rgba(26, 179, 222, 0.203);
+}
+.weAre{
+    color: rgb(14, 82, 239);
+}
+:root
+{
+  --yellow: #F5C32C;
+    --orange : #FCA61F;
+    --blue : #531ffc;
+    --black : #242D49;
+    --gray : #788097;
+    --green : #14ee4a;
+    --lightGreen : #6fe07e;
+--lightyellow:#f2e931;
+    --red : #d97d7c;
+    --lightBlue : #44c6e3;
+    --blueCard : #DDF8FE;
+    --purple: rgb(238 210 255);
+    --boxShadow : 10px 10px 10px rgba(18, 44, 214, 0.10);
+    --orangeCard: rgba(252, 166, 31, 0.45);
+    --smboxShadow: -79px 51px 60px rgba(0, 0, 0, 0.08);
+}
+
+.App{
+  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+  overflow: hidden;
+     overflow-x: scroll;
+    color: var(--black); 
+     
+}
+
+.button {
+    background: linear-gradient(180deg, #13d2effe 26.71%, #0cb1c360 99.36%);
+    box-shadow: 0px 10px 14px 3px rgba(99, 52, 165, 0.197);
+    border-radius: 34px;
+    border: none;
+    color: white;
+    font-size: 16px;
+    padding: 11px 26px 11px 26px;
+  }
+  
+  .button:hover {
+    background: rgb(176, 230, 82);
+    cursor: pointer;
+    border: 2px solid var(--orange);
+    color: var(--orange);
+  }
+  
+    @media screen and (max-width: 680px) {
+      .App{   
+        padding: 0.5rem 1rem;
+      flex-direction: column;
+    }
+  }  
+  /* work css */
+  .w-secCircle {
+    width: 6rem;
+    height: 6rem;
+    position: absolute;
+    border-radius: 100%;
+    border: 5px solid #0ed3f6fc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: "none";
+    box-shadow: var(--smboxShadow);
+    background: rgb(255, 255, 255);
+  }
+
+  
+  

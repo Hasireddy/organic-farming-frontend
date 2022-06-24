@@ -2,7 +2,7 @@
 import Header from './Header';
 import MyMap from './Maps';
 import ProductsCatalog from './ProductsCatalog';
-import About from './About';
+import About from './ABOUT-PAGE/About';
 const Homepage = () => {
     return (
         <>
@@ -10,7 +10,7 @@ const Homepage = () => {
 
             <MyMap />
             <ProductsCatalog/>
-           {/* <About/> */}
+            <About/>
         </>
     );
 }
