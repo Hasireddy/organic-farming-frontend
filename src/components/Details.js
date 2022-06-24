@@ -4,9 +4,12 @@ import image1 from "../assets/farmer.jpg";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "../App.css";
+import { Navigate } from 'react-router-dom';
 
 
-const Details = () => {
+const Details = ({ isAuthenticated }) => {
+    // alert('details pare');
+    // alert(isAuthenticated);
     const ref = useRef();
     const [
         { ProductName, Description, Price, Category, Image },
@@ -112,6 +115,7 @@ const Details = () => {
             });
         }
     };
+    // if (isAuthenticated) return <Navigate to='/' />;
 
     return (
         <>

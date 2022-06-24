@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import Navbar from './components/Navbar';
 import Homepage from './components/Homepage';
@@ -10,19 +10,22 @@ import Login from './components/Login';
 import Details from './components/Details';
 import ProductsCatalog from './components/ProductsCatalog';
 import About from './components/About';
+import NotFound from './components/NotFound';
 
 
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState('false');
-  const [token, setToken] = useState(localStorage.getItem('token'));
+  const [logintoken, setLoginToken] = useState(localStorage.getItem('registrationtoken'));
   const [user, setUser] = useState(null);
+  const nav = useNavigate();
 
   useEffect(() => {
     const verifyLogin = async () => {
+      console.log(logintoken);
       const res = await fetch('http://localhost:5000/auth/me', {
         headers: {
-          'Authorization': token
+          'Authorization': logintoken
         }
       });
       const data = await res.json();
@@ -32,30 +35,37 @@ function App() {
       setIsAuthenticated(true)
     };
     verifyLogin();
-  }, [token]);
+  }, [logintoken]);
 
   const logOut = () => {
-    localStorage.removeItem('token');
+    // alert("Logout Called from");
+    localStorage.removeItem('logintoken');
+    // alert(localStorage.getItem('logintoken'));
     setUser(null);
-    setToken(null);
+    setLoginToken(null);
     setIsAuthenticated(false);
-  };
-
+    nav("/");
+    return window.location.reload();
+  }
   return (
     <div className="App">
+      {/* <Route path='/' element={<Navbar isAuthenticated={isAuthenticated} logOut={logOut} />} >
 
-      <Navbar />
+      </Route> */}
+      <Navbar isAuthenticated={isAuthenticated} logOut={logOut} />
       <Routes>
         <Route path='/' element={<Homepage />} />
+        <Route path='/About' element={<About />} />
         <Route path='/Register' element={<Register />} />
-        <Route path='/Products' element={<ProductsCatalog />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/details' element={<Details />} />
         <Route path='/Dashboard' element={<Dashboard />} />
+        <Route path='/Products' element={<ProductsCatalog />} />
+        <Route path='/Login' element={<Login />} />
+        <Route path='/Details' element={<Details isAuthenticated={isAuthenticated} />} />
+        <Route path='*' element={<NotFound />} />
       </Routes>
       {<Footer />}
-    </div>
-    
+    </div >
+
   );
 }
 
