@@ -50,13 +50,18 @@ function App() {
     <div className="App">
       {/* <Route path='/' element={<Navbar isAuthenticated={isAuthenticated} logOut={logOut} />} >
 
+<<<<<<< HEAD
       </Route> */}
       <Navbar isAuthenticated={isAuthenticated} logOut={logOut} />
+=======
+      <Navbar />
+>>>>>>> origin/master
       <Routes>
         <Route path='/' element={<Homepage />} />
         <Route path='/About' element={<About />} />
         <Route path='/Register' element={<Register />} />
         <Route path='/Products' element={<ProductsCatalog />} />
+<<<<<<< HEAD
         <Route path='/Login' element={<Login />} />
         <Route path='/Details' element={<Details isAuthenticated={isAuthenticated} />} />
         <Route path='*' element={<NotFound />} />
@@ -64,6 +69,14 @@ function App() {
       {<Footer />}
     </div >
 
+=======
+        <Route path='/login' element={<Login />} />
+        <Route path='/details' element={<Details />} />
+      </Routes>
+      {<Footer />}
+    </div>
+    
+>>>>>>> origin/master
   );
 }
 
