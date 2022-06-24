@@ -2,9 +2,28 @@ import React, { useState } from "react";
 import { Map, Marker } from "pigeon-maps";
 import { osm } from "pigeon-maps/providers";
 import "../App.css";
+import axios from 'axios';
+import { render } from "@testing-library/react";
+
+
+
+
+// function loadMap() {
+//     Map.on('load', function() {
+//         Map.addLayer({
+//             source:{
+//                 type: 'geojson',
+//                 geometry: {
+//                     type: 'point',
+//                     coordinates: [0, 0]
+//                 }
+//             }
+//         })
+//     } )
+// };
 
 const MyMap = () => {
-    const [center, setCenter] = useState([50.879, 4.6997]);
+    const [center, setCenter] = useState([52.3759, 9.732]);
     const [zoom, setZoom] = useState(10);
     console.log(center, zoom);
     const [hue, setHue] = useState(0);

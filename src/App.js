@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import Homepage from './components/Homepage';
 import Register from './components/Register';
 import Footer from './components/Footer';
+import Dashboard from './components/Dashboard';
 import Login from './components/Login';
 import Details from './components/Details';
 import ProductsCatalog from './components/ProductsCatalog';
@@ -33,6 +34,13 @@ function App() {
     verifyLogin();
   }, [token]);
 
+  const logOut = () => {
+    localStorage.removeItem('token');
+    setUser(null);
+    setToken(null);
+    setIsAuthenticated(false);
+  };
+
   return (
     <div className="App">
 
@@ -43,6 +51,7 @@ function App() {
         <Route path='/Products' element={<ProductsCatalog />} />
         <Route path='/login' element={<Login />} />
         <Route path='/details' element={<Details />} />
+        <Route path='/Dashboard' element={<Dashboard />} />
       </Routes>
       {<Footer />}
     </div>
