@@ -57,15 +57,9 @@ function App() {
         <Route path='/About' element={<About />} />
         <Route path='/Register' element={<Register />} />
         <Route path='/Products' element={<ProductsCatalog />} />
-<<<<<<< HEAD
-        <Route path='/login' element={<Login />} />
-        <Route path='/about' element={<About />} />
-        <Route path='/details' element={<Details />} />
-=======
         <Route path='/Login' element={<Login />} />
         <Route path='/Details' element={<Details isAuthenticated={isAuthenticated} />} />
         <Route path='*' element={<NotFound />} />
->>>>>>> 008c83bd62003391f7cc390814f0d722f9fe1ade
       </Routes>
       {<Footer />}
     </div >
