@@ -3,10 +3,12 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import image from "../assets/fattoria-banner-1.jpg";
 import image1 from "../assets/farmer.jpg";
+
 import '../App.css';
 
 
 const Register = () => {
+
     const [
         {
             firstname,
@@ -38,6 +40,7 @@ const Register = () => {
     const handleChange = e => setFormState(prev => ({ ...prev, [e.target.id]: e.target.value }));
 
     const handleSubmit = async e => {
+        console.log('Hello');
         try {
             e.preventDefault();
             if (!firstname || !lastname || !email || !password || !address || !postcode) return toast.error('Please enter all Fields!', {
@@ -67,7 +70,7 @@ const Register = () => {
             const { token, error } = await res.json();
             if (token) {
                 toast.success('Registered successfully.', {
-                    position: "bottom-center",
+                    position: "top-center",
                     autoClose: 3000,
                     hideProgressBar: false,
                     closeOnClick: true,
@@ -144,6 +147,7 @@ const Register = () => {
                     </div>
                     <div className="col-3" id="farmer" style={{ backgroundImage: `url(${image1}` }}>
                     </div>
+                    <ToastContainer />
                 </div>
             </div>
 
