@@ -1,10 +1,13 @@
-import image from "../assets/fattoria-banner-1.jpg";
 import '../App.css';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+
 const Login = () => {
+
+    const nav = useNavigate();
     const [{ email, password }, setFormState] = useState({
         email: '',
         password: ''
@@ -44,8 +47,9 @@ const Login = () => {
                     draggable: true,
                     progress: undefined,
                 });
-                return localStorage.setItem('logintoken', token);
-
+                localStorage.setItem('logintoken', token);
+                nav("/");
+                return window.location.reload();
             }
             if (error) {
                 return toast.error(error, {
@@ -72,37 +76,39 @@ const Login = () => {
             });
         }
     };
+
+
     return (
         <>
-<div className="containerLogin">
-      <div className="row">
-        <div id="outerWrapper fluid">
+            <div className="containerLogin">
                 <div className="row">
-                    <div id="signHeader"><h1>Sign-in</h1></div> 
-                    <hr />
-                    <div id="innerWrapper">
-                    <div className="col-6" id="signInSection">
-                        <br />
-                        <form onSubmit={handleSubmit}>
-                            <input className="form-control form-control-sm" type="email" id="email" value={email} onChange={handleChange} placeholder="Email" aria-label=".form-control-sm"></input><br />
-                            <input className="form-control form-control-sm" type="password" placeholder="Password" aria-label=".form-control-sm" id="password" value={password} onChange={handleChange}></input><br />
-                            <div className="row">
-                                <div className="col text-center">
-                                    <button type="submit" className="registerbtn">Sign-in</button>
+                    <div id="outerWrapper fluid">
+                        <div className="row">
+                            <div id="signHeader"><h1>Sign-in</h1></div>
+                            <hr />
+                            <div id="innerWrapper">
+                                <div className="col-6" id="signInSection">
+                                    <br />
+                                    <form onSubmit={handleSubmit}>
+                                        <input className="form-control form-control-sm" type="email" id="email" value={email} onChange={handleChange} placeholder="Email" aria-label=".form-control-sm"></input><br />
+                                        <input className="form-control form-control-sm" type="password" placeholder="Password" aria-label=".form-control-sm" id="password" value={password} onChange={handleChange}></input><br />
+                                        <div className="row">
+                                            <div className="col text-center">
+                                                <button type="submit" className="registerbtn">Sign-in</button>
+                                            </div>
+                                        </div>
+                                    </form>
+
                                 </div>
+                                <div className="col-6" id="signinComment"></div>
                             </div>
-                        </form>
-                        
+
+                        </div>
+
                     </div>
-                    <div className="col-6" id="signinComment"></div>
-                    </div>
-                    
+                    <ToastContainer />
                 </div>
-                
             </div>
-            <ToastContainer />
-     </div>
-     </div>
         </>
     )
 }
