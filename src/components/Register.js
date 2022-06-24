@@ -3,45 +3,47 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import image from "../assets/fattoria-banner-1.jpg";
 import image1 from "../assets/farmer.jpg";
-import "../App.css";
+
+import '../App.css';
+
 
 const Register = () => {
-  const [
-    {
-      firstname,
-      lastname,
-      email,
-      password,
-      address,
-      certificationNum,
-      postcode,
-    },
-    setFormState,
-  ] = useState({
-    firstname1: "",
-    firstname: "",
-    lastname: "",
-    email: "",
-    password: "",
-    address: "",
-    certificationNum: "",
-    postcode: "",
-  });
 
-  const diffToast = () => {
-    toast.success("Registration Successful", {
-      position: "bottom-center",
-      autoClose: 3000,
+    const [
+        {
+            firstname,
+            lastname,
+            email,
+            password,
+            address,
+            postcode,
+        },
+        setFormState,
+    ] = useState({
+        firstname1: "",
+        firstname: "",
+        lastname: "",
+        email: "",
+        password: "",
+        address: "",
+        postcode: "",
     });
-  };
+
+    const diffToast = () => {
+        toast.success("Registration Successful", {
+            position: "bottom-center",
+            autoClose: 3000,
+        });
+    };
 
 
     const handleChange = e => setFormState(prev => ({ ...prev, [e.target.id]: e.target.value }));
 
     const handleSubmit = async e => {
+        console.log('Hello');
         try {
             e.preventDefault();
-            if (!firstname || !lastname || !email || !password || !address || !certificationNum || !postcode) return toast.error('Please enter all Fields!', {
+            if (!firstname || !lastname || !email || !password || !address || !postcode) return toast.error('Please enter all Fields!', {
                 position: "bottom-center",
                 autoClose: 3000,
                 hideProgressBar: false,
@@ -62,14 +64,13 @@ const Register = () => {
                     email,
                     password,
                     address,
-                    certificationNum,
                     postcode
                 })
             });
             const { token, error } = await res.json();
             if (token) {
                 toast.success('Registered successfully.', {
-                    position: "bottom-center",
+                    position: "top-center",
                     autoClose: 3000,
                     hideProgressBar: false,
                     closeOnClick: true,
@@ -77,7 +78,10 @@ const Register = () => {
                     draggable: true,
                     progress: undefined,
                 });
-                return localStorage.setItem('token', token);
+                //Start clearing values in form once the data is inserted in Database
+                setFormState((prev) => ({ ...prev, firstname: '', lastname: '', email: '', password: '', address: '', postcode: '' }));
+                //End clearing values in form once the data is inserted in Database
+                return localStorage.setItem('registrationtoken', token);
 
             }
             if (error) {
@@ -130,7 +134,6 @@ const Register = () => {
                             <input className="form-control form-control-sm" type="email" placeholder="Email" aria-label=".form-control-sm" id='email' name="email" value={email} onChange={handleChange}></input><br />
                             <input className="form-control form-control-sm" type="password" placeholder="Password" aria-label=".form-control-sm" id='password' value={password} onChange={handleChange}></input><br />
                             <input className="form-control form-control-sm" type="text" placeholder="Address" aria-label=".form-control-sm" id='address' value={address} onChange={handleChange}></input><br />
-                            <input className="form-control form-control-sm" type="text" placeholder="Certification Number" aria-label=".form-control-sm" id='certificationNum' value={certificationNum} onChange={handleChange}></input><br />
                             <input className="form-control form-control-sm" type="text" placeholder="Postcode" aria-label=".form-control-sm" id='postcode' value={postcode} onChange={handleChange}></input><br />
                             <div className="row">
                                 <div className="col text-left">
@@ -144,13 +147,14 @@ const Register = () => {
                     </div>
                     <div className="col-3" id="farmer" style={{ backgroundImage: `url(${image1}` }}>
                     </div>
+                    <ToastContainer />
                 </div>
             </div>
-            
+
         </>
-      
-    
-  );
+
+
+    );
 };
 
 export default Register;
