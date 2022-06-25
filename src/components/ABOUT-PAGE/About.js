@@ -4,13 +4,13 @@ import Testimonial from './Testimonial'
 import Experience from "./Experience";
 import Portfolio from "./Portfolio";
 import Works from "./Works";
-
+import about  from"./about.css"
 
 function About() {
-  
+
   return (
-    <div   className="About"
-   >
+    <div className="About "
+    >
 
 
       <div className='weAre'>
@@ -18,13 +18,12 @@ function About() {
         <br />
         <h3>We dedicated our project to encourge people to healty lifestyle!</h3>
       </div>
-    
-      <Experience/>
-        <Works/> 
-       <Testimonial/>
 
-       <Portfolio/>
-     
+      <Experience />
+      <Works />
+      <Testimonial />
+      <Portfolio />
+
     </div>
 
 

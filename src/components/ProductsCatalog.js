@@ -28,7 +28,7 @@ function ProductsCatalog() {
         <div className='container'>
             <div className="dropdown" id='dropdownProductCaltalog'>
                 <a className="btn btn-success dropdown-toggle btn-lg" href="/#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false" >
-                    Dropdown link
+                    Categories
                 </a>
 
                 <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">

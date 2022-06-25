@@ -51,13 +51,18 @@ const Testimonial = () => {
         {clients.map((client, index) => {
           return (
             <SwiperSlide key={index}>
-             
+             <button className="next" id="test-button" type="button" data-bs-target="#demo" data-bs-slide="next">
+                    <span className="carousel-control-next-icon"></span>
+                </button>
               <div className="testimonial">
                 <img src={client.img} alt="" />
                 <span>{client.review}</span>
            
               </div>
-              
+              <button className="prev" id="test-button" type="button" data-bs-target="#demo" data-bs-slide="prev">
+                    <span className="carousel-control-prev-icon"></span>
+                </button>
+                
             </SwiperSlide>
             
           );

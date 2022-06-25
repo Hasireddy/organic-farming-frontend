@@ -1,6 +1,8 @@
 .works {
-    padding: 0 3rem 0 3rem;
+    padding: 0 25rem 0 3rem;
     display: flex;
+    justify-content: center;
+    align-items: center;
     height: 40vh;
     margin-top: 3rem;
     gap: 0rem;
@@ -103,8 +105,16 @@
     /* darkMode */
     z-index: 1;
   }
+  .w-backCircleLeft {
+    position: absolute;
+    height: 13rem;
+    width: 13rem;
+    border-radius: 100%;
+    /* darkMode */
+    z-index: 1;
+  }
   .blueCircle {
-    background: #46b819;
+    background: #192eb8;
     left: 18rem;
     top: 0rem;
   }
@@ -113,10 +123,15 @@
     left: 18rem;
     top: 8rem;
   }
-  .greenCircle {
-    background: #2cf52f;
-    left: 18rem;
-    top: 8rem;
+  .orangeCircle {
+    background: #eb9c0a;
+    left: 1rem;
+    top: 10rem;
+  } 
+  .purpleCircle {
+    background: #eb0aeb;
+    left: -1rem;
+    top: -3rem;
   } 
   .t-blur1{
     left: 38rem;

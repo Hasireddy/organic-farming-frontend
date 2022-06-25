@@ -21,7 +21,7 @@ function Works() {
         </span> */}
           <div
             className="blur s-blur1"
-            style={{ background: "#ABF1FF94" }}
+            style={{ background: "#cc3e3ef4" }}
           ></div>
         </div>
 
@@ -29,10 +29,10 @@ function Works() {
       </div>
       <div className="w-right">
         <motion.div
-          initial={{ rotate: 45 }}
+          initial={{ rotate: 515 }}
           whileInView={{ rotate: 0 }}
           viewport={{ margin: "-60px" }}
-          transition={{ duration: 3.5, type: "spring" }}
+          transition={{ duration: 55.5, type: "spring" }}
           className="w-mainCircle"
         >
           <div className="w-secCircle">
@@ -54,6 +54,8 @@ function Works() {
         {/* background Circles */}
         <div className="w-backCircle blueCircle"></div>
         <div className="w-backCircle yellowCircle"></div>
+        <div className="w-backCircleLeft orangeCircle"></div>
+        <div className="w-backCircleLeft purpleCircle"></div>
       </div>
     </div>
   )
