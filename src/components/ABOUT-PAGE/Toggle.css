@@ -1,7 +1,7 @@
 .toggle{
     display: flex;
     justify-content:space-between;
-    border: 5px solid var(--lightBlue);
+    border: 5px solid var(--white);
     border-radius: 1rem;
     position: relative;
     padding: 3px;

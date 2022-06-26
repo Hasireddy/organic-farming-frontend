@@ -36,12 +36,11 @@ const Testimonial = () => {
 
   return (
     <div className="t-wrapper" id="testimonial">
-    <div className="t-heading">
-   
-   
-
-    </div>
-      
+    <div className="t-heading"></div>
+    <div
+            className="blur s-blur1"
+            style={{ background: "#c9ef23" }}
+          ></div>
       <Swiper
         // install Swiper modules
         modules={[Pagination]}
@@ -67,8 +66,8 @@ const Testimonial = () => {
             
           );
         })}
-        
       </Swiper>
+     
     </div>
   );
 };

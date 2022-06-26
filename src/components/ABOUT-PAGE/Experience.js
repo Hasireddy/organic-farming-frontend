@@ -6,6 +6,7 @@ function Experience() {
   return (
     
     <div className="experience" id='experience'>
+    
     <div className="achievement">
       <div className="circle" >Uma</div>
     </div>
@@ -17,7 +18,7 @@ function Experience() {
     </div>
     <div
             className="blur s-blur1"
-            style={{ background: "#ABF1FF94" }}
+            style={{ background: "#3a89", "height":"200px"}}
           ></div>
   </div>
   )

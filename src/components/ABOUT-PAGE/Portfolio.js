@@ -34,6 +34,10 @@ const Portfolio = () => {
           <img src={apples} alt="" />
         </SwiperSlide> */}
         <SwiperSlide>
+        <div
+            className="blur s-blur1"
+            style={{ background: "#edd0ff" }}
+          ></div>
           <img src={fig} alt="" />
         </SwiperSlide>
         <SwiperSlide>

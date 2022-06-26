@@ -1,9 +1,11 @@
 import React, { useContext } from "react";
 import Upwork from "../ABOUT-PAGE/imges/img/Upwork.png";
-import Fiverr from "../ABOUT-PAGE/imges/img/fiverr.png";
-import Amazon from "../ABOUT-PAGE/imges/img/amazon.png";
-import Shopify from "../ABOUT-PAGE/imges/img/Shopify.png";
-import Facebook from "../ABOUT-PAGE/imges/img/Facebook.png";
+import grapeLeaf from "../ABOUT-PAGE/imges/grapeleaf1.png";
+import wbsCoding from "../ABOUT-PAGE/imges/wbs-coding.png";
+import kivi from "../../assets/fruits/kivi.png";
+import lemon from "../../assets/fruits/lemon.jpg";
+import raspberries from "../../assets/fruits/raspberries.jpg";
+import lingonberry from "../../assets/fruits/lingonberry.jpg";
 import { themeContext } from "./Context";
 import { motion } from "framer-motion";
 import { Link } from 'react-scroll'
@@ -36,20 +38,21 @@ function Works() {
           className="w-mainCircle"
         >
           <div className="w-secCircle">
-            <img src={Upwork} alt="" />
+            <img src={lemon} alt=""style={{"hight":"8rem","width":"8rem"}} />
           </div>
           <div className="w-secCircle">
-            <img src={Fiverr} alt="" />
+            <img src={kivi} alt="" style={{"hight":"8rem","width":"8rem"}} />
           </div>
           <div className="w-secCircle">
-            <img src={Amazon} alt="" />
+            <img src={wbsCoding} alt="" style={{"hight":"10rem","width":"10rem", "border":"4px black solid" , "border-radius": "100%"}} />
           </div>{" "}
           <div className="w-secCircle">
-            <img src={Shopify} alt="" />
+            <img src={ raspberries} alt="" style={{"hight":"8rem","width":"8rem"}} />
           </div>
           <div className="w-secCircle">
-            <img src={Facebook} alt="" />
+            <img src={lingonberry} alt="" style={{"hight":"8rem","width":"8rem"}}/>
           </div>
+          
         </motion.div>
         {/* background Circles */}
         <div className="w-backCircle blueCircle"></div>
@@ -57,6 +60,7 @@ function Works() {
         <div className="w-backCircleLeft orangeCircle"></div>
         <div className="w-backCircleLeft purpleCircle"></div>
       </div>
+     
     </div>
   )
 }

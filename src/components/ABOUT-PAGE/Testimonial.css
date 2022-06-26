@@ -6,8 +6,12 @@
     justify-content: center;
     margin-top: 1rem;
     flex-direction: column;
-    gap: 1rem;
+    gap: 10rem;
     position: relative;
+    background-image: url(./imges/mint.png);
+    background-repeat: no-repeat;
+    background-position: center left -1rem; 
+ 
 }
 .t-heading{
     align-self: start;
@@ -19,18 +23,30 @@
 .t-heading span:nth-of-type(2){
     color: var(--lightBlue);
 }
-
-.t-blur1{
+.blur {
     position: absolute;
     width: 22rem;
     height: 14rem;
     border-radius: 50%;
-    background: #b5e925;
+    background: #c9ef23;
     filter: blur(212px);
     z-index: -9;
     top: -18%;
     left: 56%;
     filter: blur(72px);
+  }
+.t-blur1{
+    position: absolute;
+    width: 22rem;
+    height: 14rem;
+    border-radius: 50%;
+    background: #c1ed11;
+    filter: blur(212px);
+    z-index: -9;
+    top: -18%;
+    left: 56%;
+    filter: blur(72px);
+    
 }
 .t-blur2{
     top: 9rem;
@@ -49,6 +65,7 @@
     border: 7px solid var(--blueCard);
     box-shadow: var(--blue);
     border-radius: 20px;
+ 
 }
 .testimonial>img{
     width: 6rem;
@@ -72,6 +89,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+  
 }
 
 .t-wrapper .swiper-pagination-bullet-active{
@@ -83,12 +101,14 @@
     .t-wrapper{
   display: flex;
   flex-direction: column;
-  margin-bottom: 33rem;
+  margin-bottom: -7rem;
 
     }
     .testimonial>img{
         width: 70px;
         height: 70px;
+        display: flex;
+  flex-direction: column;
     }
   }
   .blur {
