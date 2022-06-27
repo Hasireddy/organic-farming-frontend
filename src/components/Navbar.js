@@ -1,5 +1,5 @@
 import React from 'react';
- import logo from "../assets/logo.png"; 
+import logo from "../assets/logo.png"; 
 import { NavLink, Outlet } from 'react-router-dom';
 import About from './ABOUT-PAGE/About';
 import { Link } from "react-scroll";
@@ -25,11 +25,16 @@ const Navbar = ({ isAuthenticated, logOut }) => {
         <a className='navbar-brand' href='/'>
           ORGANIC FARMING COMMUNITY
         </a>
-        <button className='navbar-toggler' type='button' data-toggle='collapse' data-target='/#navbarNav'
-          aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation'>
-          <span className='navbar-toggler-icon'>
-
-          </span>
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="/#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
         </button>
         <div className='collapse navbar-collapse' id='navbarNav'>
           <ul className='navbar-nav mb-2 mb-lg-0 ml-auto'>
@@ -68,6 +73,9 @@ const Navbar = ({ isAuthenticated, logOut }) => {
                   </li>
                   <li className='nav-item'>
                     <NavLink to="/Login" className='nav-link'>Farmer's Login</NavLink>
+                  </li>
+                  <li className='nav-item'>
+                    <NavLink to="/Dashboard" className='nav-link'>Dashboard</NavLink>
                   </li>
                 </>
               )

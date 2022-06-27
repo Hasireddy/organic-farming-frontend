@@ -56,9 +56,11 @@
   background: rgb(189, 246, 165);
   /* darkMode */
   z-index: 1;
-  background-image: url("./imges/grapeleaf1.png");
+  background-image: url("./imges/204-2044051_grape-transparent-leave-png-grape-leaf-png.png");
   background-repeat: no-repeat;
-  background-position: center center;
+  background-size: cover;
+  background-position: center;
+ 
   z-index: 2;
 }
 .w-mainCircle > * {

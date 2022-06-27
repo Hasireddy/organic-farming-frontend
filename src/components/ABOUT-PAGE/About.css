@@ -10,8 +10,8 @@ gap: 2rem;
 }
 .weAre {
 
-  text-shadow: 3px 2px 5px #00a0d2;
-  color: black;
+  /* text-shadow: 3px 2px 1px #00a0d2; */
+  color: rgb(68, 9, 245);
   height: 10rem;
   font-weight: bolder;
   gap: 5rem;
