@@ -15,16 +15,16 @@ import NotFound from './components/NotFound';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState('false');
-  const [logintoken, setLoginToken] = useState(localStorage.getItem('registrationtoken'));
+  const [farmertoken, setFarmerToken] = useState(null);
   const [user, setUser] = useState(null);
   const nav = useNavigate();
 
   useEffect(() => {
     const verifyLogin = async () => {
-      console.log(logintoken);
+      console.log(farmertoken);
       const res = await fetch('http://localhost:5000/auth/me', {
         headers: {
-          'Authorization': logintoken
+          'Authorization': farmertoken
         }
       });
       const data = await res.json();
@@ -33,15 +33,18 @@ function App() {
       setUser(data);
       setIsAuthenticated(true)
     };
-    verifyLogin();
-  }, [logintoken]);
+    if (!localStorage.getItem('logintoken')) {
+      setFarmerToken(localStorage.getItem('logintoken'));
+      verifyLogin();
+    }
+  }, [farmertoken]);
 
   const logOut = () => {
     // alert("Logout Called from");
     localStorage.removeItem('logintoken');
     // alert(localStorage.getItem('logintoken'));
     setUser(null);
-    setLoginToken(null);
+    setFarmerToken(null);
     setIsAuthenticated(false);
     nav("/");
     return window.location.reload();
