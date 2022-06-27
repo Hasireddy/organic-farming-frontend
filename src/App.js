@@ -21,16 +21,16 @@ function App() {
   const darkMode = theme.state.darkMode;
 
   const [isAuthenticated, setIsAuthenticated] = useState('false');
-  const [logintoken, setLoginToken] = useState(localStorage.getItem('registrationtoken'));
+  const [farmertoken, setFarmerToken] = useState(null);
   const [user, setUser] = useState(null);
   const nav = useNavigate();
 
   useEffect(() => {
     const verifyLogin = async () => {
-      console.log(logintoken);
+      console.log(farmertoken);
       const res = await fetch('http://localhost:5000/auth/me', {
         headers: {
-          'Authorization': logintoken
+          'Authorization': farmertoken
         }
       });
       const data = await res.json();
@@ -39,21 +39,24 @@ function App() {
       setUser(data);
       setIsAuthenticated(true)
     };
-    verifyLogin();
-  }, [logintoken]);
+    if (!localStorage.getItem('logintoken')) {
+      setFarmerToken(localStorage.getItem('logintoken'));
+      verifyLogin();
+    }
+  }, [farmertoken]);
 
   const logOut = () => {
     // alert("Logout Called from");
     localStorage.removeItem('logintoken');
     // alert(localStorage.getItem('logintoken'));
     setUser(null);
-    setLoginToken(null);
+    setFarmerToken(null);
     setIsAuthenticated(false);
     nav("/");
     return window.location.reload();
   }
   return (
-    <div className="App"   style={{
+    <div className="App" style={{
       background: darkMode ? "black" : "",
       color: darkMode ? "white" : "",
     }}>
@@ -65,12 +68,10 @@ function App() {
         <Route path='/' element={<Homepage />} />
         <Route path='/About' element={<About />} />
         <Route path='/Register' element={<Register />} />
-        <Route path='/Dashboard' element={<Dashboard />} />
         <Route path='/Products' element={<ProductsCatalog />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/details' element={<Details />} />
         <Route path='/Login' element={<Login />} />
         <Route path='/Details' element={<Details isAuthenticated={isAuthenticated} />} />
+        <Route path='/Dashboard' element={<Dashboard isAuthenticated={isAuthenticated} />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
       {<Footer />}
