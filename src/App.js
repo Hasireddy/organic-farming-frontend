@@ -68,10 +68,10 @@ function App() {
         <Route path='/' element={<Homepage />} />
         <Route path='/About' element={<About />} />
         <Route path='/Register' element={<Register />} />
-        <Route path='/Dashboard' element={<Dashboard />} />
         <Route path='/Products' element={<ProductsCatalog />} />
         <Route path='/Login' element={<Login />} />
         <Route path='/Details' element={<Details isAuthenticated={isAuthenticated} />} />
+        <Route path='/Dashboard' element={<Dashboard isAuthenticated={isAuthenticated} />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
       {<Footer />}

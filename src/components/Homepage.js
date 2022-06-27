@@ -12,9 +12,6 @@ const Homepage = () => {
         <>
             <Header />
             <MyMap />
-            <ProductsCatalog/>
-            {/* <About/> */}
-
         </>
     );
 }
