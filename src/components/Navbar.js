@@ -1,13 +1,26 @@
-import React from "react";
+import React from 'react';
 import logo from "../assets/logo.png";
 import { NavLink, Outlet } from 'react-router-dom';
+import About from './ABOUT-PAGE/About';
+import { Link } from "react-scroll";
+import Toggle from './ABOUT-PAGE/Toggle';
+import sun from '../components/ABOUT-PAGE/imges/sun-icon.png'
+import moon from '../components/ABOUT-PAGE/imges/moon-icon.png'
+
 
 const Navbar = ({ isAuthenticated, logOut }) => {
   return (
     <div id='navBarContainer'>
       <nav className='navbar navbar-expand-lg navbar-light bg-light'>
+        {/* <a className="navbar-brand" href="/">
+          <img src={moon} alt="" width="40px" height="40px" className="d-inline-block align-text-center" />
+        </a>
+        <Toggle />
         <a className="navbar-brand" href="/">
-          <img src={logo} alt="" width="70" height="70" className="d-inline-block align-text-center" />
+          <img src={sun} alt="" width="40px" height="40px" className="d-inline-block align-text-center" />
+        </a> */}
+        <a className="navbar-brand" href="/">
+          <img src={logo} alt="" width="70px" height="70px" className="d-inline-block align-text-center" />
         </a>
         <a className='navbar-brand' href='/'>
           ORGANIC FARMING COMMUNITY
@@ -32,6 +45,9 @@ const Navbar = ({ isAuthenticated, logOut }) => {
                     <NavLink to="/" className='nav-link'>Home</NavLink> {/* Farmers home page, displays of his own products, where he can edit delete, add product should redirect to Details page, where user can add new products of his own*/}
                   </li>
                   <li className='nav-item'>
+                    <NavLink to="/About" className='nav-link'>About</NavLink>
+                  </li>
+                  <li className='nav-item'>
                     <NavLink to="/Products" className='nav-link'>All Products</NavLink>
                   </li>
                   <li className="nav-item">
@@ -39,6 +55,9 @@ const Navbar = ({ isAuthenticated, logOut }) => {
                   </li>
                   <li className='nav-item'>
                     <NavLink to="/Login" className='nav-link' onClick={logOut} style={{ cursor: 'pointer' }}>Logout</NavLink>
+                  </li>
+                  <li className='nav-item'>
+                    <NavLink to="/Dashboard" className='nav-link'>Dashboard</NavLink>
                   </li>
                 </>
               ) : (
@@ -58,9 +77,7 @@ const Navbar = ({ isAuthenticated, logOut }) => {
                   <li className='nav-item'>
                     <NavLink to="/Login" className='nav-link'>Farmer's Login</NavLink>
                   </li>
-                  <li className='nav-item'>
-                    <NavLink to="/Dashboard" className='nav-link'>Dashboard</NavLink>
-                  </li>
+
                 </>
               )
             }

@@ -3,6 +3,7 @@
     font-family: "Roboto", sans-serif;
 }
 
+
 /* Carousel styling */
 
 .carousel-item {
@@ -34,12 +35,12 @@
     font-family: "Times New Roman", Times, serif;
 }
 
-.carousel-caption{
+.carousel-caption {
     padding-left: 15px;
     padding-right: 15px;
 }
 
-.jumbotron{
+.jumbotron {
     background-color: #1db82c;
     font-weight: bold;
 }
@@ -55,19 +56,21 @@
     opacity: 0.5;
 }
 
-#demo{
+#demo {
     box-shadow: 3px 5px 10px #bda4a4;
     margin-bottom: 10px;
 }
 
+
 /* navbar */
 
-.navbar{
+.navbar {
     border-top: #165c1c solid 5px;
     background-color: #1DB82C !important;
     padding-left: 80px;
     border-bottom: rgb(0, 0, 0) solid 5px !important;
 }
+
 #navbarNav {
     display: flex;
     flex-direction: column;
@@ -75,15 +78,16 @@
     margin-right: 80px;
 }
 
-.navbar-brand{
+.navbar-brand {
     display: flex;
     color: white !important;
     font-size: 24px;
     font-weight: bold;
+   
 }
 
-.navbar-brand:hover{
-    color:rgb(211, 195, 166) !important;
+.navbar-brand:hover {
+    color: rgb(211, 195, 166) !important;
 }
 
 .navbar {
@@ -94,15 +98,15 @@
     margin-bottom: 10px;
 }
 
-.nav-link{
+.nav-link {
     display: flex;
     color: rgb(250, 250, 250) !important;
     font-size: 18px;
     text-transform: uppercase;
 }
 
-.nav-link:hover{
-    color:rgb(211, 195, 166) !important;
+.nav-link:hover {
+    color: rgb(211, 195, 166) !important;
 }
 
 .btn btn-success {
@@ -113,37 +117,41 @@ bs-example {
     width: 50%;
 }
 
+
 /* map */
 
-.googleMap{
+.googleMap {
     box-shadow: 3px 5px 10px #bda4a4;
     margin-bottom: 10px;
 }
 
-.form-control2{
+.form-control2 {
     margin-left: 50px;
 }
+
+
 /* footer  */
 
-.footerContainer{
-    background-color: #1DB82C !important; 
+.footerContainer {
+    background-color: #1DB82C !important;
     border-bottom: #165c1c solid 50px;
     color: rgb(5, 5, 5);
     font-size: small;
     padding-top: 35px;
 }
 
-.footer-title{
+.footer-title {
     color: rgb(10, 10, 10);
     font-size: 18px;
     font-weight: bold;
 }
 
-.nav-footer{
+.nav-footer {
     color: rgb(15, 15, 15) !important;
     font-size: small;
     justify-content: center;
 }
+
 
 /* register */
 
@@ -167,7 +175,7 @@ bs-example {
     border-radius: 12px;
 }
 
-#registerFormArea{
+#registerFormArea {
     background-color: #1DB82C;
     width: 100%;
     padding-top: 50px;
@@ -178,25 +186,26 @@ bs-example {
     box-shadow: 3px 5px 10px #bda4a4;
 }
 
-.containerReg{
-   padding-bottom: 25px;
-   background: url(./assets/fattoria-banner-2.jpg) no-repeat;
-   background-size: cover;
+.containerReg {
+    padding-bottom: 25px;
+    background: url(./assets/fattoria-banner-2.jpg) no-repeat;
+    background-size: cover;
 }
 
-.regHeader{
+.regHeader {
     padding-top: 50px;
 }
 
+
 /* sign-in section */
 
-.containerLogin{
+.containerLogin {
     padding-bottom: 25px;
     background: url(./assets/farmers2.jpg);
     background-size: cover;
 }
 
-#signInSection{
+#signInSection {
     background-color: #1DB82C;
     width: 100%;
     padding-top: 120px;
@@ -207,29 +216,32 @@ bs-example {
     box-shadow: 3px 5px 10px #bda4a4;
 }
 
-#innerWrapper{
+#innerWrapper {
     padding-top: 50px;
     padding-bottom: 50px;
 }
 
-#signHeader{
+#signHeader {
     padding-top: 52px;
 }
+
+
 /* .signin {
     text-align: center;
     margin-top: 30px;
 } */
 
+
 /* #signinHeader{
     padding-top: 50px;
 } */
 
-#innerWrapper{
+#innerWrapper {
     height: 600px;
-    display:flex;
+    display: flex;
     flex-direction: row;
-    
 }
+
 
 /* footer section */
 
@@ -240,28 +252,50 @@ bs-example {
     text-align: center;
 }
 
+
 /* #farmer {
     margin-top: 10px;
     height: 540px;
     width: 300px;
 } */
 
-.bi{
+.bi {
     font-size: xx-large;
 }
 
-.form-control1{
+.form-control1 {
     width: 50%;
     border-radius: 6px;
-    
 }
 
-.btnFooter{
+.btnFooter {
     color: white;
 }
 
-.contactLink{
-    
+.contactLink {
     margin-right: 70px;
     margin-bottom: 20px;
+}
+
+.map-container {
+    height: 400px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.sidebar {
+    background-color: rgba(35, 55, 75, 0.9);
+    color: #fff;
+    padding: 6px 12px;
+    font-family: monospace;
+    z-index: 1;
+    display: inline-block;
+    position: relative;
+    top: 0;
+    left: 0;
+    margin: 12px;
+    border-radius: 4px;
 }
