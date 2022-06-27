@@ -1,5 +1,6 @@
-import React from 'react';
-import Products from '../components/ProductsCatalog.css'
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+// import Products from '../components/ProductsCatalog.css'
 import fig from '../assets/fruits/fig.jpg'
 import orange from '../assets/orange-300x300.jpg'
 import cucamber from '../assets/cucumber.jpg'
@@ -20,22 +21,37 @@ import kivi from '../assets/fruits/kivi.png'
 
 function ProductsCatalog() {
     // context
-
-
+    const [navLinks, setNavLinks] = useState([]);
+    useEffect(() => {
+        const navs = [
+          { name: "All Products", path: "/Products" },
+          { name: "Fruits&Vegetables", path: "/Fruits" },
+          { name: "Dairy", path: "/Dairy" },
+          { name: "Poultry", path: "/Poultry" },
+        ];
+        setNavLinks(navs);
+      }, []);
     // transition
     return (
         /*  dropdown */
+        
         <div className='container'>
             <div className="dropdown" id='dropdownProductCaltalog'>
-                <a className="btn btn-success dropdown-toggle btn-lg" href="/#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false" >
+                <a className="btn btn-success dropdown-toggle btn-lg" href="/ProductsCatalog" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false" >
                     Categories
                 </a>
 
-                <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <li><a className="dropdown-item" href="/#">Fruits</a></li>
-                    <li><a className="dropdown-item" href="/#">Vegetable</a></li>
-                    <li><a className="dropdown-item" href="/#">Dairy</a></li>
-                </ul>
+                <ul class="dropdown-menu dropdown-menu-end">
+              {navLinks.map((d, i) => (
+                <li key={i}>
+                  <Link to={d.path}>
+                    <button class="dropdown-item" type="button">
+                      {d.name}
+                    </button>
+                  </Link>
+                </li>
+              ))}
+            </ul>
             </div>
             {/* cards row 1  */}
             <div className="row row-1 row-cols-md-3 g-4" >
