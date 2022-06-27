@@ -5,15 +5,21 @@ import Navbar from './components/Navbar';
 import Homepage from './components/Homepage';
 import Register from './components/Register';
 import Footer from './components/Footer';
+import Dashboard from './components/Dashboard';
 import Login from './components/Login';
 import Details from './components/Details';
 import ProductsCatalog from './components/ProductsCatalog';
-import About from './components/About';
+import About from './components/ABOUT-PAGE/About';
 import NotFound from './components/NotFound';
-
+// import React, { useContext } from "react";
+import { themeContext } from "./components/ABOUT-PAGE/Context";
+import { useContext } from "react";
 
 
 function App() {
+  const theme = useContext(themeContext);
+  const darkMode = theme.state.darkMode;
+
   const [isAuthenticated, setIsAuthenticated] = useState('false');
   const [farmertoken, setFarmerToken] = useState(null);
   const [user, setUser] = useState(null);
@@ -50,7 +56,10 @@ function App() {
     return window.location.reload();
   }
   return (
-    <div className="App">
+    <div className="App" style={{
+      background: darkMode ? "black" : "",
+      color: darkMode ? "white" : "",
+    }}>
       {/* <Route path='/' element={<Navbar isAuthenticated={isAuthenticated} logOut={logOut} />} >
 
       </Route> */}
@@ -59,6 +68,7 @@ function App() {
         <Route path='/' element={<Homepage />} />
         <Route path='/About' element={<About />} />
         <Route path='/Register' element={<Register />} />
+        <Route path='/Dashboard' element={<Dashboard />} />
         <Route path='/Products' element={<ProductsCatalog />} />
         <Route path='/Login' element={<Login />} />
         <Route path='/Details' element={<Details isAuthenticated={isAuthenticated} />} />
