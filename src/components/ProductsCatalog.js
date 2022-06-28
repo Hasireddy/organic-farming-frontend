@@ -17,24 +17,24 @@ import grapes from '../assets/fruits/pink-grapes.jpg'
 import rasberries from '../assets/fruits/raspberries.jpg'
 import apples from '../assets/fruits/apples.jpg'
 import kivi from '../assets/fruits/kivi.png'
-
+import axios from 'axios';
 
 function ProductsCatalog() {
     // context
     const [navLinks, setNavLinks] = useState([]);
     useEffect(() => {
         const navs = [
-          { name: "All Products", path: "/Products" },
-          { name: "Fruits&Vegetables", path: "/Fruits" },
-          { name: "Dairy", path: "/Dairy" },
-          { name: "Poultry", path: "/Poultry" },
+            { name: "All Products", path: "/Products" },
+            { name: "Fruits&Vegetables", path: "/Fruits" },
+            { name: "Dairy", path: "/Dairy" },
+            { name: "Poultry", path: "/Poultry" },
         ];
         setNavLinks(navs);
-      }, []);
+    }, []);
     // transition
     return (
         /*  dropdown */
-        
+
         <div className='container'>
             <div className="dropdown" id='dropdownProductCaltalog'>
                 <a className="btn btn-success dropdown-toggle btn-lg" href="/ProductsCatalog" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false" >
@@ -42,16 +42,16 @@ function ProductsCatalog() {
                 </a>
 
                 <ul class="dropdown-menu dropdown-menu-end">
-              {navLinks.map((d, i) => (
-                <li key={i}>
-                  <Link to={d.path}>
-                    <button class="dropdown-item" type="button">
-                      {d.name}
-                    </button>
-                  </Link>
-                </li>
-              ))}
-            </ul>
+                    {navLinks.map((d, i) => (
+                        <li key={i}>
+                            <Link to={d.path}>
+                                <button class="dropdown-item" type="button">
+                                    {d.name}
+                                </button>
+                            </Link>
+                        </li>
+                    ))}
+                </ul>
             </div>
             {/* cards row 1  */}
             <div className="row row-1 row-cols-md-3 g-4" >
@@ -61,7 +61,7 @@ function ProductsCatalog() {
 
 
                     </div>
-                    <div className="card-body" id='rowProductCatalog'   style={{ backgroundImage: `url(${cherry}` }}>
+                    <div className="card-body" id='rowProductCatalog' style={{ backgroundImage: `url(${cherry}` }}>
 
                     </div >
                     <div className='col col-9 row-cols-md-3 g-4 ' id='product-catalog'>
@@ -289,12 +289,12 @@ function ProductsCatalog() {
 
 
                     </div>
-                    <div className="card-body" id='rowProductCatalog'style={{ backgroundImage: `url(${kivi}` }} >
+                    <div className="card-body" id='rowProductCatalog' style={{ backgroundImage: `url(${kivi}` }} >
 
                     </div>
                     <div className='col col-9 row-cols-md-3 g-4 ' id='product-catalog'>
-                  
-                    <h3 className="card-title">Kivi</h3>
+
+                        <h3 className="card-title">Kivi</h3>
                         <p className="card-text">Price:</p>
                     </div>
                 </div>

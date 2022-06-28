@@ -15,6 +15,7 @@ const Register = () => {
             lastname,
             email,
             password,
+            farmName,
             address,
             postcode,
             countrycode
@@ -25,6 +26,7 @@ const Register = () => {
         lastname: "",
         email: "",
         password: "",
+        farmName: "",
         address: "",
         postcode: "",
         countrycode: ""
@@ -44,7 +46,7 @@ const Register = () => {
         console.log('Hello');
         try {
             e.preventDefault();
-            if (!firstname || !lastname || !email || !password || !address || !postcode) return toast.error('Please enter all Fields!', {
+            if (!firstname || !lastname || !email || !password || !farmName || !address || !postcode) return toast.error('Please enter all Fields!', {
                 position: "bottom-center",
                 autoClose: 3000,
                 hideProgressBar: false,
@@ -64,6 +66,7 @@ const Register = () => {
                     lastname,
                     email,
                     password,
+                    farmName,
                     address,
                     postcode,
                     countrycode
@@ -81,7 +84,7 @@ const Register = () => {
                     progress: undefined,
                 });
                 //Start clearing values in form once the data is inserted in Database
-                setFormState((prev) => ({ ...prev, firstname: '', lastname: '', email: '', password: '', address: '', postcode: '', countrycode: '' }));
+                setFormState((prev) => ({ ...prev, firstname: '', lastname: '', email: '', password: '', farmName: '', address: '', postcode: '', countrycode: '' }));
                 //End clearing values in form once the data is inserted in Database
                 return;
                 // return localStorage.setItem('registrationtoken', token);
@@ -134,8 +137,10 @@ const Register = () => {
                         <form onSubmit={handleSubmit} >
                             <input className="form-control form-control-sm" type="text" placeholder="Firstname" aria-label=".form-control-sm" id='firstname' value={firstname} onChange={handleChange}></input><br />
                             <input className="form-control form-control-sm" type="text" placeholder="LastName" aria-label=".form-control-sm" id='lastname' value={lastname} onChange={handleChange}></input><br />
-                            <input className="form-control form-control-sm" type="email" placeholder="Email" aria-label=".form-control-sm" id='email' name="email" value={email} onChange={handleChange}></input><br />
-                            <input className="form-control form-control-sm" type="password" placeholder="Password" aria-label=".form-control-sm" id='password' value={password} onChange={handleChange}></input><br />
+                            <input autoComplete="off" className="form-control form-control-sm" type="email" placeholder="Email" aria-label=".form-control-sm" id='email' name="email" value={email} onChange={handleChange}></input><br />
+                            <input autoComplete="new-password"
+                                className="form-control form-control-sm" type="password" placeholder="Password" aria-label=".form-control-sm" id='password' value={password} onChange={handleChange}></input><br />
+                            <input className="form-control form-control-sm" type="text" placeholder="FarmName" aria-label=".form-control-sm" id='farmName' value={farmName} onChange={handleChange}></input><br />
                             <input className="form-control form-control-sm" type="text" placeholder="Address" aria-label=".form-control-sm" id='address' value={address} onChange={handleChange}></input><br />
                             <input className="form-control form-control-sm" type="text" placeholder="Postcode" aria-label=".form-control-sm" id='postcode' value={postcode} onChange={handleChange}></input><br />
                             <input className="form-control form-control-sm" type="text" placeholder="Countrycode" aria-label=".form-control-sm" id='countrycode' value={countrycode} onChange={handleChange}></input><br />
