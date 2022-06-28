@@ -16,10 +16,21 @@ import grapes from '../assets/fruits/pink-grapes.jpg'
 import rasberries from '../assets/fruits/raspberries.jpg'
 import apples from '../assets/fruits/apples.jpg'
 import kivi from '../assets/fruits/kivi.png'
-
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 
 function ProductsCatalog() {
     // context
+    // const [products,setProducts] = useState([]);
+    // const [singleproducts,setSingleProducts] = useState([]);
+    // useEffect(()=>{
+    //     axios.get('http://localhost:5000/details')
+    //     .then(res=>res.json())
+    //     .then(data=>setProducts(data));
+    // },[])
+
+    // const onaddChange = (e)=>(e.targetvalue);
+
 
 
     // transition
@@ -45,7 +56,7 @@ function ProductsCatalog() {
 
 
                     </div>
-                    <div className="card-body" id='rowProductCatalog'   style={{ backgroundImage: `url(${cherry}` }}>
+                    <div className="card-body" id='rowProductCatalog' style={{ backgroundImage: `url(${cherry}` }}>
 
                     </div >
                     <div className='col col-9 row-cols-md-3 g-4 ' id='product-catalog'>
@@ -273,12 +284,12 @@ function ProductsCatalog() {
 
 
                     </div>
-                    <div className="card-body" id='rowProductCatalog'style={{ backgroundImage: `url(${kivi}` }} >
+                    <div className="card-body" id='rowProductCatalog' style={{ backgroundImage: `url(${kivi}` }} >
 
                     </div>
                     <div className='col col-9 row-cols-md-3 g-4 ' id='product-catalog'>
-                  
-                    <h3 className="card-title">Kivi</h3>
+
+                        <h3 className="card-title">Kivi</h3>
                         <p className="card-text">Price:</p>
                     </div>
                 </div>
