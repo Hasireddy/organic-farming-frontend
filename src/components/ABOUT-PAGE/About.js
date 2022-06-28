@@ -13,7 +13,7 @@ function About() {
  <Works />
 
       <div className='weAre'>
-        <h1>WE ARE WEB DEVELOPERS FROM WBS-CODING-SCHOOLS</h1>
+        <h1>WE ARE WEB DEVELOPERS FROM WBS-CODING-SCHOOL</h1>
         <br />
         <h3>We dedicated our project to encourge people to healthy lifestyle!</h3>
       </div>
