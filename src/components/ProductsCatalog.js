@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-// import Products from '../components/ProductsCatalog.css'
+import React from 'react';
+import Products from '../components/ProductsCatalog.css'
 import fig from '../assets/fruits/fig.jpg'
 import orange from '../assets/orange-300x300.jpg'
 import cucamber from '../assets/cucumber.jpg'
@@ -9,17 +8,6 @@ import banana from '../assets/fruits/banana.jpg'
 import melone from '../assets/fruits/melone.jpg'
 import cherry from '../assets/fruits/cherry.jpg'
 import pomegranade from '../assets/fruits/pommegranate.jpg'
-<<<<<<< HEAD
-import aubergine from '../assets/fruits/aubergine.jpg'
-import basil from '../assets/fruits/basil.jpg'
-import springOnion from '../assets/fruits/springOnion.jpg'
-import parsley from '../assets/fruits/parsley.jpg'
-import onions from '../assets/fruits/onion.jpg'
-import cauliflower from '../assets/fruits/cauliflower.jpg'
-import lettuce from '../assets/fruits/lettuce.jpg'
-import carrots from '../assets/fruits/carrots.jpg'
-
-=======
 import currantfruit from '../assets/fruits/currant-fruit.jpg'
 import lemon from '../assets/fruits/lemon.jpg'
 import peach from '../assets/fruits/peach.jpg'
@@ -28,48 +16,25 @@ import grapes from '../assets/fruits/pink-grapes.jpg'
 import rasberries from '../assets/fruits/raspberries.jpg'
 import apples from '../assets/fruits/apples.jpg'
 import kivi from '../assets/fruits/kivi.png'
-import axios from 'axios';
->>>>>>> 4b7223a437ab48afdb42670152ce4de2201d4bf1
+
 
 function ProductsCatalog() {
     // context
-    const [navLinks, setNavLinks] = useState([]);
-    useEffect(() => {
-        const navs = [
-<<<<<<< HEAD
-       /*    { name: "Our Products", path: "/Products" },  */
-          { name: "Fruits&Vegetables", path: "/Fruits" },
-          { name: "Dairy", path: "/Dairy" },
-          { name: "Poultry", path: "/Poultry" },
-=======
-            { name: "All Products", path: "/Products" },
-            { name: "Fruits&Vegetables", path: "/Fruits" },
-            { name: "Dairy", path: "/Dairy" },
-            { name: "Poultry", path: "/Poultry" },
->>>>>>> 4b7223a437ab48afdb42670152ce4de2201d4bf1
-        ];
-        setNavLinks(navs);
-    }, []);
+
+
     // transition
     return (
         /*  dropdown */
-
         <div className='container'>
             <div className="dropdown" id='dropdownProductCaltalog'>
-                <a className="btn btn-success dropdown-toggle btn-lg" href="/ProductsCatalog" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false" >
+                <a className="btn btn-success dropdown-toggle btn-lg" href="/#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false" >
                     Categories
                 </a>
 
-                <ul class="dropdown-menu dropdown-menu-end">
-                    {navLinks.map((d, i) => (
-                        <li key={i}>
-                            <Link to={d.path}>
-                                <button class="dropdown-item" type="button">
-                                    {d.name}
-                                </button>
-                            </Link>
-                        </li>
-                    ))}
+                <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <li><a className="dropdown-item" href="/#">Fruits</a></li>
+                    <li><a className="dropdown-item" href="/#">Vegetable</a></li>
+                    <li><a className="dropdown-item" href="/#">Dairy</a></li>
                 </ul>
             </div>
             {/* cards row 1  */}
@@ -80,7 +45,7 @@ function ProductsCatalog() {
 
 
                     </div>
-                    <div className="card-body" id='rowProductCatalog' style={{ backgroundImage: `url(${cherry}` }}>
+                    <div className="card-body" id='rowProductCatalog'   style={{ backgroundImage: `url(${cherry}` }}>
 
                     </div >
                     <div className='col col-9 row-cols-md-3 g-4 ' id='product-catalog'>
@@ -171,11 +136,11 @@ function ProductsCatalog() {
 
 
                     </div>
-                    <div className="card-body" id='rowProductCatalog' style={{ backgroundImage: `url(${aubergine}` }}>
+                    <div className="card-body" id='rowProductCatalog' style={{ backgroundImage: `url(${lemon}` }}>
 
                     </div>
                     <div className='col col-9 row-cols-md-3 g-4 ' id='product-catalog'>
-                        <h3 className="card-title-catalog">Aubergine</h3>
+                        <h3 className="card-title-catalog">Lemon</h3>
                         <p className="card-text-catalog">Price:</p>
                     </div>
                 </div>
@@ -185,11 +150,11 @@ function ProductsCatalog() {
 
 
                     </div>
-                    <div className="card-body" id='rowProductCatalog' style={{ backgroundImage: `url(${parsley}` }}>
+                    <div className="card-body" id='rowProductCatalog' style={{ backgroundImage: `url(${lingonberry}` }}>
 
                     </div>
                     <div className='col col-9 row-cols-md-3 g-4 ' id='product-catalog'>
-                        <h3 className="card-title-catalog">Parsley</h3>
+                        <h3 className="card-title-catalog">Lingonberry</h3>
                         <p className="card-text-catalog">Price:</p>
                     </div>
                 </div>
@@ -204,11 +169,11 @@ function ProductsCatalog() {
 
 
                     </div>
-                    <div className="card-body" id='rowProductCatalog' style={{ backgroundImage: `url(${onions}` }}>
+                    <div className="card-body" id='rowProductCatalog' style={{ backgroundImage: `url(${grapes}` }}>
 
                     </div>
                     <div className='col col-9 row-cols-md-3 g-4 ' id='product-catalog'>
-                        <h3 className="card-title-catalog">Onions</h3>
+                        <h3 className="card-title-catalog">Grapes</h3>
                         <p className="card-text-catalog">Price:</p>
                     </div>
                 </div>
@@ -218,11 +183,11 @@ function ProductsCatalog() {
 
 
                     </div>
-                    <div className="card-body" id='rowProductCatalog' style={{ backgroundImage: `url(${cauliflower}` }}>
+                    <div className="card-body" id='rowProductCatalog' style={{ backgroundImage: `url(${rasberries}` }}>
 
                     </div>
                     <div className='col col-9 row-cols-md-3 g-4 ' id='product-catalog'>
-                        <h3 className="card-title-catalog">Cauliflower</h3>
+                        <h3 className="card-title-catalog">Rasberries</h3>
                         <p className="card-text-catalog">Price:</p>
                     </div>
                 </div>
@@ -232,11 +197,11 @@ function ProductsCatalog() {
 
 
                     </div>
-                    <div className="card-body" id='rowProductCatalog' style={{ backgroundImage: `url(${lettuce}` }}>
+                    <div className="card-body" id='rowProductCatalog' style={{ backgroundImage: `url(${apples}` }}>
 
                     </div>
                     <div className='col col-9 row-cols-md-3 g-4 ' id='product-catalog'>
-                        <h3 className="card-title-catalog">Lettuce</h3>
+                        <h3 className="card-title-catalog">Apples</h3>
                         <p className="card-text-catalog">Price:</p>
                     </div>
                 </div>
@@ -280,11 +245,11 @@ function ProductsCatalog() {
 
 
                     </div>
-                    <div className="card-body" id='rowProductCatalog' style={{ backgroundImage: `url(${springOnion}` }}>
+                    <div className="card-body" id='rowProductCatalog' style={{ backgroundImage: `url(${peach}` }}>
 
                     </div>
                     <div className='col col-9 row-cols-md-3 g-4 ' id='product-catalog'>
-                        <h3 className="card-title-catalog">SpringOnion</h3>
+                        <h3 className="card-title-catalog">Peach</h3>
                         <p className="card-text-catalog">Price:</p>
                     </div>
                 </div>
@@ -294,11 +259,11 @@ function ProductsCatalog() {
 
 
                     </div>
-                    <div className="card-body" id='rowProductCatalog' style={{ backgroundImage: `url(${basil}` }}>
+                    <div className="card-body" id='rowProductCatalog' style={{ backgroundImage: `url(${currantfruit}` }}>
 
                     </div>
                     <div className='col col-9 row-cols-md-3 g-4 ' id='product-catalog'>
-                        <h3 className="card-title-catalog">Basil</h3>
+                        <h3 className="card-title-catalog">Currantfruit</h3>
                         <p className="card-text-catalog">Price:</p>
                     </div>
                 </div>
@@ -308,21 +273,12 @@ function ProductsCatalog() {
 
 
                     </div>
-<<<<<<< HEAD
-                    <div className="card-body" id='rowProductCatalog'style={{ backgroundImage: `url(${carrots}` }} >
+                    <div className="card-body" id='rowProductCatalog'style={{ backgroundImage: `url(${kivi}` }} >
 
                     </div>
                     <div className='col col-9 row-cols-md-3 g-4 ' id='product-catalog'>
                   
-                    <h3 className="card-title">Carrots</h3>
-=======
-                    <div className="card-body" id='rowProductCatalog' style={{ backgroundImage: `url(${kivi}` }} >
-
-                    </div>
-                    <div className='col col-9 row-cols-md-3 g-4 ' id='product-catalog'>
-
-                        <h3 className="card-title">Kivi</h3>
->>>>>>> 4b7223a437ab48afdb42670152ce4de2201d4bf1
+                    <h3 className="card-title">Kivi</h3>
                         <p className="card-text">Price:</p>
                     </div>
                 </div>
