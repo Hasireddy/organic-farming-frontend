@@ -22,7 +22,8 @@
   padding: 4rem;
   height: 25vh;
   background-repeat: no-repeat;
-  background-size: cover;
+   background-size:cover ;
+  background-position: center center;
   border: 3px black solid;
   box-shadow: 0 0 0 3px #77b81e;
   border-radius: 2rem;
@@ -30,6 +31,7 @@
   align-items: center;
   justify-content: flex-start;
   overflow: hidden;
+ 
 }
 
   .card-title-catalog {
