@@ -17,6 +17,14 @@ import grapes from '../assets/fruits/pink-grapes.jpg'
 import rasberries from '../assets/fruits/raspberries.jpg'
 import apples from '../assets/fruits/apples.jpg'
 import kivi from '../assets/fruits/kivi.png'
+import aubergine from '../assets/fruits/aubergine.jpg'
+import basil from '../assets/fruits/basil.jpg'
+import springOnion from '../assets/fruits/springOnion.jpg'
+import parsley from '../assets/fruits/parsley.jpg'
+import onions from '../assets/fruits/onion.jpg'
+import cauliflower from '../assets/fruits/cauliflower.jpg'
+import lettuce from '../assets/fruits/lettuce.jpg'
+import carrots from '../assets/fruits/carrots.jpg'
 function Fruits() {
     return (
         <div>
@@ -27,7 +35,7 @@ function Fruits() {
                     </a>
 
                     <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <li><a className="dropdown-item" href="/Products">All Products</a></li>
+                        {/* <li><a className="dropdown-item" href="/Products">Our Products</a></li> */}
                         <li><a className="dropdown-item" href="/Fruits">Fruits&Vegetables</a></li>
                         <li><a className="dropdown-item" href="/Dairy">Dairy</a></li>
                         <li><a className="dropdown-item" href="/Poultry">Poultry</a></li>
@@ -157,8 +165,133 @@ function Fruits() {
 
 
                 </div>
+                {/* cards row 1  */}
+                <div className="row row-1 row-cols-md-3 g-4" >
+                    {/* card1 */}
+                    <div className="col-12 col-md-3 col-lg-3">
+                        <div className="card" >
+
+
+                        </div>
+                        <div className="card-body" id='rowProductCatalog' style={{ backgroundImage: `url(${aubergine}` }}>
+
+                        </div >
+                        <div className='col col-9 row-cols-md-3 g-4 ' id='product-catalog'>
+
+                            <h3 className="card-title-catalog">Aubergine</h3>
+
+                            <p className="card-text-catalog">Price:</p>
+                        </div>
+
+                    </div>
+                    {/* card2 */}
+                    <div className="col-12 col-md-3 col-lg-3">
+                        <div className="card" >
+
+
+                        </div>
+                        <div className="card-body" id='rowProductCatalog' style={{ backgroundImage: `url(${basil}` }}>
+
+                        </div>
+                        <div className='col col-9 row-cols-md-3 g-4 ' id='product-catalog'>
+                            <h3 className="card-title-catalog">Basil</h3>
+                            <p className="card-text-catalog">Price:</p>
+                        </div>
+                    </div>
+                    {/* card3 */}
+                    <div className="col-12 col-md-3 col-lg-3">
+                        <div className="card" >
+
+
+                        </div>
+                        <div className="card-body" id='rowProductCatalog' style={{ backgroundImage: `url(${springOnion}` }}>
+
+                        </div>
+                        <div className='col col-9 row-cols-md-3 g-4 ' id='product-catalog'>
+                            <h3 className="card-title-catalog">SpringOnion</h3>
+                            <p className="card-text-catalog">Price:</p>
+                        </div>
+                    </div>
+                    {/* card4 */}
+                    <div className="col-12 col-md-3 col-lg-3">
+                        <div className="card" >
+
+
+                        </div>
+                        <div className="card-body" id='rowProductCatalog' style={{ backgroundImage: `url(${parsley}` }}>
+
+                        </div>
+                        <div className='col col-9 row-cols-md-3 g-4 ' id='product-catalog'>
+                            <h3 className="card-title-catalog">parsley</h3>
+                            <p className="card-text-catalog">Price:</p>
+                        </div>
+                    </div>
+
+                </div>
+                {/* cards row 2 */}
+                <div className="row row-1 row-cols-md-3 g-4" >
+                    {/* card1 */}
+                    <div className="col-12 col-md-3 col-lg-3">
+                        <div className="card" >
+
+
+                        </div>
+                        <div className="card-body" id='rowProductCatalog' style={{ backgroundImage: `url(${onions}` }}>
+
+                        </div>
+                        <div className='col col-9 row-cols-md-3 g-4 ' id='product-catalog'>
+                            <h3 className="card-title-catalog">Onions</h3>
+                            <p className="card-text-catalog">Price:</p>
+                        </div>
+                    </div>
+                    {/* card2 */}
+                    <div className="col-12 col-md-3 col-lg-3">
+                        <div className="card" >
+
+
+                        </div>
+                        <div className="card-body" id='rowProductCatalog' style={{ backgroundImage: `url(${cauliflower}` }}>
+
+                        </div>
+                        <div className='col col-9 row-cols-md-3 g-4 ' id='product-catalog'>
+                            <h3 className="card-title-catalog">cauliflower</h3>
+                            <p className="card-text-catalog">Price:</p>
+                        </div>
+
+                    </div>
+ {/* card3 */}
+ <div className="col-12 col-md-3 col-lg-3">
+                        <div className="card" >
+
+
+                        </div>
+                        <div className="card-body" id='rowProductCatalog' style={{ backgroundImage: `url(${carrots}` }}>
+
+                        </div>
+                        <div className='col col-9 row-cols-md-3 g-4 ' id='product-catalog'>
+                            <h3 className="card-title-catalog">Carrots</h3>
+                            <p className="card-text-catalog">Price:</p>
+                        </div>
+                    </div>
+                    {/* card4 */}
+                    <div className="col-12 col-md-3 col-lg-3">
+                        <div className="card" >
+
+
+                        </div>
+                        <div className="card-body" id='rowProductCatalog' style={{ backgroundImage: `url(${lettuce}` }}>
+
+                        </div>
+                        <div className='col col-9 row-cols-md-3 g-4 ' id='product-catalog'>
+                            <h3 className="card-title-catalog">Lettuce</h3>
+                            <p className="card-text-catalog">Price:</p>
+                        </div>
+
+                    </div>
+                </div>
 
             </div>
+
         </div>
 
     )

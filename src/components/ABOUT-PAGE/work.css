@@ -5,6 +5,7 @@
   align-items: center;
   height: 40vh;
   margin-top: 3rem;
+  margin-bottom: 10rem;
   gap: 0rem;
 
  
@@ -164,10 +165,11 @@
   .works {
     display: flex;
     flex-direction: column;
-    height: 5rem;
+    height: 35rem;
     padding: 0;
     gap: 17rem;
-    margin-top: -10rem;
+    margin-top: -20rem;
+    margin-bottom: 10rem;
   }
 
   .w-right {

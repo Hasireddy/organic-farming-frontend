@@ -1,20 +1,12 @@
 import Products from '../components/ProductsCatalog.css'
-import fig from '../assets/fruits/fig.jpg'
-import orange from '../assets/orange-300x300.jpg'
-import cucamber from '../assets/cucumber.jpg'
-import watermelone from '../assets/watermelone.jpg'
-import banana from '../assets/fruits/banana.jpg'
-import melone from '../assets/fruits/melone.jpg'
-import cherry from '../assets/fruits/cherry.jpg'
-import pomegranade from '../assets/fruits/pommegranate.jpg'
-import currantfruit from '../assets/fruits/currant-fruit.jpg'
-import lemon from '../assets/fruits/lemon.jpg'
-import peach from '../assets/fruits/peach.jpg'
-import lingonberry from '../assets/fruits/lingonberry.jpg'
-import grapes from '../assets/fruits/pink-grapes.jpg'
-import rasberries from '../assets/fruits/raspberries.jpg'
-import apples from '../assets/fruits/apples.jpg'
-import kivi from '../assets/fruits/kivi.png'
+import butter from '../assets/Dairy/butter.jpg'
+import cream from '../assets/Dairy/cream.jpg'
+import custard from '../assets/Dairy/custard.jpg'
+import drymilk from '../assets/Dairy/dryMilk.jpg'
+import ghee from '../assets/Dairy/ghee.jpg'
+import milk from '../assets/Dairy/milk.jpg'
+import pudding from '../assets/Dairy/pudding.jpg'
+import yogurt from '../assets/Dairy/yogurt.jpg'
 function Dairy() {
   return (
     <div>
@@ -26,7 +18,7 @@ function Dairy() {
                     </a>
 
                     <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <li><a className="dropdown-item" href="/Products"> All Products</a></li>
+                        {/* <li><a className="dropdown-item" href="/Products"> Our Products</a></li> */}
                         <li><a className="dropdown-item" href="/Fruits">Fruits&Vegetables</a></li>
                         <li><a className="dropdown-item" href="/Dairy">Dairy</a></li>
                         <li><a className="dropdown-item" href="/Poultry">Poultry</a></li>
@@ -40,12 +32,12 @@ function Dairy() {
 
 
                     </div>
-                    <div className="card-body" id='rowProductCatalog'   style={{ backgroundImage: `url(${watermelone}` }}>
+                    <div className="card-body" id='rowProductCatalog'   style={{ backgroundImage: `url(${butter}` }}>
 
                     </div >
                     <div className='col col-9 row-cols-md-3 g-4 ' id='product-catalog'>
 
-                        <h3 className="card-title-catalog">Chery</h3>
+                        <h3 className="card-title-catalog">Butter</h3>
 
                         <p className="card-text-catalog">Price:</p>
                     </div>
@@ -57,11 +49,11 @@ function Dairy() {
 
 
                     </div>
-                    <div className="card-body" id='rowProductCatalog' style={{ backgroundImage: `url(${banana}` }}>
+                    <div className="card-body" id='rowProductCatalog' style={{ backgroundImage: `url(${cream}` }}>
 
                     </div>
                     <div className='col col-9 row-cols-md-3 g-4 ' id='product-catalog'>
-                        <h3 className="card-title-catalog">Banana</h3>
+                        <h3 className="card-title-catalog">Cream</h3>
                         <p className="card-text-catalog">Price:</p>
                     </div>
                 </div>
@@ -71,11 +63,11 @@ function Dairy() {
 
 
                     </div>
-                    <div className="card-body" id='rowProductCatalog' style={{ backgroundImage: `url(${melone}` }}>
+                    <div className="card-body" id='rowProductCatalog' style={{ backgroundImage: `url(${custard}` }}>
 
                     </div>
                     <div className='col col-9 row-cols-md-3 g-4 ' id='product-catalog'>
-                        <h3 className="card-title-catalog">Melone</h3>
+                        <h3 className="card-title-catalog">Custard</h3>
                         <p className="card-text-catalog">Price:</p>
                     </div>
                 </div>
@@ -85,11 +77,11 @@ function Dairy() {
 
 
                     </div>
-                    <div className="card-body" id='rowProductCatalog' style={{ backgroundImage: `url(${orange}` }}>
+                    <div className="card-body" id='rowProductCatalog' style={{ backgroundImage: `url(${drymilk}` }}>
 
                     </div>
                     <div className='col col-9 row-cols-md-3 g-4 ' id='product-catalog'>
-                        <h3 className="card-title-catalog">Orange</h3>
+                        <h3 className="card-title-catalog">DryMilk</h3>
                         <p className="card-text-catalog">Price:</p>
                     </div>
                 </div>
@@ -103,11 +95,11 @@ function Dairy() {
 
 
                     </div>
-                    <div className="card-body" id='rowProductCatalog' style={{ backgroundImage: `url(${pomegranade}` }}>
+                    <div className="card-body" id='rowProductCatalog' style={{ backgroundImage: `url(${ghee}` }}>
 
                     </div>
                     <div className='col col-9 row-cols-md-3 g-4 ' id='product-catalog'>
-                        <h3 className="card-title-catalog">Pomegranade</h3>
+                        <h3 className="card-title-catalog">Ghee</h3>
                         <p className="card-text-catalog">Price:</p>
                     </div>
                 </div>
@@ -117,11 +109,11 @@ function Dairy() {
 
 
                     </div>
-                    <div className="card-body" id='rowProductCatalog' style={{ backgroundImage: `url(${fig}` }}>
+                    <div className="card-body" id='rowProductCatalog' style={{ backgroundImage: `url(${milk}` }}>
 
                     </div>
                     <div className='col col-9 row-cols-md-3 g-4 ' id='product-catalog'>
-                        <h3 className="card-title-catalog">Fig</h3>
+                        <h3 className="card-title-catalog">Milk</h3>
                         <p className="card-text-catalog">Price:</p>
                     </div>
                 </div>
@@ -131,11 +123,11 @@ function Dairy() {
 
 
                     </div>
-                    <div className="card-body" id='rowProductCatalog' style={{ backgroundImage: `url(${lemon}` }}>
+                    <div className="card-body" id='rowProductCatalog' style={{ backgroundImage: `url(${pudding}` }}>
 
                     </div>
                     <div className='col col-9 row-cols-md-3 g-4 ' id='product-catalog'>
-                        <h3 className="card-title-catalog">Lemon</h3>
+                        <h3 className="card-title-catalog">Pudding</h3>
                         <p className="card-text-catalog">Price:</p>
                     </div>
                 </div>
@@ -145,11 +137,11 @@ function Dairy() {
 
 
                     </div>
-                    <div className="card-body" id='rowProductCatalog' style={{ backgroundImage: `url(${lingonberry}` }}>
+                    <div className="card-body" id='rowProductCatalog' style={{ backgroundImage: `url(${yogurt}` }}>
 
                     </div>
                     <div className='col col-9 row-cols-md-3 g-4 ' id='product-catalog'>
-                        <h3 className="card-title-catalog">Lingonberry</h3>
+                        <h3 className="card-title-catalog">Yogurt</h3>
                         <p className="card-text-catalog">Price:</p>
                     </div>
                 </div>
