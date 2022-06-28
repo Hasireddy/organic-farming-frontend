@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Route, Routes, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import Navbar from './components/Navbar';
+import FruitsAndVegetables from './components/Fruits';
 import Homepage from './components/Homepage';
 import Register from './components/Register';
 import Footer from './components/Footer';
@@ -14,6 +15,9 @@ import NotFound from './components/NotFound';
 // import React, { useContext } from "react";
 import { themeContext } from "./components/ABOUT-PAGE/Context";
 import { useContext } from "react";
+import Dairy from './components/Dairy';
+import Poultry from './components/Poultry'
+
 
 
 function App() {
@@ -73,6 +77,9 @@ function App() {
         <Route path='/Details' element={<Details isAuthenticated={isAuthenticated} />} />
         <Route path='/Dashboard' element={<Dashboard isAuthenticated={isAuthenticated} />} />
         <Route path='*' element={<NotFound />} />
+        <Route path='/Fruits' element={<FruitsAndVegetables />} />
+        <Route path='/Dairy' element={<Dairy />} />
+        <Route path='/Poultry' element={<Poultry />} />
       </Routes>
       {<Footer />}
     </div >
