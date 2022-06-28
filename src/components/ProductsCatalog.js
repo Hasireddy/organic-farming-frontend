@@ -1,5 +1,6 @@
-import React from 'react';
-import Products from '../components/ProductsCatalog.css'
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+// import Products from '../components/ProductsCatalog.css'
 import fig from '../assets/fruits/fig.jpg'
 import orange from '../assets/orange-300x300.jpg'
 import cucamber from '../assets/cucumber.jpg'
@@ -20,22 +21,37 @@ import kivi from '../assets/fruits/kivi.png'
 
 function ProductsCatalog() {
     // context
-
-
+    const [navLinks, setNavLinks] = useState([]);
+    useEffect(() => {
+        const navs = [
+          { name: "All Products", path: "/Products" },
+          { name: "Fruits&Vegetables", path: "/Fruits" },
+          { name: "Dairy", path: "/Dairy" },
+          { name: "Poultry", path: "/Poultry" },
+        ];
+        setNavLinks(navs);
+      }, []);
     // transition
     return (
         /*  dropdown */
+        
         <div className='container'>
             <div className="dropdown" id='dropdownProductCaltalog'>
-                <a className="btn btn-success dropdown-toggle btn-lg" href="/#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false" >
+                <a className="btn btn-success dropdown-toggle btn-lg" href="/ProductsCatalog" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false" >
                     Categories
                 </a>
 
-                <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <li><a className="dropdown-item" href="/#">Fruits</a></li>
-                    <li><a className="dropdown-item" href="/#">Vegetable</a></li>
-                    <li><a className="dropdown-item" href="/#">Dairy</a></li>
-                </ul>
+                <ul class="dropdown-menu dropdown-menu-end">
+              {navLinks.map((d, i) => (
+                <li key={i}>
+                  <Link to={d.path}>
+                    <button class="dropdown-item" type="button">
+                      {d.name}
+                    </button>
+                  </Link>
+                </li>
+              ))}
+            </ul>
             </div>
             {/* cards row 1  */}
             <div className="row row-1 row-cols-md-3 g-4" >
@@ -45,7 +61,7 @@ function ProductsCatalog() {
 
 
                     </div>
-                    <div className="card-body" id='rowProductCatalog' style={{ backgroundImage: `url(${cherry}` }}>
+                    <div className="card-body" id='rowProductCatalog'   style={{ backgroundImage: `url(${cherry}` }}>
 
                     </div >
                     <div className='col col-9 row-cols-md-3 g-4 ' id='product-catalog'>
@@ -66,8 +82,8 @@ function ProductsCatalog() {
 
                     </div>
                     <div className='col col-9 row-cols-md-3 g-4 ' id='product-catalog'>
-                        <h3 className="card-title">Banana</h3>
-                        <p className="card-text">Price:</p>
+                        <h3 className="card-title-catalog">Banana</h3>
+                        <p className="card-text-catalog">Price:</p>
                     </div>
                 </div>
                 {/* card3 */}
@@ -80,8 +96,8 @@ function ProductsCatalog() {
 
                     </div>
                     <div className='col col-9 row-cols-md-3 g-4 ' id='product-catalog'>
-                        <h3 className="card-title">Melone</h3>
-                        <p className="card-text">Price:</p>
+                        <h3 className="card-title-catalog">Melone</h3>
+                        <p className="card-text-catalog">Price:</p>
                     </div>
                 </div>
                 {/* card4 */}
@@ -94,8 +110,8 @@ function ProductsCatalog() {
 
                     </div>
                     <div className='col col-9 row-cols-md-3 g-4 ' id='product-catalog'>
-                        <h3 className="card-title">Orange</h3>
-                        <p className="card-text">Price:</p>
+                        <h3 className="card-title-catalog">Orange</h3>
+                        <p className="card-text-catalog">Price:</p>
                     </div>
                 </div>
 
@@ -112,8 +128,8 @@ function ProductsCatalog() {
 
                     </div>
                     <div className='col col-9 row-cols-md-3 g-4 ' id='product-catalog'>
-                        <h3 className="card-title">Pomegranade</h3>
-                        <p className="card-text">Price:</p>
+                        <h3 className="card-title-catalog">Pomegranade</h3>
+                        <p className="card-text-catalog">Price:</p>
                     </div>
                 </div>
                 {/* card2 */}
@@ -126,8 +142,8 @@ function ProductsCatalog() {
 
                     </div>
                     <div className='col col-9 row-cols-md-3 g-4 ' id='product-catalog'>
-                        <h3 className="card-title">Fig</h3>
-                        <p className="card-text">Price:</p>
+                        <h3 className="card-title-catalog">Fig</h3>
+                        <p className="card-text-catalog">Price:</p>
                     </div>
                 </div>
                 {/* card3 */}
@@ -140,8 +156,8 @@ function ProductsCatalog() {
 
                     </div>
                     <div className='col col-9 row-cols-md-3 g-4 ' id='product-catalog'>
-                        <h3 className="card-title">Lemon</h3>
-                        <p className="card-text">Price:</p>
+                        <h3 className="card-title-catalog">Lemon</h3>
+                        <p className="card-text-catalog">Price:</p>
                     </div>
                 </div>
                 {/* card4 */}
@@ -154,8 +170,8 @@ function ProductsCatalog() {
 
                     </div>
                     <div className='col col-9 row-cols-md-3 g-4 ' id='product-catalog'>
-                        <h3 className="card-title">Lingonberry</h3>
-                        <p className="card-text">Price:</p>
+                        <h3 className="card-title-catalog">Lingonberry</h3>
+                        <p className="card-text-catalog">Price:</p>
                     </div>
                 </div>
 
@@ -173,8 +189,8 @@ function ProductsCatalog() {
 
                     </div>
                     <div className='col col-9 row-cols-md-3 g-4 ' id='product-catalog'>
-                        <h3 className="card-title">Grapes</h3>
-                        <p className="card-text">Price:</p>
+                        <h3 className="card-title-catalog">Grapes</h3>
+                        <p className="card-text-catalog">Price:</p>
                     </div>
                 </div>
                 {/* card2 */}
@@ -187,8 +203,8 @@ function ProductsCatalog() {
 
                     </div>
                     <div className='col col-9 row-cols-md-3 g-4 ' id='product-catalog'>
-                        <h3 className="card-title">Rasberries</h3>
-                        <p className="card-text">Price:</p>
+                        <h3 className="card-title-catalog">Rasberries</h3>
+                        <p className="card-text-catalog">Price:</p>
                     </div>
                 </div>
                 {/* card3 */}
@@ -201,8 +217,8 @@ function ProductsCatalog() {
 
                     </div>
                     <div className='col col-9 row-cols-md-3 g-4 ' id='product-catalog'>
-                        <h3 className="card-title">Apples</h3>
-                        <p className="card-text">Price:</p>
+                        <h3 className="card-title-catalog">Apples</h3>
+                        <p className="card-text-catalog">Price:</p>
                     </div>
                 </div>
                 {/* card4 */}
@@ -215,8 +231,8 @@ function ProductsCatalog() {
 
                     </div>
                     <div className='col col-9 row-cols-md-3 g-4 ' id='product-catalog'>
-                        <h3 className="card-title">Cucamber</h3>
-                        <p className="card-text">Price:</p>
+                        <h3 className="card-title-catalog">Cucamber</h3>
+                        <p className="card-text-catalog">Price:</p>
                     </div>
                 </div>
 
@@ -235,8 +251,8 @@ function ProductsCatalog() {
 
                     </div>
                     <div className='col col-9 row-cols-md-3 g-4 ' id='product-catalog'>
-                        <h3 className="card-title">Watermelone</h3>
-                        <p className="card-text">Price:</p>
+                        <h3 className="card-title-catalog">Watermelone</h3>
+                        <p className="card-text-catalog">Price:</p>
                     </div>
                 </div>
                 {/* card2 */}
@@ -249,8 +265,8 @@ function ProductsCatalog() {
 
                     </div>
                     <div className='col col-9 row-cols-md-3 g-4 ' id='product-catalog'>
-                        <h3 className="card-title">Peach</h3>
-                        <p className="card-text">Price:</p>
+                        <h3 className="card-title-catalog">Peach</h3>
+                        <p className="card-text-catalog">Price:</p>
                     </div>
                 </div>
                 {/* card3 */}
@@ -263,8 +279,8 @@ function ProductsCatalog() {
 
                     </div>
                     <div className='col col-9 row-cols-md-3 g-4 ' id='product-catalog'>
-                        <h3 className="card-title">Currantfruit</h3>
-                        <p className="card-text">Price:</p>
+                        <h3 className="card-title-catalog">Currantfruit</h3>
+                        <p className="card-text-catalog">Price:</p>
                     </div>
                 </div>
                 {/* card4 */}

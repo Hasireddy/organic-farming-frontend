@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from "../assets/logo.png"; 
+import logo from "../assets/logo.png";
 import { NavLink, Outlet } from 'react-router-dom';
 import About from './ABOUT-PAGE/About';
 import { Link } from "react-scroll";
@@ -12,13 +12,13 @@ const Navbar = ({ isAuthenticated, logOut }) => {
   return (
     <div id='navBarContainer'>
       <nav className='navbar navbar-expand-lg navbar-light bg-light'>
-      <a className="navbar-brand" href="/">
+        {/* <a className="navbar-brand" href="/">
           <img src={moon} alt="" width="40px" height="40px" className="d-inline-block align-text-center" />
-        </a> 
-      <Toggle/>
+        </a>
+        <Toggle />
         <a className="navbar-brand" href="/">
           <img src={sun} alt="" width="40px" height="40px" className="d-inline-block align-text-center" />
-        </a>
+        </a> */}
         <a className="navbar-brand" href="/">
           <img src={logo} alt="" width="70px" height="70px" className="d-inline-block align-text-center" />
         </a>
@@ -56,6 +56,9 @@ const Navbar = ({ isAuthenticated, logOut }) => {
                   <li className='nav-item'>
                     <NavLink to="/Login" className='nav-link' onClick={logOut} style={{ cursor: 'pointer' }}>Logout</NavLink>
                   </li>
+                  <li className='nav-item'>
+                    <NavLink to="/Dashboard" className='nav-link'>Dashboard</NavLink>
+                  </li>
                 </>
               ) : (
                 <>
@@ -74,9 +77,7 @@ const Navbar = ({ isAuthenticated, logOut }) => {
                   <li className='nav-item'>
                     <NavLink to="/Login" className='nav-link'>Farmer's Login</NavLink>
                   </li>
-                  <li className='nav-item'>
-                    <NavLink to="/Dashboard" className='nav-link'>Dashboard</NavLink>
-                  </li>
+
                 </>
               )
             }

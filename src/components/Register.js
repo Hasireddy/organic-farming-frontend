@@ -17,24 +17,25 @@ const Register = () => {
             password,
             address,
             postcode,
+            countrycode
         },
         setFormState,
     ] = useState({
-        firstname1: "",
         firstname: "",
         lastname: "",
         email: "",
         password: "",
         address: "",
         postcode: "",
+        countrycode: ""
     });
 
-    const diffToast = () => {
-        toast.success("Registration Successful", {
-            position: "bottom-center",
-            autoClose: 3000,
-        });
-    };
+    // const diffToast = () => {
+    //     toast.success("Registration Successful", {
+    //         position: "bottom-center",
+    //         autoClose: 3000,
+    //     });
+    // };
 
 
     const handleChange = e => setFormState(prev => ({ ...prev, [e.target.id]: e.target.value }));
@@ -64,7 +65,8 @@ const Register = () => {
                     email,
                     password,
                     address,
-                    postcode
+                    postcode,
+                    countrycode
                 })
             });
             const { token, error } = await res.json();
@@ -79,9 +81,10 @@ const Register = () => {
                     progress: undefined,
                 });
                 //Start clearing values in form once the data is inserted in Database
-                setFormState((prev) => ({ ...prev, firstname: '', lastname: '', email: '', password: '', address: '', postcode: '' }));
+                setFormState((prev) => ({ ...prev, firstname: '', lastname: '', email: '', password: '', address: '', postcode: '', countrycode: '' }));
                 //End clearing values in form once the data is inserted in Database
-                return localStorage.setItem('registrationtoken', token);
+                return;
+                // return localStorage.setItem('registrationtoken', token);
 
             }
             if (error) {
@@ -128,13 +131,14 @@ const Register = () => {
 
                     <div className="col-9">
                         <br />
-                        <form onSubmit={handleSubmit}>
+                        <form onSubmit={handleSubmit} >
                             <input className="form-control form-control-sm" type="text" placeholder="Firstname" aria-label=".form-control-sm" id='firstname' value={firstname} onChange={handleChange}></input><br />
                             <input className="form-control form-control-sm" type="text" placeholder="LastName" aria-label=".form-control-sm" id='lastname' value={lastname} onChange={handleChange}></input><br />
                             <input className="form-control form-control-sm" type="email" placeholder="Email" aria-label=".form-control-sm" id='email' name="email" value={email} onChange={handleChange}></input><br />
                             <input className="form-control form-control-sm" type="password" placeholder="Password" aria-label=".form-control-sm" id='password' value={password} onChange={handleChange}></input><br />
                             <input className="form-control form-control-sm" type="text" placeholder="Address" aria-label=".form-control-sm" id='address' value={address} onChange={handleChange}></input><br />
                             <input className="form-control form-control-sm" type="text" placeholder="Postcode" aria-label=".form-control-sm" id='postcode' value={postcode} onChange={handleChange}></input><br />
+                            <input className="form-control form-control-sm" type="text" placeholder="Countrycode" aria-label=".form-control-sm" id='countrycode' value={countrycode} onChange={handleChange}></input><br />
                             <div className="row">
                                 <div className="col text-left">
                                     <button type="submit" className="registerbtn">Register</button>
