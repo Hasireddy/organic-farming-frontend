@@ -1,180 +1,123 @@
 import React from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { useState, useEffect } from "react";
-import Image001 from "../assets/832_7-300x300.jpg";
-import Image002 from "../assets/watermelone.jpg";
-import Image003 from "../assets/promo-3.jpg";
-import UploadAndDisplayImage from "./UploadAddDisplayImage";
+import axios from 'axios';
+
+const Dashboard = ({ isAuthenticated, farmertoken }) => {
+  // if (isAuthenticated) { return <Navigate to='/Dashboard' /> }
+  // console.log(isAuthenticated, farmertoken);
+  const [products, setProducts] = useState(null);
+
+  useEffect(() => {
+    getFarmerProducts()
+  }, [farmertoken]);
+
+  const getFarmerProducts = async e => {
+    try {
+
+      // e.preventDefault();
+      console.log('here');
+      const res = await fetch("http://localhost:5000/auth/getProductsByFarmerId", {
+        method: "GET",
+        headers: {
+          authorization: farmertoken //farmertoken is logintoken
+        },
+      });
+      const { farmerProducts, error } = await res.json();
+      console.log(farmerProducts.length);
+      if (farmerProducts.length > 0) {
+        toast.success("Products retrieved successfully.", {
+          position: "bottom-center",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        setProducts(farmerProducts);
+      }
+      if (error) {
+        return toast.error(error, {
+          position: "bottom-center",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      }
 
 
-const Dashboard = (props) => { 
+    } catch (error) {
+      toast.error(error.message, {
+        position: "bottom-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+  };
 
-const [{productName, description, category, image}, getAllImages] = useState({
-  ProductName: '',
-  Iescription: '',
-  Category: '',
-  Image: {}
-});
+  const updateProduct = () => {
+    axios.put(
+      'http://localhost:5000/details',
+      {
+        headers: {
+          authorization: farmertoken,
+        },
+      }
+    );
 
+  }
 
-   return (  
-   <>
-  <div className="row row-cols-1 row-cols-md-3 g-4">
-  <div className="col">
-    <div className="card h-100" class="shadow p-3 mb-5 bg-body rounded">
-      <img src={Image001}  className="card-img-top" alt="picture of salad leaf" />
-      <div className="card-body">
-        <h5 className="card-title fw-bold">Apple</h5>
-        <p className="card-text">This is a wider card with supporting text below</p>
+  const deleteProduct = () => {
+    axios.delete(
+      'http://localhost:5000/details',
+      {
+        headers: {
+          authorization: farmertoken,
+        },
+      }
+    );
+
+  }
+
+  return (
+    <>
+      < div className="container">
+        <h1>Welcome to your Homepage </h1>
+        <a class="button" href="/Details">Add Product</a>
+        {
+          products ? (products.map(item =>
+            < div className="row">
+
+              <div className="col">
+
+                <div className="card h-100" class="shadow p-3 mb-5 bg-body rounded">
+
+                  <img src={"http://localhost:5000/" + item.Image.path} className="card-img-top" alt="salad leaf" style={{ width: "100px", height: "100px" }} />
+                  <div className="card-body">
+                    <h5 className="card-title fw-bold">{item.ProductName}</h5>
+                    <p className="card-text">{item.Description}</p>
+                  </div>
+                  <div className="card-footer bg-success">
+                    <a href="#" className="text-white">Read More</a>
+                    <button>Update</button>
+                    <button>Delete</button>
+                  </div>
+                </div>
+              </div>
+            </div>)) : (<div><h1>No Prodcuts found</h1></div>)
+        }
+
       </div>
-      <div className="card-footer bg-success">
-        <a href="#" className="text-white">Read More</a>
-      </div>
-    </div>
-  </div>
-  <div className="col">
-    <div className="card h-100" class="shadow p-3 mb-5 bg-body rounded">
-      <img src={Image002} className="card-img-top" alt="image of Watermelone" />
-      <div className="card-body">
-        <h5 className="card-title fw-bold">Watermelone</h5>
-        <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-      </div>
-      <div className="card-footer bg-success">
-        <a href="#" className="text-white">Read More</a>
-      </div>
-    </div>
-  </div>
-  <div className="col">
-    <div className="card h-100" class="shadow p-3 mb-5 bg-body rounded">
-      <img src={Image003} className="card-img-top" alt="image of clementina" />
-      <div className="card-body">
-        <h5 className="card-title fw-bold">Clementina</h5>
-        <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-      </div>
-      <div className="card-footer bg-success">
-        <a href="#" className="text-white">Read More</a>
-      </div>
-    </div>
-  </div>
-  <div className="col">
-    <div className="card h-100" class="shadow p-3 mb-5 bg-body rounded">
-      <img src={Image003} className="card-img-top" alt="image of clementina" />
-      <div className="card-body">
-        <h5 className="card-title fw-bold">Clementina</h5>
-        <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-      </div>
-      <div className="card-footer bg-success">
-        <a href="#" className="text-white">Read More</a>
-      </div>
-    </div>
-  </div>
-</div>
-<div className="row row-cols-1 row-cols-md-3 g-4">
-  <div className="col">
-    <div className="card h-100" class="shadow p-3 mb-5 bg-body rounded">
-      <img src={Image001}  className="card-img-top" alt="picture of salad leaf" />
-      <div className="card-body">
-        <h5 className="card-title fw-bold">Salad</h5>
-        <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-      </div>
-      <div className="card-footer bg-success">
-        <a href="#" className="text-white">Read More</a>
-      </div>
-    </div>
-  </div>
-  <div className="col">
-    <div className="card h-100" class="shadow p-3 mb-5 bg-body rounded">
-      <img src={Image002} className="card-img-top" alt="image of Watermelone" />
-      <div className="card-body">
-        <h5 className="card-title fw-bold">Watermelone</h5>
-        <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-      </div>
-      <div className="card-footer bg-success">
-        <a href="#" className="text-white">Read More</a>
-      </div>
-    </div>
-  </div>
-  <div className="col">
-    <div className="card h-100" class="shadow p-3 mb-5 bg-body rounded">
-      <img src={Image003} className="card-img-top" alt="image of clementina" />
-      <div className="card-body">
-        <h5 className="card-title fw-bold">Clementina</h5>
-        <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-      </div>
-      <div className="card-footer bg-success">
-        <a href="#" className="text-white">Read More</a>
-      </div>
-    </div>
-  </div>
-  <div className="col">
-    <div className="card h-100" class="shadow p-3 mb-5 bg-body rounded">
-      <img src={Image003} className="card-img-top" alt="image of clementina" />
-      <div className="card-body">
-        <h5 className="card-title fw-bold">Clementina</h5>
-        <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-      </div>
-      <div className="card-footer bg-success">
-        <a href="#" className="text-white">Read More</a>
-      </div>
-    </div>
-  </div>
-</div>
-<div className="row row-cols-1 row-cols-md-3 g-4">
-  <div className="col">
-    <div className="card h-100" class="shadow p-3 mb-5 bg-body rounded">
-      <img src={Image001}  className="card-img-top" alt="picture of salad leaf" />
-      <div className="card-body">
-        <h5 className="card-title fw-bold">Salad</h5>
-        <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-      </div>
-      <div className="card-footer bg-success">
-        <a href="#" className="text-white">Read More</a>
-      </div>
-    </div>
-  </div>
-  <div className="col">
-    <div className="card h-100" class="shadow p-3 mb-5 bg-body rounded">
-      <img src={Image002} className="card-img-top" alt="image of Watermelone" />
-      <div className="card-body">
-        <h5 className="card-title fw-bold">Watermelone</h5>
-        <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-      </div>
-      <div className="card-footer bg-success">
-        <a href="#" className="text-white">Read More</a>
-      </div>
-    </div>
-  </div>
-  <div className="col">
-    <div className="card h-100" class="shadow p-3 mb-5 bg-body rounded">
-      <img src={Image003} className="card-img-top" alt="image of clementina" />
-      <div className="card-body">
-        <h5 className="card-title fw-bold">Clementina</h5>
-        <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-      </div>
-      <div className="card-footer bg-success">
-        <a href="#" className="text-white">Read More</a>
-      </div>
-    </div>
-  </div>
-  <div className="col">
-    <div className="card h-100" class="shadow p-3 mb-5 bg-body rounded">
-      
-      <div> {<UploadAndDisplayImage />} </div>
-      <div className="card-body">
-      <textarea className="textField" >
-          <h5>Description</h5>
-        </textarea>
-        <h5 className="card-title fw-bold">Clementina</h5>
-        <textarea className="textField" >
-          Description
-        </textarea>
-      </div>
-      <div className="card-footer bg-success">
-        <a href="#" className="text-white">Read More</a>
-      </div>
-    </div>
-  </div>
-</div>
-</>
+    </>
 
   )
 };

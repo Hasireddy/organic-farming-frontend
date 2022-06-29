@@ -4,18 +4,12 @@
     justify-content: center;
     gap: 5rem;
     height: 35vh;
-    margin-top: 4rem;
+    margin-top: -2rem;
  
-  
-  
-   
     background: url(./imges/grapeleave-rigtToleft.jpg) 0 0 repeat;
     background-repeat: no-repeat;
     background-position: left top -29rem;
-    z-index: 3;
-   
-   
-   
+    z-index: 3; 
 
   }
   .achievement {
@@ -70,7 +64,7 @@
     top: 9rem;
     left: 0;
   }
-  /* .blur {
+   .blur {
     position: absolute;
     width: 22rem;
     height: 14rem;
@@ -81,12 +75,12 @@
     top: -18%;
     left: 56%;
     filter: blur(52px);
-  } */
+  } 
   @media screen and (max-width: 680px) {
     .experience {
       transform: scale(1.3);
       margin-bottom: -10rem; 
-      margin-top: 5rem;
+      margin-top: 1rem;
     }
   }
   

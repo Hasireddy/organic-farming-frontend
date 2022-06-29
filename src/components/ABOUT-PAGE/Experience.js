@@ -1,5 +1,5 @@
 import React from 'react'
-import { themeContext } from "./Context";
+//import { themeContext } from "./Context";
 import "./Experience.css";
 
 function Experience() {

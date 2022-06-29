@@ -1,13 +1,12 @@
 import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import image from "../assets/fattoria-banner-1.jpg";
 import image1 from "../assets/farmer.jpg";
-
 import '../App.css';
 
-
-const Register = () => {
+const Register = ({ isAuthenticated, setIsAuthenticated, setFarmerToken }) => {
 
     const [
         {
@@ -15,6 +14,7 @@ const Register = () => {
             lastname,
             email,
             password,
+            farmName,
             address,
             postcode,
             countrycode
@@ -25,6 +25,7 @@ const Register = () => {
         lastname: "",
         email: "",
         password: "",
+        farmName: "",
         address: "",
         postcode: "",
         countrycode: ""
@@ -37,14 +38,14 @@ const Register = () => {
     //     });
     // };
 
-
+    const nav = useNavigate()
     const handleChange = e => setFormState(prev => ({ ...prev, [e.target.id]: e.target.value }));
 
     const handleSubmit = async e => {
         console.log('Hello');
         try {
             e.preventDefault();
-            if (!firstname || !lastname || !email || !password || !address || !postcode) return toast.error('Please enter all Fields!', {
+            if (!firstname || !lastname || !email || !password || !farmName || !address || !postcode) return toast.error('Please enter all Fields!', {
                 position: "bottom-center",
                 autoClose: 3000,
                 hideProgressBar: false,
@@ -64,6 +65,7 @@ const Register = () => {
                     lastname,
                     email,
                     password,
+                    farmName,
                     address,
                     postcode,
                     countrycode
@@ -80,10 +82,13 @@ const Register = () => {
                     draggable: true,
                     progress: undefined,
                 });
+                localStorage.setItem('logintoken', token);
+                setFarmerToken(token)
+                setIsAuthenticated(true)
                 //Start clearing values in form once the data is inserted in Database
-                setFormState((prev) => ({ ...prev, firstname: '', lastname: '', email: '', password: '', address: '', postcode: '', countrycode: '' }));
+                setFormState((prev) => ({ ...prev, firstname: '', lastname: '', email: '', password: '', farmName: '', address: '', postcode: '', countrycode: '' }));
                 //End clearing values in form once the data is inserted in Database
-                return;
+                return nav('/Dashboard')
                 // return localStorage.setItem('registrationtoken', token);
 
             }
@@ -120,7 +125,7 @@ const Register = () => {
     //         .then((results) => console.log(results))
     //         .catch((err) => console.log(err));
     // }, [])
-
+    // if (isAuthenticated) { return <Navigate to='/Dashboard' /> }
     return (
         <>
             <div className="container" style={{ backgroundImage: `url(${image}` }}>
@@ -134,8 +139,10 @@ const Register = () => {
                         <form onSubmit={handleSubmit} >
                             <input className="form-control form-control-sm" type="text" placeholder="Firstname" aria-label=".form-control-sm" id='firstname' value={firstname} onChange={handleChange}></input><br />
                             <input className="form-control form-control-sm" type="text" placeholder="LastName" aria-label=".form-control-sm" id='lastname' value={lastname} onChange={handleChange}></input><br />
-                            <input className="form-control form-control-sm" type="email" placeholder="Email" aria-label=".form-control-sm" id='email' name="email" value={email} onChange={handleChange}></input><br />
-                            <input className="form-control form-control-sm" type="password" placeholder="Password" aria-label=".form-control-sm" id='password' value={password} onChange={handleChange}></input><br />
+                            <input autoComplete="off" className="form-control form-control-sm" type="email" placeholder="Email" aria-label=".form-control-sm" id='email' name="email" value={email} onChange={handleChange}></input><br />
+                            <input autoComplete="new-password"
+                                className="form-control form-control-sm" type="password" placeholder="Password" aria-label=".form-control-sm" id='password' value={password} onChange={handleChange}></input><br />
+                            <input className="form-control form-control-sm" type="text" placeholder="FarmName" aria-label=".form-control-sm" id='farmName' value={farmName} onChange={handleChange}></input><br />
                             <input className="form-control form-control-sm" type="text" placeholder="Address" aria-label=".form-control-sm" id='address' value={address} onChange={handleChange}></input><br />
                             <input className="form-control form-control-sm" type="text" placeholder="Postcode" aria-label=".form-control-sm" id='postcode' value={postcode} onChange={handleChange}></input><br />
                             <input className="form-control form-control-sm" type="text" placeholder="Countrycode" aria-label=".form-control-sm" id='countrycode' value={countrycode} onChange={handleChange}></input><br />
@@ -144,7 +151,7 @@ const Register = () => {
                                     <button type="submit" className="registerbtn">Register</button>
                                 </div>
                                 <div className="container signin">
-                                    <p>Already have an account? <a href="/#">Sign in</a>.</p>
+                                    <p>Already have an account? <a href="/Login">Sign in</a>.</p>
                                 </div>
                             </div>
                         </form>
