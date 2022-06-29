@@ -1,19 +1,30 @@
 import React from "react";
+import { useState, useEffect } from "react";
 import Image001 from "../assets/832_7-300x300.jpg";
 import Image002 from "../assets/watermelone.jpg";
 import Image003 from "../assets/promo-3.jpg";
 import UploadAndDisplayImage from "./UploadAddDisplayImage";
 
-const Dashboard = () => {
-  return (  
+
+const Dashboard = (props) => { 
+
+const [{productName, description, category, image}, getAllImages] = useState({
+  ProductName: '',
+  Iescription: '',
+  Category: '',
+  Image: {}
+});
+
+
+   return (  
    <>
   <div className="row row-cols-1 row-cols-md-3 g-4">
   <div className="col">
     <div className="card h-100" class="shadow p-3 mb-5 bg-body rounded">
       <img src={Image001}  className="card-img-top" alt="picture of salad leaf" />
       <div className="card-body">
-        <h5 className="card-title fw-bold">Salad</h5>
-        <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+        <h5 className="card-title fw-bold">Apple</h5>
+        <p className="card-text">This is a wider card with supporting text below</p>
       </div>
       <div className="card-footer bg-success">
         <a href="#" className="text-white">Read More</a>
@@ -149,8 +160,13 @@ const Dashboard = () => {
       
       <div> {<UploadAndDisplayImage />} </div>
       <div className="card-body">
+      <textarea className="textField" >
+          <h5>Description</h5>
+        </textarea>
         <h5 className="card-title fw-bold">Clementina</h5>
-        <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+        <textarea className="textField" >
+          Description
+        </textarea>
       </div>
       <div className="card-footer bg-success">
         <a href="#" className="text-white">Read More</a>
@@ -164,7 +180,3 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
-
-
-
-

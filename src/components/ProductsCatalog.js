@@ -1,5 +1,5 @@
 import React from 'react';
-import Products from '../components/ProductsCatalog.css'
+// import Products from '../components/ProductsCatalog.css'
 import fig from '../assets/fruits/fig.jpg'
 import orange from '../assets/orange-300x300.jpg'
 import cucamber from '../assets/cucumber.jpg'

@@ -16,6 +16,7 @@ import { themeContext } from "./components/ABOUT-PAGE/Context";
 import { useContext } from "react";
 
 
+
 function App() {
   const theme = useContext(themeContext);
   const darkMode = theme.state.darkMode;
@@ -74,7 +75,7 @@ function App() {
         <Route path='/Dashboard' element={<Dashboard isAuthenticated={isAuthenticated} />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
-      {<Footer />}
+    {<Footer />}
     </div >
 
   );

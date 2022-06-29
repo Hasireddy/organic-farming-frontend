@@ -1,11 +1,12 @@
 import React from 'react';
 import logo from "../assets/logo.png";
-import { NavLink, Outlet } from 'react-router-dom';
-import About from './ABOUT-PAGE/About';
-import { Link } from "react-scroll";
-import Toggle from './ABOUT-PAGE/Toggle';
-import sun from '../components/ABOUT-PAGE/imges/sun-icon.png'
-import moon from '../components/ABOUT-PAGE/imges/moon-icon.png'
+import { NavLink} from 'react-router-dom';
+// import About from './ABOUT-PAGE/About';
+// import { Link } from "react-scroll";
+// import Toggle from './ABOUT-PAGE/Toggle';
+// import sun from '../components/ABOUT-PAGE/imges/sun-icon.png'
+// import moon from '../components/ABOUT-PAGE/imges/moon-icon.png'
+
 
 
 const Navbar = ({ isAuthenticated, logOut }) => {

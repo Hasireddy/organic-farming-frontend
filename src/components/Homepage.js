@@ -1,7 +1,7 @@
 
 import Header from './Header';
 import MyMap from './Maps';
-import ProductsCatalog from './ProductsCatalog';
+// import ProductsCatalog from './ProductsCatalog';
 
 
 import { ToastContainer, toast } from "react-toastify";
