@@ -28,27 +28,30 @@ const MyMap = () => {
 
     async function getFarmers() {
         try {
-            const res = await fetch("http://localhost:5000/posts");
+            const res = await fetch("http://localhost:5000/details");
             const data = await res.json();
-            console.log(data);
+            // console.log(data);
             let locations = {};
             if (data.length > 0) {
                 locations = data.map((item) => {
                     return {
-                        type: "Feature",
+                        type: "Feature1",
                         geometry: {
                             type: "Point",
                             coordinates: [
-                                item.location.coordinates[0],
-                                item.location.coordinates[1],
+                                item.farmer.location.coordinates[0],
+                                item.farmer.location.coordinates[1],
                             ],
                         },
                         properties: {
-                            farmerName: item.firstname + " " + item.lastname,
-                            searchItems: item.firstname + item.address + item.postcode, // product name, 
+                            farmName: item.farmer.farmName,//label for displaying
+                            farmerName: item.farmer.firstname + " " + item.farmer.lastname,//Label for displaying.
+                            searchItems: item.farmer.farmName + item.farmer.address + item.farmer.postcode + item.ProductName + item.Category + item.Description,
                             //icon: 'shop',
-                            address: item.address,
+                            address: item.farmer.address,
+                            uniqfarmName: item.farmer.farmName,
                         },
+
                     };
                 });
             } else {
@@ -117,7 +120,7 @@ const MyMap = () => {
                     layout: {
                         // "icon-image": "{icon}-15",
                         // "icon-size": 1,
-                        "text-field": "{farmerName}",
+                        "text-field": "{farmName}",
                         "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
                         "text-offset": [0, 0.9],
                         "text-anchor": "top",
@@ -125,38 +128,46 @@ const MyMap = () => {
                         "icon-size": 1,
                     },
 
+
                 });
             });
-            renderListings(locations);
+            renderListings(locations); //To display search box initially without mouse movement
         });
-        ////
+        //Search code starts
+
         const filterEl = document.getElementById('feature-filter');
         const listingEl = document.getElementById('feature-listing');
         function renderListings(locations) {
+            // console.log(locations);
+            const key = 'uniqfarmName';
+            const _uniqlocations = [...new Map(locations.map(item => [item.properties[key], item])).values()];// [...new Set(locations.map(item => item.properties.farmName))];;
+            // console.log(_uniqlocations);
             const empty = document.createElement('p');
             // Clear any existing listings
             listingEl.innerHTML = '';
-            if (locations.length) {
-                for (const feature of locations) {
-                    const itemLink = document.createElement('a');
-                    const label = `${feature.properties.farmerName} (${feature.properties.address})`;
-                    itemLink.href = '';//feature.properties.wikipedia;
-                    itemLink.target = ''//'_blank';
+            if (_uniqlocations.length) {
+                for (const feature of _uniqlocations) {
+                    const itemLink = document.createElement('p');
+                    const label = `${feature.properties.farmName} (${feature.properties.address})`;
+                    // itemLink.href = '';//feature.properties.wikipedia;
+                    // itemLink.target = ''//'_blank';
                     itemLink.textContent = label;
-                    itemLink.addEventListener('mouseover', () => {
-                        // Highlight corresponding feature on the map
-                        popup
-                            .setLngLat(feature.geometry.coordinates)
-                            .setHTML(`<h5>${feature.properties.farmerName} \n ${feature.properties.address}<h5/>`)
-                            //.setText(label)
-                            .addTo(mapbox);
-                    });
+                    itemLink.style.cursor = "pointer"
+                    // itemLink.addEventListener('mouseover', () => {
+                    //     // mapbox.getCanvas().style.cursor = 'pointer';
+                    //     // Highlight corresponding feature on the map
+                    //     popup
+                    //         .setLngLat(feature.geometry.coordinates)
+                    //         .setHTML(`<h5>${feature.properties.farmName} \n ${feature.properties.address}<h5/>`)
+                    //         //.setText(label)
+                    //         .addTo(mapbox);
+                    // });
                     listingEl.appendChild(itemLink);
                 }
 
                 // Show the filter input
                 filterEl.parentNode.style.display = 'block';
-            } else if (locations.length === 0 && filterEl.value !== '') {
+            } else if (_uniqlocations.length === 0 && filterEl.value !== '') {
                 empty.textContent = 'No results found';
                 listingEl.appendChild(empty);
             } else {
@@ -193,11 +204,14 @@ const MyMap = () => {
             mapbox.setFilter('points', ['has', 'searchItems']);
         });
         mapbox.on('moveend', () => {
-            const tempfeatures = mapbox.queryRenderedFeatures({ layers: ['points'] });
+            //  console.log('rendering locations');
 
+            const tempfeatures = mapbox.queryRenderedFeatures({ layers: ['points'] });
+            // console.log(tempfeatures);
             if (tempfeatures) {
                 const uniqueFeatures = getUniqueFeatures(tempfeatures, 'searchItems');
                 // Populate features for the listing overlay.
+                // console.log(uniqueFeatures);
                 renderListings(uniqueFeatures);
 
                 // Clear the input container
@@ -216,7 +230,7 @@ const MyMap = () => {
             const tempfeature = e.features[0];
             popup
                 .setLngLat(tempfeature.geometry.coordinates)
-                .setHTML(`<h5>${tempfeature.properties.farmerName} \n ${tempfeature.properties.address}<h5/>`)
+                .setHTML(`<h5>${tempfeature.properties.farmName} \n ${tempfeature.properties.address}<h5/>`)
                 // .setText(
                 //     `${tempfeature.properties.farmerName} 'here' (${tempfeature.properties.address})`
                 // )
@@ -239,6 +253,7 @@ const MyMap = () => {
             for (const feature of locations) {
                 const name = normalize(feature.properties.searchItems);
                 const code = normalize(feature.properties.address);
+
                 if (name.includes(value) || code.includes(value)) {
                     filtered.push(feature);
                 }
@@ -269,6 +284,7 @@ const MyMap = () => {
             // Copy coordinates array.
             const coordinates = e.features[0].geometry.coordinates.slice();
             const address = e.features[0].properties.address;
+            const farmName = e.features[0].properties.farmName;
 
             // Ensure that if the map is zoomed out such that multiple
             // copies of the feature are visible, the popup appears
@@ -279,7 +295,7 @@ const MyMap = () => {
 
             new mapboxgl.Popup()
                 .setLngLat(coordinates)
-                .setHTML(`<h5>${address}<h5/>`)
+                .setHTML(`<h5>${address} \n ${address}<h5/>`)
                 .addTo(mapbox);
         });
 
@@ -302,8 +318,8 @@ const MyMap = () => {
     }
     return (
         <div ><h1 className="dispaly-4 text-center">
-            <i className="fas fa-map-marked mr-4"></i>Farmer Locator</h1>
-            <div style={{ display: "flex" }}>
+            <i className="fas fa-map-marked mr-4"></i>FARM/PRODUCT LOCATOR</h1>
+            <div style={{ display: "flex", border: "1px solid green", borderRadius: "4px" }}>
                 <br />
                 <div id="map">
                     {/* <div className="sidebar">
@@ -315,12 +331,14 @@ const MyMap = () => {
                 </div>
                 <div className="map-overlay">
                     <fieldset>
-                        <input id="feature-filter" type="text" placeholder="Enter your location" />
+                        <input id="feature-filter" type="text" placeholder="Search here" />
                     </fieldset>
                     <div id="feature-listing" className="listing"></div>
                 </div>
 
             </div >
+
+            <br />
         </div>
 
     );

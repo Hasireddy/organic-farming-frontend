@@ -1,11 +1,11 @@
 import '../App.css';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Navigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
-const Login = () => {
+const Login = ({ setFarmerToken, isAuthenticated, setIsAuthenticated }) => {
 
     const nav = useNavigate();
     const [{ email, password }, setFormState] = useState({
@@ -48,8 +48,9 @@ const Login = () => {
                     progress: undefined,
                 });
                 localStorage.setItem('logintoken', token);
-                nav("/");
-                return window.location.reload();
+                setFarmerToken(token)
+                setIsAuthenticated(true)
+                return nav("/Dashboard");
             }
             if (error) {
                 return toast.error(error, {
@@ -77,7 +78,7 @@ const Login = () => {
         }
     };
 
-
+    // if (isAuthenticated) { return <Navigate to='/Dashboard' /> };
     return (
         <>
             <div className="containerLogin">

@@ -1,13 +1,12 @@
 import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import image from "../assets/fattoria-banner-1.jpg";
 import image1 from "../assets/farmer.jpg";
-
 import '../App.css';
 
-
-const Register = () => {
+const Register = ({ isAuthenticated, setIsAuthenticated, setFarmerToken }) => {
 
     const [
         {
@@ -39,7 +38,7 @@ const Register = () => {
     //     });
     // };
 
-
+    const nav = useNavigate()
     const handleChange = e => setFormState(prev => ({ ...prev, [e.target.id]: e.target.value }));
 
     const handleSubmit = async e => {
@@ -83,10 +82,13 @@ const Register = () => {
                     draggable: true,
                     progress: undefined,
                 });
+                localStorage.setItem('logintoken', token);
+                setFarmerToken(token)
+                setIsAuthenticated(true)
                 //Start clearing values in form once the data is inserted in Database
                 setFormState((prev) => ({ ...prev, firstname: '', lastname: '', email: '', password: '', farmName: '', address: '', postcode: '', countrycode: '' }));
                 //End clearing values in form once the data is inserted in Database
-                return;
+                return nav('/Dashboard')
                 // return localStorage.setItem('registrationtoken', token);
 
             }
@@ -123,7 +125,7 @@ const Register = () => {
     //         .then((results) => console.log(results))
     //         .catch((err) => console.log(err));
     // }, [])
-
+    // if (isAuthenticated) { return <Navigate to='/Dashboard' /> }
     return (
         <>
             <div className="container" style={{ backgroundImage: `url(${image}` }}>
@@ -149,7 +151,7 @@ const Register = () => {
                                     <button type="submit" className="registerbtn">Register</button>
                                 </div>
                                 <div className="container signin">
-                                    <p>Already have an account? <a href="/#">Sign in</a>.</p>
+                                    <p>Already have an account? <a href="/Login">Sign in</a>.</p>
                                 </div>
                             </div>
                         </form>
