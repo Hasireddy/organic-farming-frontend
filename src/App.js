@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Route, Routes, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import Navbar from './components/Navbar';
-import FruitsAndVegetables from './components/Fruits';
 import Homepage from './components/Homepage';
 import Register from './components/Register';
 import Footer from './components/Footer';
@@ -12,12 +11,12 @@ import Details from './components/Details';
 import ProductsCatalog from './components/ProductsCatalog';
 import About from './components/ABOUT-PAGE/About';
 import NotFound from './components/NotFound';
-// import React, { useContext } from "react";
+
 import { themeContext } from "./components/ABOUT-PAGE/Context";
-import { useContext } from "react";
+
 import Dairy from './components/Dairy';
 import Poultry from './components/Poultry'
-
+import FruitsAndVegetables from './components/Fruits';
 
 
 function App() {

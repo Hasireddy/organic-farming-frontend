@@ -1,5 +1,5 @@
-import React, { useContext } from "react";
-import { themeContext } from "./Context";
+//import React, { useContext } from "react";
+//import { themeContext } from "./Context";
 import Experience from "./Experience";
 import Works from "./Works";
 import "./About.css";
@@ -10,14 +10,14 @@ function About() {
     <div className="About " >
       <br />
 <Experience />
- <Works />
+
 
       <div className='weAre'>
         <h1>WE ARE WEB DEVELOPERS FROM WBS-CODING-SCHOOL</h1>
         <br />
         <h3>We dedicated our project to encourge people to healthy lifestyle!</h3>
       </div>
-
+ <Works />
     </div>
 
 

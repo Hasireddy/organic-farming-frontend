@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
- //import Products from '../components/ProductsCatalog.css'
+//import Products from '../components/ProductsCatalog.css'
 import fig from '../assets/fruits/fig.jpg'
 import orange from '../assets/orange-300x300.jpg'
 import cucamber from '../assets/cucumber.jpg'
@@ -24,7 +24,7 @@ function ProductsCatalog() {
     const [navLinks, setNavLinks] = useState([]);
     useEffect(() => {
         const navs = [
-       /*    { name: "Our Products", path: "/Products" },  */
+      
           { name: "Fruits&Vegetables", path: "/Fruits" },
           { name: "Dairy", path: "/Dairy" },
           { name: "Poultry", path: "/Poultry" },
