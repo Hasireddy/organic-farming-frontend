@@ -10,17 +10,15 @@ import Dashboard from "./components/Dashboard";
 import Login from "./components/Login";
 import Details from "./components/Details";
 import Products from "./components/ProductsCatalog";
-import About from "./components/ABOUT-PAGE/About";
+// import About from "./components/ABOUT-PAGE/About";
 import MyMap from "./components/Maps";
 import NotFound from "./components/NotFound";
 // import React, { useContext } from "react";
-import { themeContext } from "./components/ABOUT-PAGE/Context";
-import { useContext } from "react";
+
 
 
 function App() {
-  const theme = useContext(themeContext);
-  const darkMode = theme.state.darkMode;
+
 
   const [isAuthenticated, setIsAuthenticated] = useState("false");
   const [farmertoken, setFarmerToken] = useState(
@@ -71,7 +69,7 @@ function App() {
       <Navbar isAuthenticated={isAuthenticated} logOut={logOut} />
       <Routes>
         <Route path="/" element={<Homepage />} />
-        <Route path="/About" element={<About />} />
+        {/* <Route path="/About" element={<About />} /> */}
         <Route path="/Register" element={<Register isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} setFarmerToken={setFarmerToken} />} />
         <Route path="/Products" element={<Products />} />
         <Route path="/Login" element={<Login isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} setFarmerToken={setFarmerToken} />} />

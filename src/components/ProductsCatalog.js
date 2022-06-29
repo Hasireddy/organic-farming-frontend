@@ -24,25 +24,20 @@ const Products = () => {
         <>
 
             <div className='container'>
-                <div className="dropdown" id='dropdownProductCaltalog'>
-                    <a className="btn btn-success dropdown-toggle btn-lg" href="/ProductsCatalog" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false" >
-                        Categories
-                    </a>
-
-                    {/* <ul class="dropdown-menu dropdown-menu-end">
-                    {navLinks.map((d, i) => (
-                        <li key={i}>
-                            <Link to={d.path}>
-                                <button class="dropdown-item" type="button">
-                                    {d.name}
-                                </button>
-                            </Link>
-                        </li>
-                    ))}
-                </ul> */}
-
-                    <a href="/Maps">Click here to search for nearby Farms</a>
+                <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                        Dropdown
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <li><a class="dropdown-item" href="#">All Products</a></li>
+                        <li><a class="dropdown-item" href="#">Fruits</a></li>
+                        <li><a class="dropdown-item" href="#">Vegetables</a></li>
+                        <li><a class="dropdown-item" href="#">Dairy Products</a></li>
+                    </ul>
                 </div>
+
+                <a href="/Maps">Click here to search for nearby Farms</a>
+
                 {/* cards row 1  */}
                 <div className="row row-1 row-cols-md-3 g-4" >
                     {allProducts ? (allProducts.map(item =>
@@ -70,6 +65,7 @@ const Products = () => {
                     }
                 </div>
             </div>
+
         </>
 
     )

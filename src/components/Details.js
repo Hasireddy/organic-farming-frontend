@@ -169,8 +169,8 @@ const Details = ({ isAuthenticated }) => {
                                 aria-label=".form-control-sm"
                                 id="Category"
                                 value={Category}
-                                onChange={handleChange}
-                            ></input>
+                                onChange={handleChange}>
+                            </input>
                             <br />
 
                             <input

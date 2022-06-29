@@ -25,8 +25,8 @@ const Dashboard = ({ isAuthenticated, farmertoken }) => {
         },
       });
       const { farmerProducts, error } = await res.json();
-      console.log(farmerProducts.length);
-      if (farmerProducts.length > 0) {
+
+      if (farmerProducts) {
         toast.success("Products retrieved successfully.", {
           position: "bottom-center",
           autoClose: 3000,
@@ -76,17 +76,54 @@ const Dashboard = ({ isAuthenticated, farmertoken }) => {
 
   }
 
-  const deleteProduct = () => {
-    axios.delete(
-      'http://localhost:5000/details',
-      {
-        headers: {
-          authorization: farmertoken,
-        },
-      }
-    );
+  const deleteProduct = async (id) => {
 
-  }
+    // console.log(id)
+    // axios.delete(
+    //   `http://localhost:5000/auth/deleteProductByFIdPId/${id}`,
+    //   {
+    //     headers: {
+    //       authorization: farmertoken,
+    //     },
+    //   }
+    // );
+
+    const res = await fetch(`http://localhost:5000/auth/deleteProductByFIdPId/${id}`, {
+      method: "delete",
+      headers: {
+        authorization: farmertoken //farmertoken is logintoken
+      },
+    });
+    const { success, error } = await res.json();
+    console.log(success);
+    if (success) {
+      toast.success("success", {
+        position: "bottom-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+      // getFarmerProducts();
+      // setProducts(farmerProducts);
+      window.location.reload(false);
+    }
+    if (error) {
+      return toast.error(error, {
+        position: "bottom-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+
+
+  };
 
   return (
     <>
@@ -107,9 +144,10 @@ const Dashboard = ({ isAuthenticated, farmertoken }) => {
                     <p className="card-text">{item.Description}</p>
                   </div>
                   <div className="card-footer bg-success">
-                    <a href="#" className="text-white">Read More</a>
+                    <a href="#" className="text-white">Read More
+                    </a>
                     <button>Update</button>
-                    <button>Delete</button>
+                    <button onClick={async () => { await deleteProduct(item._id); }}>Delete</button>
                   </div>
                 </div>
               </div>
@@ -117,6 +155,7 @@ const Dashboard = ({ isAuthenticated, farmertoken }) => {
         }
 
       </div>
+      <ToastContainer />
     </>
 
   )
