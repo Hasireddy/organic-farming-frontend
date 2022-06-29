@@ -9,8 +9,8 @@ function About() {
   return (
     <div className="About " >
       <br />
-<Experience />
-
+      <Experience />
+      <Works />
 
       <div className='weAre'>
         <h1>WE ARE WEB DEVELOPERS FROM WBS-CODING-SCHOOL</h1>
