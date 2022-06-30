@@ -22,6 +22,7 @@ const Details = ({ isAuthenticated }) => {
         Image: null
     });
 
+
     const handleChange = (e) =>
         setFormState((prev) => ({ ...prev, [e.target.id]: e.target.value }));
 
@@ -162,7 +163,7 @@ const Details = ({ isAuthenticated }) => {
                                 onChange={handleChange}
                             ></input>
                             <br />
-                            <input
+                            {/* <input
                                 className="form-control form-control-sm"
                                 type="text"
                                 placeholder="Category"
@@ -170,9 +171,22 @@ const Details = ({ isAuthenticated }) => {
                                 id="Category"
                                 value={Category}
                                 onChange={handleChange}>
-                            </input>
-                            <br />
+                            </input> */}
 
+                            <select
+                                name="category-list"
+                                id="Category"
+                                className="form-select-lg form-control "
+                                style={{ padding: "7px" }}
+                                onChange={handleChange}
+                            >
+                                <option value="">Select</option>
+                                <option value="Fruits">Fruits</option>
+                                <option value="Vegetables">Vegetables</option>
+                                <option value="DairyProd">Dairy Products</option>
+                            </select>
+
+                            <br />
                             <input
                                 type="file"
                                 id="Image"
