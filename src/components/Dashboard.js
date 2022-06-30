@@ -123,7 +123,3 @@ const Dashboard = ({ isAuthenticated, farmertoken }) => {
 };
 
 export default Dashboard;
-
-
-
-
