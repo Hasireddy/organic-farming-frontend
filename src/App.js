@@ -22,7 +22,6 @@ import FarmerContact from "./components/FarmerContact";
 function App() {
   
 
-
   const [isAuthenticated, setIsAuthenticated] = useState("false");
   const [farmertoken, setFarmerToken] = useState(
     localStorage.getItem("logintoken")

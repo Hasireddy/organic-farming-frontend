@@ -28,6 +28,19 @@ const Products = () => {
                     <a className="btn btn-success dropdown-toggle btn-lg" href="/ProductsCatalog" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false" >
                         Categories
                     </a>
+
+                    {/* <ul class="dropdown-menu dropdown-menu-end">
+                    {navLinks.map((d, i) => (
+                        <li key={i}>
+                            <Link to={d.path}>
+                                <button class="dropdown-item" type="button">
+                                    {d.name}
+                                </button>
+                            </Link>
+                        </li>
+                    ))}
+                </ul> */}
+
                     <a href="/Maps">Click here to search for nearby Farms</a>
                 </div>
                 {/* cards row 1  */}
