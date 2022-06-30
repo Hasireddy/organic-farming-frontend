@@ -2,7 +2,8 @@ import React from "react";
 import "../components/About.css";
 import Uma from '../assets/uma.png';
 import Isaiah from '../assets/isaiah.jpeg';
-import Ercan from '../assets/logo.png';
+import Ercan from '../assets/ercan4.jpg';
+
 
 const About = () => {
   return (
@@ -28,6 +29,7 @@ const About = () => {
             </div>
             <div className="institute font-weight-bold">WBS Coding School</div>
             <div className="addressAbout font-weight-bold">Berlin, Germany</div>
+            <div className="linkedIn font-weight-bold">https://www.linkedin.com/in/umamaheswari</div>
             <br></br>
             <div className="card-text">
               <strong>Passion</strong>: This is a longer card with supporting
@@ -51,6 +53,7 @@ const About = () => {
             </div>
             <div className="institute font-weight-bold">WBS Coding School</div>
             <div className="addressAbout font-weight-bold">Berlin, Germany</div>
+            <div className="linkedIn font-weight-bold">https://www.linkedin.com/in/ercan-yanmaz</div>
             <br></br>
             <div className="card-text">
               <strong>Passion</strong>: This is a longer card with supporting
@@ -74,6 +77,7 @@ const About = () => {
             </div>
             <div className="institute font-weight-bold">WBS Coding School</div>
             <div className="addressAbout font-weight-bold">Berlin, Germany</div>
+            <div className="linkedIn font-weight-bold">https://www.linkedin.com/in/umukoroisaiah</div>
             <br></br>
             <div className="card-text">
               <strong>Passion</strong>: This is a longer card with supporting

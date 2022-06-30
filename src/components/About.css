@@ -57,5 +57,9 @@
 #ercanPic{
     border-radius: 50%;
     background-color: white;
-    width: 200px;
+    width: 220px;
+}
+
+.linkedIn{
+    color:blue
 }
