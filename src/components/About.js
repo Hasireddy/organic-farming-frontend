@@ -15,9 +15,9 @@ const About = () => {
       </div>
       <div className="card-deck">
 
-        <div className="card" id="cardAbout">
+        <div className="card mb-4" id="cardAbout">
           <div>
-            <img className="card-img-top" id="umaPic" src={Uma} alt="Card image cap" />
+            <img className="card-img-top img-fluid" id="umaPic" src={Uma} alt="Card image cap" />
           </div>
           <div className="card-body" id="cardBody">
             <div className="card-title" id="aboutTitle1">
@@ -28,8 +28,8 @@ const About = () => {
               Fullstack Web & App Developer
             </div>
             <div className="institute font-weight-bold">WBS Coding School</div>
-            <div className="addressAbout font-weight-bold">Berlin, Germany</div>
-            <div className="linkedIn font-weight-bold">https://www.linkedin.com/in/umamaheswari</div>
+            <div className="addressAbout font-weight-bold">Berlin, Germany</div><br></br>
+            <a href="https://www.linkedin.com/in/malikireddyuma/" className="linkedIn font-weight-bold"><i className="bi bi-linkedin"></i></a>
             <br></br>
             <div className="card-text">
               <strong>Passion</strong>: This is a longer card with supporting
@@ -41,7 +41,7 @@ const About = () => {
 
         <div className="card" id="cardAbout">
           <div>
-            <img className="card-img-top" id="ercanPic" src={Ercan} alt="Card image cap" />
+            <img className="card-img-top img-fluid" id="ercanPic" src={Ercan} alt="Card image cap" />
           </div>
           <div className="card-body">
             <div className="card-title" id="aboutTitle2">
@@ -52,8 +52,8 @@ const About = () => {
               Fullstack Web & App Developer
             </div>
             <div className="institute font-weight-bold">WBS Coding School</div>
-            <div className="addressAbout font-weight-bold">Berlin, Germany</div>
-            <div className="linkedIn font-weight-bold">https://www.linkedin.com/in/ercan-yanmaz</div>
+            <div className="addressAbout font-weight-bold">Berlin, Germany</div><br></br>
+            <a href="https://www.linkedin.com/in/ercan-yanmaz-425232234/" className="linkedIn font-weight-bold"><i className="bi bi-linkedin"></i></a>
             <br></br>
             <div className="card-text">
               <strong>Passion</strong>: This is a longer card with supporting
@@ -65,7 +65,7 @@ const About = () => {
 
         <div className="card" id="cardAbout">
           <div>
-            <img className="card-img-top" id="isaiahPic" src={Isaiah} alt="Card image cap" />
+            <img className="card-img-top img-fluid" id="isaiahPic" src={Isaiah} alt="Card image cap" />
           </div>
           <div className="card-body">
             <div className="card-title" id="aboutTitle3">
@@ -76,8 +76,8 @@ const About = () => {
               Fullstack Web & App Developer
             </div>
             <div className="institute font-weight-bold">WBS Coding School</div>
-            <div className="addressAbout font-weight-bold">Berlin, Germany</div>
-            <div className="linkedIn font-weight-bold">https://www.linkedin.com/in/umukoroisaiah</div>
+            <div className="addressAbout font-weight-bold">Berlin, Germany</div><br></br>
+            <a href="https://www.linkedin.com/in/isaiah-umukoro-387a8523a/" className="linkedIn font-weight-bold"><i className="bi bi-linkedin"></i></a>
             <br></br>
             <div className="card-text">
               <strong>Passion</strong>: This is a longer card with supporting
@@ -86,9 +86,7 @@ const About = () => {
             </div>
           </div>
         </div>
-
-
-        
+  
         
       </div>
     </div>

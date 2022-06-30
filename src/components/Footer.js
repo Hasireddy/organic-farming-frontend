@@ -3,6 +3,8 @@ import "./Footer.css";
 import "../assets/Facebook.png";
 import logo from "../assets/logo.png";
 
+
+
 function Footer() {
   return (
     <div>
@@ -72,12 +74,12 @@ function Footer() {
                     aria-label="Recipient's username"
                     aria-describedby="button-addon2"
                   />
-                  <button
+                  <button 
                     className="btnFooter btn-outline-secondary btn-lg"
                     type="button"
                     id="button-addon2"
                     btn-sm
-                  >
+                    >
                     Submit
                   </button>
                 </div>

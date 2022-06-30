@@ -3,6 +3,8 @@
     border-radius: 10px;
     box-shadow: 3px 5px 10px #bda4a4;
     padding-top: 25px;
+    margin-left: 75px !important;
+    margin-right: 75px !important;
 }
 
 
@@ -48,7 +50,7 @@
 
 #isaiahPic{
     border-radius: 50%;
-    width: 210px;
+    width: 200px;
     height: 200px;
     padding-top: 20px;
     background-color: white;
@@ -57,9 +59,13 @@
 #ercanPic{
     border-radius: 50%;
     background-color: white;
-    width: 220px;
+    width: 200px;
 }
 
 .linkedIn{
     color:blue
 }
+
+bi{
+    font-size: 5px;
+} 
