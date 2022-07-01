@@ -20,6 +20,7 @@ const MyMap = () => {
     useEffect(() => {
 
         getFarmers();
+
         if (!mapbox.current) return; // wait for map to initialize
         mapbox.current.on("move", () => {
             setLng(mapbox.current.getCenter().lng.toFixed(4));
@@ -72,16 +73,18 @@ const MyMap = () => {
 
             loadMap(locations);
 
-        } catch (error) {
-            toast.error(error.message, {
-                position: "bottom-center",
-                autoClose: 3000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-            });
+        }
+        catch (error) {
+            console.log("maps.js error", error);
+            // toast.error(error.message, {
+            //     position: "bottom-center",
+            //     autoClose: 3000,
+            //     hideProgressBar: false,
+            //     closeOnClick: true,
+            //     pauseOnHover: true,
+            //     draggable: true,
+            //     progress: undefined,
+            // });
         }
     }
     function loadMap(locations) {

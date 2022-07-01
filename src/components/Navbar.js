@@ -8,13 +8,6 @@ const Navbar = ({ isAuthenticated, logOut }) => {
   return (
     <div id='navBarContainer'>
       <nav className='navbar navbar-expand-lg navbar-light bg-light'>
-        {/* <a className="navbar-brand" href="/">
-          <img src={moon} alt="" width="40px" height="40px" className="d-inline-block align-text-center" />
-        </a>
-        <Toggle />
-        <a className="navbar-brand" href="/">
-          <img src={sun} alt="" width="40px" height="40px" className="d-inline-block align-text-center" />
-        </a> */}
         <a className="navbar-brand" href="/">
           <img src={logo} alt="" width="70px" height="70px" className="d-inline-block align-text-center" />
         </a>
@@ -37,16 +30,8 @@ const Navbar = ({ isAuthenticated, logOut }) => {
             {
               localStorage.getItem('logintoken') ? (
                 <>
-                  {/* <li className='nav-item'>
-                    <NavLink to="/" className='nav-link'>Home</NavLink>
-                  </li>
-                  <li className='nav-item'>
-                    <NavLink to="/About" className='nav-link'>About</NavLink>
-                  </li> 
-                    <li className='nav-item'>
-                      <NavLink to="/Products" className='nav-link'>All Products</NavLink>
-                    </li> */
-                  }
+
+
                   <li className='nav-item'>
                     <NavLink to="/Dashboard" className='nav-link'>Dashboard</NavLink>
                   </li>
@@ -54,6 +39,8 @@ const Navbar = ({ isAuthenticated, logOut }) => {
                   <li className="nav-item">
                     <NavLink to="/Details" className='nav-link'>Add Product</NavLink>
                   </li>
+
+
                   <li className='nav-item'>
                     <NavLink to="/Login" className='nav-link' onClick={logOut} style={{ cursor: 'pointer' }}>Logout</NavLink>
                   </li>

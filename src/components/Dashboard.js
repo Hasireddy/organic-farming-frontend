@@ -2,12 +2,16 @@ import React from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useState, useEffect } from "react";
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { toBeInTheDocument } from "@testing-library/jest-dom/dist/matchers";
+import Update from './Update.js';
 
 const Dashboard = ({ isAuthenticated, farmertoken }) => {
   // if (isAuthenticated) { return <Navigate to='/Dashboard' /> }
   // console.log(isAuthenticated, farmertoken);
   const [products, setProducts] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     getFarmerProducts()
@@ -64,29 +68,9 @@ const Dashboard = ({ isAuthenticated, farmertoken }) => {
     }
   };
 
-  const updateProduct = () => {
-    axios.put(
-      'http://localhost:5000/details',
-      {
-        headers: {
-          authorization: farmertoken,
-        },
-      }
-    );
 
-  }
 
   const deleteProduct = async (id) => {
-
-    // console.log(id)
-    // axios.delete(
-    //   `http://localhost:5000/auth/deleteProductByFIdPId/${id}`,
-    //   {
-    //     headers: {
-    //       authorization: farmertoken,
-    //     },
-    //   }
-    // );
 
     const res = await fetch(`http://localhost:5000/auth/deleteProductByFIdPId/${id}`, {
       method: "delete",
@@ -124,7 +108,10 @@ const Dashboard = ({ isAuthenticated, farmertoken }) => {
 
 
   };
+  const UpdateProduct = async (id) => {
 
+    navigate('/Update', { state: { id: id, farmertoken: farmertoken } });
+  };
   return (
     <>
       < div className="container">
@@ -144,9 +131,9 @@ const Dashboard = ({ isAuthenticated, farmertoken }) => {
                     <p className="card-text">{item.Description}</p>
                   </div>
                   <div className="card-footer bg-success">
-                    <a href="#" className="text-white">Read More
+                    <a href="#" className="text-white">Read More:{item._id}
                     </a>
-                    <button>Update</button>
+                    <button onClick={async () => { await UpdateProduct(item._id); }}>Update</button>
                     <button onClick={async () => { await deleteProduct(item._id); }}>Delete</button>
                   </div>
                 </div>

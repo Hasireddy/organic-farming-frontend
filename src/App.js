@@ -9,6 +9,7 @@ import Footer from "./components/Footer";
 import Dashboard from "./components/Dashboard";
 import Login from "./components/Login";
 import Details from "./components/Details";
+import Update from "./components/Update";
 import Products from "./components/ProductsCatalog";
 // import About from "./components/ABOUT-PAGE/About";
 import MyMap from "./components/Maps";
@@ -83,6 +84,12 @@ function App() {
           element={<Dashboard isAuthenticated={isAuthenticated} farmertoken={farmertoken} />}
         />
         <Route path="*" element={<NotFound />} />
+        <Route
+          path="/Update"
+          element={<Update isAuthenticated={isAuthenticated} farmertoken={farmertoken} />}
+        />
+        <Route path="*" element={<NotFound />} />
+
 
       </Routes>
       {<Footer />}
