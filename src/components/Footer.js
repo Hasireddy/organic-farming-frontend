@@ -4,8 +4,9 @@ import "../assets/Facebook.png";
 import logo from "../assets/logo.png";
 
 
-
+ 
 function Footer() {
+
   return (
     <div>
       <footer>
@@ -73,15 +74,16 @@ function Footer() {
                     placeholder="Enter email address"
                     aria-label="Recipient's username"
                     aria-describedby="button-addon2"
-                  />
+                    />
                   <button 
-                    className="btnFooter btn-outline-secondary btn-lg"
+                    className="btnFooter btn-outline-success btn-lg"
                     type="button"
                     id="button-addon2"
                     btn-sm
-                    >
+                  >
                     Submit
                   </button>
+                 
                 </div>
                 </ul>
             </div>
