@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Navbar from "./components/Navbar";
-
+import About from "./components/About";
 import Homepage from "./components/Homepage";
 import Register from "./components/Register";
 import Footer from "./components/Footer";
@@ -11,7 +11,8 @@ import Login from "./components/Login";
 import Details from "./components/Details";
 import Update from "./components/Update";
 import Products from "./components/ProductsCatalog";
-// import About from "./components/ABOUT-PAGE/About";
+import FarmerContact from './components/FarmerContact';
+import SingleProduct from './components/SingleProduct';
 import MyMap from "./components/Maps";
 import NotFound from "./components/NotFound";
 // import React, { useContext } from "react";
@@ -19,7 +20,6 @@ import NotFound from "./components/NotFound";
 
 
 function App() {
-
 
   const [isAuthenticated, setIsAuthenticated] = useState("false");
   const [farmertoken, setFarmerToken] = useState(
@@ -31,7 +31,7 @@ function App() {
   useEffect(() => {
     const verifyLogin = async () => {
       console.log(farmertoken);
-      const res = await fetch("http://localhost:5000/auth/me", {
+      const res = await fetch(process.env.REACT_APP_SERVERURL + "auth/me", {
         headers: {
           Authorization: farmertoken,
         },
@@ -58,21 +58,18 @@ function App() {
 
   return (
     <div
-      className="App"
-    // style={{
-    //   background: darkMode ? "black" : "",
-    //   color: darkMode ? "white" : "",
-    // }}
-    >
+      className="App">
       {/* <Route path='/' element={<Navbar isAuthenticated={isAuthenticated} logOut={logOut} />} >
 
       </Route> */}
       <Navbar isAuthenticated={isAuthenticated} logOut={logOut} />
       <Routes>
         <Route path="/" element={<Homepage />} />
-        {/* <Route path="/About" element={<About />} /> */}
+        <Route path="/About" element={<About />} />
+        <Route path="/FarmerContact" element={<FarmerContact />} />
         <Route path="/Register" element={<Register isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} setFarmerToken={setFarmerToken} />} />
         <Route path="/Products" element={<Products />} />
+        <Route path="/Products/:id" element={<SingleProduct />} />
         <Route path="/Login" element={<Login isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} setFarmerToken={setFarmerToken} />} />
         <Route path="/Maps" element={<MyMap />} />
         <Route
@@ -83,16 +80,16 @@ function App() {
           path="/Dashboard"
           element={<Dashboard isAuthenticated={isAuthenticated} farmertoken={farmertoken} />}
         />
-        <Route path="*" element={<NotFound />} />
+
         <Route
           path="/Update"
           element={<Update isAuthenticated={isAuthenticated} farmertoken={farmertoken} />}
         />
         <Route path="*" element={<NotFound />} />
 
-
       </Routes>
-      {<Footer />}
+      <Footer />
+
     </div>
   );
 }

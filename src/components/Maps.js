@@ -32,7 +32,7 @@ const MyMap = () => {
     async function getFarmers() {
         try {
 
-            const res = await fetch("http://localhost:5000/details");
+            const res = await fetch(process.env.REACT_APP_SERVERURL + "details");
             const data = await res.json();
             console.log(data);
             let locations = {};

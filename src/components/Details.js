@@ -65,7 +65,7 @@ const Details = ({ isAuthenticated }) => {
             formData.append("Image", Image);
             console.log("formData", formData);
 
-            const res = await fetch("http://localhost:5000/details", {
+            const res = await fetch(process.env.REACT_APP_SERVERURL + "details", {
                 method: "POST",
                 headers: {
                     authorization: localStorage.getItem("logintoken"),

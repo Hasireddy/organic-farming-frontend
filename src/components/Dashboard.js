@@ -3,9 +3,10 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import { toBeInTheDocument } from "@testing-library/jest-dom/dist/matchers";
+
 import Update from './Update.js';
+
+// accessToken2.Dashboard = process.env.REACT_APP_LINK1; 
 
 const Dashboard = ({ isAuthenticated, farmertoken }) => {
   // if (isAuthenticated) { return <Navigate to='/Dashboard' /> }
@@ -22,7 +23,7 @@ const Dashboard = ({ isAuthenticated, farmertoken }) => {
 
       // e.preventDefault();
       console.log('here');
-      const res = await fetch("http://localhost:5000/auth/getProductsByFarmerId", {
+      const res = await fetch(process.env.REACT_APP_SERVERURL + 'auth/getProductsByFarmerId', {
         method: "GET",
         headers: {
           authorization: farmertoken //farmertoken is logintoken
@@ -72,7 +73,7 @@ const Dashboard = ({ isAuthenticated, farmertoken }) => {
 
   const deleteProduct = async (id) => {
 
-    const res = await fetch(`http://localhost:5000/auth/deleteProductByFIdPId/${id}`, {
+    const res = await fetch(process.env.REACT_APP_SERVERURL + `auth/deleteProductByFIdPId/${id}`, {
       method: "delete",
       headers: {
         authorization: farmertoken //farmertoken is logintoken
@@ -115,24 +116,28 @@ const Dashboard = ({ isAuthenticated, farmertoken }) => {
   return (
     <>
       < div className="container">
-        <h1>Welcome to your Homepage </h1>
-        <a class="button" href="/Details">Add Product</a>
+
         {
           products ? (products.map(item =>
             < div className="row">
 
               <div className="col">
-
+                <div>
+                  <h3 className="farmer">Welcome to your Homepage: </h3>
+                  <a class="button" href="/Details">Add Product</a>
+                </div>
                 <div className="card h-100" class="shadow p-3 mb-5 bg-body rounded">
 
-                  <img src={"http://localhost:5000/" + item.Image.path} className="card-img-top" alt="salad leaf" style={{ width: "100px", height: "100px" }} />
+                  <img src={process.env.REACT_APP_SERVERURL + item.Image.path} className="card-img-top" alt="salad leaf" style={{ width: "100px", height: "100px" }} />
                   <div className="card-body">
-                    <h5 className="card-title fw-bold">{item.ProductName}</h5>
+                    <h5 className="card-title fw-bold">{item.ProductName} {item.farmer.firstname}</h5>
                     <p className="card-text">{item.Description}</p>
+                    <p className="card-text">{item.Category}</p>
+                    <p className="card-text">{item.Price} euros</p>
                   </div>
                   <div className="card-footer bg-success">
-                    <a href="#" className="text-white">Read More:{item._id}
-                    </a>
+                    {/* <a href="#" className="text-white">Read More
+                    </a> */}
                     <button onClick={async () => { await UpdateProduct(item._id); }}>Update</button>
                     <button onClick={async () => { await deleteProduct(item._id); }}>Delete</button>
                   </div>
@@ -149,7 +154,3 @@ const Dashboard = ({ isAuthenticated, farmertoken }) => {
 };
 
 export default Dashboard;
-
-
-
-

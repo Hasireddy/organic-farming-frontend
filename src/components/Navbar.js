@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from "../assets/logo.png";
 import { NavLink, Link } from 'react-router-dom';
-// import About from './ABOUT-PAGE/About';
+
 
 
 const Navbar = ({ isAuthenticated, logOut }) => {
@@ -51,9 +51,9 @@ const Navbar = ({ isAuthenticated, logOut }) => {
                   <li className='nav-item'>
                     <NavLink to="/" className='nav-link'>Home</NavLink>
                   </li>
-                  {/* <li className='nav-item'>
+                  <li className='nav-item'>
                     <NavLink to="/About" className='nav-link'>About</NavLink>
-                  </li> */}
+                  </li>
                   <li className='nav-item'>
                     <NavLink to="/Products" className='nav-link'>Products</NavLink>
                   </li>
@@ -68,10 +68,10 @@ const Navbar = ({ isAuthenticated, logOut }) => {
               )
             }
 
-          </ul>
-        </div>
-      </nav>
-    </div>
+          </ul >
+        </div >
+      </nav >
+    </div >
   );
 };
 

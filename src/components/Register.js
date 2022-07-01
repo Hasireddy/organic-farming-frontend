@@ -55,7 +55,7 @@ const Register = ({ isAuthenticated, setIsAuthenticated, setFarmerToken }) => {
                 progress: undefined,
             });
 
-            const res = await fetch('http://localhost:5000/auth/register', {
+            const res = await fetch(process.env.REACT_APP_SERVERURL + 'auth/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -122,7 +122,7 @@ const Register = ({ isAuthenticated, setIsAuthenticated, setFarmerToken }) => {
 
 
     // useEffect(() => {
-    //     fetch('http://localhost:5000/posts')
+    //     fetch(process.env.REACT_APP_SERVERURL + 'posts')
     //         .then((res) => res.json())
     //         .then((results) => console.log(results))
     //         .catch((err) => console.log(err));

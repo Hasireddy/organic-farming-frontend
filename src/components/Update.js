@@ -40,15 +40,11 @@ const Update = ({ farmertoken, isAuthenticated }) => {
 
     const getProductDetails = async (ProductId) => {
 
-        let result = await fetch(`http://localhost:5000/details/${ProductId}`)
+        let result = await fetch(process.env.REACT_APP_SERVERURL + `details/${ProductId}`)
         result = await result.json();
         console.log(result);
-        setFormState({ ProductName: result.ProductName, Description: result.Description, Price: result.Price, Category: result.Category, Image: result.Image.path });
-        // setProductName(result.ProductName);
-        // setDescription(result.Description);
-        // setPrice(result.Price);
-        // setCategory(result.Category);
-        // setImage(result.Image);
+        setFormState({ ProductName: result.ProductName, Description: result.Description, Price: result.Price, Category: result.Category, Image: result.Image });
+
     };
 
     const handleChange = (e) => {
@@ -57,7 +53,9 @@ const Update = ({ farmertoken, isAuthenticated }) => {
     };
 
     const handleFile = (e) => {
-        console.log("e.target.files here", e.target.files[0]);
+        alert("filechange");
+        console.log("e.target.files[0]");
+        console.log(e.target.files[0]);
         setFormState((prev) => ({ ...prev, Image: e.target.files[0] }));
     };
     const handleSubmit = async (e) => {
@@ -95,7 +93,7 @@ const Update = ({ farmertoken, isAuthenticated }) => {
             formData.append("Image", Image);
             console.log("formData", formData);
 
-            const res = await fetch(`http://localhost:5000/auth/updateProductByFIdPId/${ProductId}`, {
+            const res = await fetch(process.env.REACT_APP_SERVERURL + `auth/updateProductByFIdPId/${ProductId}`, {
                 method: "PUT",
                 headers: {
                     authorization: farmertoken,//localStorage.getItem("logintoken"),
