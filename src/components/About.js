@@ -7,10 +7,11 @@ import Ercan from "../assets/ercan4.jpg";
 const About = () => {
   return (
     <div id="aboutCtn">
-      <div className="card mb-3">
-        <div className="card-body" id="cardHeader">
+      <h1 className="card-header">About Us</h1>
+      <div className="card-deck mb-3">
+        {/* <div className="card-body" id="cardHeader">
           <h1 className="card-header">About Us</h1>
-        </div>
+        </div> */}
       </div>
       <div className="card-deck">
         <div className="card mb-4" id="cardAbout">

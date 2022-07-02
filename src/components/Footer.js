@@ -67,7 +67,7 @@ function Footer() {
                   </li>
                 </div>
 
-                <div className="input-group mb-2">
+                {/* <div className="input-group mb-2">
                   <input
                     type="text"
                     className="form-control1"
@@ -84,7 +84,7 @@ function Footer() {
                     Submit
                   </button>
                  
-                </div>
+                </div> */}
               </ul>
             </div>
           </div>

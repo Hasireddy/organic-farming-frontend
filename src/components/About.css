@@ -43,7 +43,7 @@
     height: 200px;
     color: white;
     font-family: Times New Roman;
-    margin-bottom: 50px;
+    /* margin-bottom: 50px; */
     box-shadow: 3px 5px 10px #bda4a4;
     font-size: 75px;
 }
@@ -78,11 +78,11 @@
     display: flex;  
     flex-direction: column;
     margin-top: 75px;
-    margin-bottom: 75px;
     padding-top: 100px;
     padding-bottom: 100px;
-    box-shadow: 3px 5px 10px #bda4a4;
-    background-color: #41fc54 !important;
+    color:white;
+    /* font-weight: bold; */
+    letter-spacing: .1rem;
 }
 
 #textAreaFooter{
@@ -93,4 +93,14 @@
 .card-header{
     font-size: 75px;
     background: none;
+    background-color: rgb(13, 14, 13) !important;
+    color: white;
+    font-family: Times New Roman;
+    height: 200px;
+    padding-top: 45px;
+    margin-bottom: 200px;
+}
+
+.{
+    padding-top: 250px;
 }
