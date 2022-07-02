@@ -116,16 +116,16 @@ const Dashboard = ({ isAuthenticated, farmertoken }) => {
   return (
     <>
       < div className="container">
-
+        <div>
+          <h3 className="farmer">Welcome <b>{localStorage.getItem('farmername')}</b></h3>
+          <a class="button" href="/Details">Add Product</a>
+        </div>
         {
           products ? (products.map(item =>
-            < div className="row">
+            < div className="row" key={item._id}>
 
               <div className="col">
-                <div>
-                  <h3 className="farmer">Welcome to your Homepage: </h3>
-                  <a class="button" href="/Details">Add Product</a>
-                </div>
+
                 <div className="card h-100" class="shadow p-3 mb-5 bg-body rounded">
 
                   <img src={process.env.REACT_APP_SERVERURL + item.Image.path} className="card-img-top" alt="salad leaf" style={{ width: "100px", height: "100px" }} />

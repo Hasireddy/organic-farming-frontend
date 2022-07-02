@@ -15,7 +15,7 @@ import FarmerContact from './components/FarmerContact';
 import SingleProduct from './components/SingleProduct';
 import MyMap from "./components/Maps";
 import NotFound from "./components/NotFound";
-// import React, { useContext } from "react";
+
 
 
 
@@ -37,9 +37,11 @@ function App() {
         },
       });
       const data = await res.json();
-      // console.log(data);
+      // console.log('farmerdata');
+      // console.log(data.firstname + data.lastname);
       if (data.error) return toast.error(data.error);
       setUser(data);
+      localStorage.setItem('farmername', data.firstname + ' ' + data.lastname);
       setIsAuthenticated(true);
     };
 
@@ -47,9 +49,9 @@ function App() {
   }, [farmertoken]);
 
   const logOut = () => {
-    // alert("Logout Called from");
+
     localStorage.removeItem("logintoken");
-    // alert(localStorage.getItem('logintoken'));
+    localStorage.removeItem("farmer");
     setUser(null);
     setFarmerToken(null);
     setIsAuthenticated(false);
@@ -59,9 +61,7 @@ function App() {
   return (
     <div
       className="App">
-      {/* <Route path='/' element={<Navbar isAuthenticated={isAuthenticated} logOut={logOut} />} >
 
-      </Route> */}
       <Navbar isAuthenticated={isAuthenticated} logOut={logOut} />
       <Routes>
         <Route path="/" element={<Homepage />} />
