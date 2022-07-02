@@ -1,16 +1,26 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import image from "../assets/fattoria-banner-1.jpg";
 import image1 from "../assets/farmer.jpg";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "../App.css";
-import { Navigate } from 'react-router-dom';
 
+import { useParams, useLocation } from 'react-router-dom';
+// const navigate = useNavigate();
 
-const Details = ({ isAuthenticated }) => {
-    // alert('details pare');
-    // alert(isAuthenticated);
+const Update = ({ farmertoken, isAuthenticated }) => {
+    const location = useLocation();
     const ref = useRef();
+    // { location.updatedetails.id }
+    console.log("Product ID:")
+    console.log("Product ID:" + location.state.id)
+    const [ProductId, setProductId] = useState(location.state.id);
+
+    // const [ProductName, setProductName] = useState('');
+    // const [Description, setDescription] = useState('');
+    // const [Price, setPrice] = useState('');
+    // const [Category, setCategory] = useState('');
+    // const [Image, setImage] = useState('');
     const [
         { ProductName, Description, Price, Category, Image },
         setFormState,
@@ -22,12 +32,30 @@ const Details = ({ isAuthenticated }) => {
         Image: null
     });
 
+    useEffect(() => {
+        getProductDetails(ProductId);
+    }, [ProductId]);
 
-    const handleChange = (e) =>
+
+
+    const getProductDetails = async (ProductId) => {
+
+        let result = await fetch(process.env.REACT_APP_SERVERURL + `details/${ProductId}`)
+        result = await result.json();
+        console.log(result);
+        setFormState({ ProductName: result.ProductName, Description: result.Description, Price: result.Price, Category: result.Category, Image: result.Image });
+
+    };
+
+    const handleChange = (e) => {
+
         setFormState((prev) => ({ ...prev, [e.target.id]: e.target.value }));
+    };
 
     const handleFile = (e) => {
-        console.log("e.target.files here", e.target.files[0]);
+        alert("filechange");
+        console.log("e.target.files[0]");
+        console.log(e.target.files[0]);
         setFormState((prev) => ({ ...prev, Image: e.target.files[0] }));
     };
     const handleSubmit = async (e) => {
@@ -65,10 +93,10 @@ const Details = ({ isAuthenticated }) => {
             formData.append("Image", Image);
             console.log("formData", formData);
 
-            const res = await fetch(process.env.REACT_APP_SERVERURL + "details", {
-                method: "POST",
+            const res = await fetch(process.env.REACT_APP_SERVERURL + `auth/updateProductByFIdPId/${ProductId}`, {
+                method: "PUT",
                 headers: {
-                    authorization: localStorage.getItem("logintoken"),
+                    authorization: farmertoken,//localStorage.getItem("logintoken"),
                 },
                 body: formData,
             });
@@ -76,7 +104,7 @@ const Details = ({ isAuthenticated }) => {
             console.log(_id);
 
             if (_id) {
-                toast.success("Product added successfully.", {
+                toast.success("Product updated successfully.", {
                     position: "bottom-center",
                     autoClose: 3000,
                     hideProgressBar: false,
@@ -86,10 +114,10 @@ const Details = ({ isAuthenticated }) => {
                     progress: undefined,
                 });
                 //Start clearing values in form once the data is inserted in Database
-                setFormState((prev) => ({ ...prev, ProductName: "", Description: "", Price: "", Category: "", Image: "" }));
-                ref.current.value = "";
-                //End clearing values in form once the data is inserted in Database
-                return localStorage.setItem("ProdcutID", _id);
+                // setFormState((prev) => ({ ...prev, ProductName: "", Description: "", Price: "", Category: "", Image: "" }));
+                // ref.current.value = "";
+                // //End clearing values in form once the data is inserted in Database
+                // return localStorage.setItem("ProdcutID", _id);
 
             }
             if (error) {
@@ -124,8 +152,8 @@ const Details = ({ isAuthenticated }) => {
         <>
             <div className="container" style={{ backgroundImage: `url(${image}` }}>
                 <div className="row">
-                    <h1>Products</h1>
-                    <p>Please fill in this form to add a Product</p>
+
+                    <p>Update Product</p>
                     <hr />
                     <div className="col-8">
                         <br />
@@ -133,8 +161,8 @@ const Details = ({ isAuthenticated }) => {
                             <input
                                 className="form-control form-control-sm"
                                 type="text"
-                                title="Please 
-                            enter string"
+                                title="Please
+                                enter string"
                                 pattern="[a-zA-Z]*"
                                 placeholder="ProductName"
                                 aria-label=".form-control-sm"
@@ -165,15 +193,6 @@ const Details = ({ isAuthenticated }) => {
                                 onChange={handleChange}
                             ></input>
                             <br />
-                            {/* <input
-                                className="form-control form-control-sm"
-                                type="text"
-                                placeholder="Category"
-                                aria-label=".form-control-sm"
-                                id="Category"
-                                value={Category}
-                                onChange={handleChange}>
-                            </input> */}
 
                             <select
                                 name="category-list"
@@ -181,6 +200,7 @@ const Details = ({ isAuthenticated }) => {
                                 className="form-select-lg form-control "
                                 style={{ padding: "7px" }}
                                 onChange={handleChange}
+                                value={Category}
                             >
                                 <option value="">Select</option>
                                 <option value="Fruits">Fruits</option>
@@ -196,10 +216,10 @@ const Details = ({ isAuthenticated }) => {
                                 name={Image}
                                 ref={ref}
                             />
-                            {/* <button onClick={handleApi}>Upload</button> */}
+
                             <div className="row">
                                 <div className="col text-left">
-                                    <button type="submit" className="registerbtn">
+                                    <button type="submit" className="updatebtn">
                                         Submit
                                     </button>
                                 </div>
@@ -218,4 +238,4 @@ const Details = ({ isAuthenticated }) => {
     );
 };
 
-export default Details;
+export default Update;

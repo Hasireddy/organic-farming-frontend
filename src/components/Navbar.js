@@ -1,7 +1,6 @@
 import React from 'react';
 import logo from "../assets/logo.png";
-import { NavLink, Link} from 'react-router-dom';
-import About from './About';
+import { NavLink, Link } from 'react-router-dom';
 
 
 
@@ -9,7 +8,6 @@ const Navbar = ({ isAuthenticated, logOut }) => {
   return (
     <div id='navBarContainer'>
       <nav className='navbar navbar-expand-lg navbar-light bg-light'>
-        
         <a className="navbar-brand" href="/">
           <img src={logo} alt="" width="70px" height="70px" className="d-inline-block align-text-center" />
         </a>
@@ -32,14 +30,8 @@ const Navbar = ({ isAuthenticated, logOut }) => {
             {
               localStorage.getItem('logintoken') ? (
                 <>
-                  <li className='nav-item'>
-                    <NavLink to="/" className='nav-link'>Home</NavLink>
-                  </li>
-                   
-                    <li className='nav-item'>
-                      <NavLink to="/Products" className='nav-link'>All Products</NavLink>
-                    </li> 
-                
+
+
                   <li className='nav-item'>
                     <NavLink to="/Dashboard" className='nav-link'>Dashboard</NavLink>
                   </li>
@@ -47,6 +39,8 @@ const Navbar = ({ isAuthenticated, logOut }) => {
                   <li className="nav-item">
                     <NavLink to="/Details" className='nav-link'>Add Product</NavLink>
                   </li>
+
+
                   <li className='nav-item'>
                     <NavLink to="/Login" className='nav-link' onClick={logOut} style={{ cursor: 'pointer' }}>Logout</NavLink>
                   </li>
@@ -69,18 +63,15 @@ const Navbar = ({ isAuthenticated, logOut }) => {
                   <li className='nav-item'>
                     <NavLink to="/Login" className='nav-link'>Farmer's Login</NavLink>
                   </li>
-                  <li className='nav-item'>
-                    <NavLink to="/FarmerContact" className='nav-link'>Farmer's Contact</NavLink>
-                  </li>
 
                 </>
               )
             }
 
-          </ul>
-        </div>
-      </nav>
-    </div>
+          </ul >
+        </div >
+      </nav >
+    </div >
   );
 };
 

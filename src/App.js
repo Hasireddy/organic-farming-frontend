@@ -9,18 +9,17 @@ import Footer from "./components/Footer";
 import Dashboard from "./components/Dashboard";
 import Login from "./components/Login";
 import Details from "./components/Details";
+import Update from "./components/Update";
 import Products from "./components/ProductsCatalog";
+import FarmerContact from './components/FarmerContact';
+import SingleProduct from './components/SingleProduct';
 import MyMap from "./components/Maps";
 import NotFound from "./components/NotFound";
-import FarmerContact from "./components/FarmerContact";
-
-
-
+// import React, { useContext } from "react";
 
 
 
 function App() {
-  
 
   const [isAuthenticated, setIsAuthenticated] = useState("false");
   const [farmertoken, setFarmerToken] = useState(
@@ -32,7 +31,7 @@ function App() {
   useEffect(() => {
     const verifyLogin = async () => {
       console.log(farmertoken);
-      const res = await fetch("http://localhost:5000/auth/me", {
+      const res = await fetch(process.env.REACT_APP_SERVERURL + "auth/me", {
         headers: {
           Authorization: farmertoken,
         },
@@ -66,8 +65,11 @@ function App() {
       <Navbar isAuthenticated={isAuthenticated} logOut={logOut} />
       <Routes>
         <Route path="/" element={<Homepage />} />
+        <Route path="/About" element={<About />} />
+        <Route path="/FarmerContact" element={<FarmerContact />} />
         <Route path="/Register" element={<Register isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} setFarmerToken={setFarmerToken} />} />
         <Route path="/Products" element={<Products />} />
+        <Route path="/Products/:id" element={<SingleProduct />} />
         <Route path="/Login" element={<Login isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} setFarmerToken={setFarmerToken} />} />
         <Route path="/Maps" element={<MyMap />} />
         <Route
@@ -78,12 +80,16 @@ function App() {
           path="/Dashboard"
           element={<Dashboard isAuthenticated={isAuthenticated} farmertoken={farmertoken} />}
         />
+
+        <Route
+          path="/Update"
+          element={<Update isAuthenticated={isAuthenticated} farmertoken={farmertoken} />}
+        />
         <Route path="*" element={<NotFound />} />
 
       </Routes>
-      {<About />}
-      {<FarmerContact />}
-      {<Footer />}
+      <Footer />
+
     </div>
   );
 }

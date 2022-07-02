@@ -9,7 +9,7 @@ const About = () => {
     <div id="aboutCtn">
       <div className="card mb-3">
         <div className="card-body" id="cardHeader">
-          <h1 className="card-title">About Us</h1>
+          <h1 className="card-header">About Us</h1>
         </div>
       </div>
       <div className="card-deck">
@@ -24,7 +24,7 @@ const About = () => {
           </div>
           <div className="card-body" id="cardBody">
             <div className="card-title" id="aboutTitle1">
-              Uma M. Malikireddy
+              Uma Maheswari Malikireddy
             </div>
             <br></br>
             <div className="skill font-weight-bold " value="address">
@@ -119,7 +119,7 @@ const About = () => {
         </div>
       </div>
       <div className="textAreaContainer">
-        <h2 className="text-left">Organic Farming</h2>
+        <h2 className="text-center">Organic Farming</h2>
       <div className="text-left" id="textAreaFooter">
       In 2019, 34.110 farms (12.9 per cent of all German farms) met the
           requirements qualifying them as organic farms. The amount of farmland

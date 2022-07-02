@@ -9,6 +9,7 @@ import img1 from "../assets/mapbox-marker-icon-20px-blue.png";
 mapboxgl.accessToken = process.env.REACT_APP_TOKEN;
 
 const MyMap = () => {
+
     const mapContainer = useRef(null);
     const mapbox = useRef(null);
     const [lng, setLng] = useState(11.3861);
@@ -17,7 +18,9 @@ const MyMap = () => {
 
     // Initialize map when component mounts
     useEffect(() => {
+
         getFarmers();
+
         if (!mapbox.current) return; // wait for map to initialize
         mapbox.current.on("move", () => {
             setLng(mapbox.current.getCenter().lng.toFixed(4));
@@ -28,14 +31,15 @@ const MyMap = () => {
 
     async function getFarmers() {
         try {
-            const res = await fetch("http://localhost:5000/details");
+
+            const res = await fetch(process.env.REACT_APP_SERVERURL + "details");
             const data = await res.json();
-            // console.log(data);
+            console.log(data);
             let locations = {};
             if (data.length > 0) {
                 locations = data.map((item) => {
                     return {
-                        type: "Feature1",
+                        type: "Feature",
                         geometry: {
                             type: "Point",
                             coordinates: [
@@ -66,18 +70,21 @@ const MyMap = () => {
                         address: ''
                     }`;
             }
+
             loadMap(locations);
-            //console.log(locations);
-        } catch (error) {
-            toast.error(error.message, {
-                position: "bottom-center",
-                autoClose: 3000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-            });
+
+        }
+        catch (error) {
+            console.log("maps.js error", error);
+            // toast.error(error.message, {
+            //     position: "bottom-center",
+            //     autoClose: 3000,
+            //     hideProgressBar: false,
+            //     closeOnClick: true,
+            //     pauseOnHover: true,
+            //     draggable: true,
+            //     progress: undefined,
+            // });
         }
     }
     function loadMap(locations) {

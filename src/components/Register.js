@@ -4,7 +4,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import image from "../assets/fattoria-banner-1.jpg";
 import image1 from "../assets/farmer.jpg";
-import '../App.css';
+// import '../App.css';
 
 const Register = ({ isAuthenticated, setIsAuthenticated, setFarmerToken }) => {
 
@@ -55,7 +55,7 @@ const Register = ({ isAuthenticated, setIsAuthenticated, setFarmerToken }) => {
                 progress: undefined,
             });
 
-            const res = await fetch('http://localhost:5000/auth/signup', {
+            const res = await fetch(process.env.REACT_APP_SERVERURL + 'auth/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -92,35 +92,37 @@ const Register = ({ isAuthenticated, setIsAuthenticated, setFarmerToken }) => {
                 // return localStorage.setItem('registrationtoken', token);
 
             }
-            if (error) {
-                return toast.error(error, {
-                    position: "bottom-center",
-                    autoClose: 3000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                }
-                );
-            }
+            // if (error) {
+            //     console.log("here");
+            //     return toast.error(error, {
+            //         position: "bottom-center",
+            //         autoClose: 3000,
+            //         hideProgressBar: false,
+            //         closeOnClick: true,
+            //         pauseOnHover: true,
+            //         draggable: true,
+            //         progress: undefined,
+            //     }
+            //     );
+            // }
         }
         catch (error) {
-            toast.error(error.message, {
-                position: "bottom-center",
-                autoClose: 3000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-            });
+            // console.log("here2", error);
+            // toast.error(error.message, {
+            //     position: "bottom-center",
+            //     autoClose: 3000,
+            //     hideProgressBar: false,
+            //     closeOnClick: true,
+            //     pauseOnHover: true,
+            //     draggable: true,
+            //     progress: undefined,
+            // });
         }
     };
 
 
     // useEffect(() => {
-    //     fetch('http://localhost:5000/posts')
+    //     fetch(process.env.REACT_APP_SERVERURL + 'posts')
     //         .then((res) => res.json())
     //         .then((results) => console.log(results))
     //         .catch((err) => console.log(err));
