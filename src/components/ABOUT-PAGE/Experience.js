@@ -16,10 +16,8 @@ function Experience() {
     <div className="achievement">
       <div className="circle" >Isaiah</div>
     </div>
-    <div
-            className="blur s-blur1"
-            style={{ background: "#3a89", "height":"200px"}}
-          ></div>
+    <div className="blur s-blur1" style={{ background: "#3a89", "height":"200px"}}>
+ </div>
   </div>
   )
 }

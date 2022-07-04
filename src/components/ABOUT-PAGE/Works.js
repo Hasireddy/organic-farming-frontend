@@ -1,7 +1,6 @@
-import React, { useContext } from "react";
-import Upwork from "../ABOUT-PAGE/imges/img/Upwork.png";
-import grapeLeaf from "../ABOUT-PAGE/imges/grapeleaf1.png";
-import greenMandala from "../ABOUT-PAGE/imges/greenMandala.jpg";
+import React from "react";
+//import grapeLeaf from "../ABOUT-PAGE/imges/grapeleaf1.png";
+//import greenMandala from "../ABOUT-PAGE/imges/greenMandala.jpg";
 import wbsCoding from "../ABOUT-PAGE/imges/wbs-coding.png";
 import kivi from "../../assets/fruits/kivi.png";
 import lemon from "../../assets/fruits/lemon.jpg";
@@ -65,11 +64,4 @@ function Works() {
     </div>
   )
 }
-
-
-
-
-
-
-
 export default Works;

@@ -60,10 +60,10 @@ function App() {
   return (
     <div
       className="App"
-    // style={{
-    //   background: darkMode ? "black" : "",
-    //   color: darkMode ? "white" : "",
-    // }}
+    style={{
+      background: darkMode ? "black" : "",
+      color: darkMode ? "white" : "",
+    }}
     >
       {/* <Route path='/' element={<Navbar isAuthenticated={isAuthenticated} logOut={logOut} />} >
 
