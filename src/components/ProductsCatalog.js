@@ -76,7 +76,7 @@ const Products = () => {
                                         }}
                                     >
                                         <img
-                                            src={process.env.REACT_APP_SERVERURL + item.Image.path}
+                                            src={item.Image.publicUrl || process.env.REACT_APP_SERVERURL + item.Image.path}
                                             alt="salad leaf"
                                             style={{ width: "25vh", height: "25vh" }}
                                         />

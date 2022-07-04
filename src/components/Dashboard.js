@@ -126,9 +126,9 @@ const Dashboard = ({ isAuthenticated, farmertoken }) => {
 
               <div className="col">
 
-                <div className="card h-100" className="shadow p-3 mb-5 bg-body rounded">
+                <div className="card h-100 shadow p-3 mb-5 bg-body rounded" >
 
-                  <img src={process.env.REACT_APP_SERVERURL + item.Image.path} className="card-img-top" alt="salad leaf" style={{ width: "100px", height: "100px" }} />
+                  <img src={item.Image.publicUrl || process.env.REACT_APP_SERVERURL + item.Image.path} className="card-img-top" alt="salad leaf" style={{ width: "100px", height: "100px" }} />
                   <div className="card-body">
                     <h5 className="card-title fw-bold">Product : {item.ProductName} {item.farmer.firstname}</h5>
                     <p className="card-text fw-bold">Description : {item.Description}</p>

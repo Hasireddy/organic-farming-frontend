@@ -94,15 +94,15 @@ const Details = ({ isAuthenticated }) => {
             }
             if (error) {
                 //  console.log("details error", error)
-                // return toast.error(error, {
-                //     position: "bottom-center",
-                //     autoClose: 3000,
-                //     hideProgressBar: false,
-                //     closeOnClick: true,
-                //     pauseOnHover: true,
-                //     draggable: true,
-                //     progress: undefined,
-                // });
+                return toast.error(error, {
+                    position: "bottom-center",
+                    autoClose: 3000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
             }
 
         } catch (error) {
