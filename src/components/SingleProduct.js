@@ -61,7 +61,7 @@ const SingleProduct = () => {
                                     <div className="farm-address font-weight-bold " value="pdescription"> Description : {product.Description}</div><br></br>
                                     <div className="farm-postcode font-weight-bold" value="price">Price : {product.Price}euros</div><br></br>
 
-                                    <div className="farm-email text-primary" value="email"><img src={process.env.REACT_APP_SERVERURL + product.Image.path} alt="product" /></div>
+                                    <div className="farm-email text-primary" value="email"><img src={product.Image.publicUrl} alt="product" /></div>
                                 </div>
                                 {/* <div class="card-footer">
                 <button href="/" id="farmerCtn" class="text-white">Check Location</button>
@@ -88,7 +88,7 @@ const SingleProduct = () => {
                                 }}
                             >
                                 <img
-                                    src={process.env.REACT_APP_SERVERURL + item.Image.path}
+                                    src={item.Image.publicUrl}
                                     alt="salad leaf"
                                     style={{ width: "25vh", height: "25vh" }}
                                 />
