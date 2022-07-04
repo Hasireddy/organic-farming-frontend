@@ -1,0 +1,65 @@
+#cardAbout{
+    background-color: rgb(241, 241, 184) !important;
+    border-radius: 10px;
+    box-shadow: 3px 5px 10px #bda4a4;
+    padding-top: 25px;
+}
+
+
+#aboutTitle1{
+    background-color: rgb(173, 46, 68);
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    font-family: Gothic;
+}
+
+#aboutTitle2{
+    background-color: rgb(6, 92, 6);
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    font-family: Gothic;
+}
+
+#aboutTitle3{
+    background-color: rgb(83, 55, 161);
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    font-family: Gothic;
+}
+
+#cardHeader{
+    background-color: rgb(6, 99, 6);
+    color: white;
+    font-family: Times New Roman;
+    margin-bottom: 50px;
+    margin-top: 25px;
+    box-shadow: 3px 5px 10px #bda4a4;
+}
+
+#umaPic{
+    border-radius: 50%;
+    background-color: white;
+    width: 210px;
+    padding-top: 20px;
+}
+
+#isaiahPic{
+    border-radius: 50%;
+    width: 210px;
+    height: 200px;
+    padding-top: 20px;
+    background-color: white;
+}
+
+#ercanPic{
+    border-radius: 50%;
+    background-color: white;
+    width: 220px;
+}
+
+.linkedIn{
+    color:blue
+}
