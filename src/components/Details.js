@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import image from "../assets/fattoria-banner-1.jpg";
-import image1 from "../assets/farmer.jpg";
+// import image1 from "../assets/farmer.jpg";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "../App.css";
@@ -123,7 +123,7 @@ const Details = ({ isAuthenticated }) => {
 
     return (
         <>
-            <div className="container-fluid" style={{ backgroundImage: `url(${image}` }} >
+            <div className="container-fluid" style={{ backgroundImage: `url(${image}`, backgroundRepeat: "no-repeat" }} >
                 <div className="row">
                     <h1 className="font-weight-bold">Products</h1>
                     <p>Please fill in this form to add a Product</p>
@@ -197,7 +197,7 @@ const Details = ({ isAuthenticated }) => {
                                 name={Image}
                                 ref={ref}
                             /> */}
-                            {/* <button onClick={handleApi}>Upload</button> */}>
+                            {/* <button onClick={handleApi}>Upload</button> */}
                             <div className="row" >
                             <div className="col10" >
                                 <input
@@ -215,11 +215,11 @@ const Details = ({ isAuthenticated }) => {
                             </div>
                         </form>
                     </div>
-                    <div
+                    {/* <div
                         className="col-3"
                         id="farmer"
                         style={{ backgroundImage: `url(${image1}` }}
-                    ></div>
+                    ></div> */}
                 </div>
             </div>
             <ToastContainer />

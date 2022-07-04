@@ -77,120 +77,9 @@ bs-example {
 
 
 
-/* register */
-
-.form-control {
-    width: 100%;
-    padding: 15px;
-    margin: 5px 0 22px 0;
-    display: inline-block;
-    border: none;
-}
-
-.registerbtn {
-    background-color: #006400;
-    color: white;
-    padding: 16px 20px;
-    margin: 40px 20px;
-    border: none;
-    cursor: pointer;
-    width: 30%;
-    opacity: 0.9;
-    border-radius: 12px;
-}
-
-#registerFormArea {
-    background-color: #1DB82C;
-    width: 100%;
-    padding-top: 50px;
-    padding-left: 50px;
-    padding-right: 50px;
-    margin-left: 100px;
-    border-radius: 10px;
-    box-shadow: 3px 5px 10px #bda4a4;
-}
-
-.containerReg {
-    padding-bottom: 25px;
-    background: url(./assets/fattoria-banner-2.jpg) no-repeat;
-    background-size: cover;
-}
-
-.regHeader {
-    padding-top: 50px;
-}
 
 
-/* sign-in section */
 
-.containerLogin {
-    padding-bottom: 25px;
-    background: url(./assets/farmers2.jpg) no-repeat;
-    background-size: cover;
-}
-
-#signInSection {
-    background-color: #1DB82C;
-    width: 100%;
-    padding-top: 120px;
-    padding-left: 50px;
-    padding-right: 50px;
-    margin-left: 100px;
-    border-radius: 10px;
-    box-shadow: 3px 5px 10px #bda4a4;
-}
-
-#innerWrapper {
-    padding-top: 50px;
-    padding-bottom: 50px;
-}
-
-#signHeader {
-    padding-top: 52px;
-}
-
-
-/* .signin {
-    text-align: center;
-    margin-top: 30px;
-} */
-
-
-/* #signinHeader{
-    padding-top: 50px;
-} */
-
-#innerWrapper {
-    height: 600px;
-    display: flex;
-    flex-direction: row;
-}
-
-
-/* footer section */
-
-.icon {
-    padding: 10px;
-    color: white;
-    min-width: 50px;
-    text-align: center;
-}
-
-
-/* #farmer {
-    margin-top: 10px;
-    height: 540px;
-    width: 300px;
-} */
-
-.bi {
-    font-size: xx-large;
-}
-
-.form-control1 {
-    width: 50%;
-    border-radius: 6px;
-}
 
 .btnFooter {
     color: white;
@@ -203,11 +92,7 @@ bs-example {
 
 .map-container {
     height: 600px;
-    /* position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0; */
+    
 }
 
 .sidebar {

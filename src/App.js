@@ -11,11 +11,10 @@ import Login from "./components/Login";
 import Details from "./components/Details";
 import Update from "./components/Update";
 import Products from "./components/ProductsCatalog";
-import FarmerContact from './components/FarmerContact';
-import SingleProduct from './components/SingleProduct';
 import MyMap from "./components/Maps";
 import NotFound from "./components/NotFound";
-// import Firebase from "./Firebase";
+import SingleProduct from "./components/SingleProduct";
+
 
 
 
@@ -67,7 +66,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/About" element={<About />} />
-        <Route path="/FarmerContact" element={<FarmerContact />} />
+        
         <Route path="/Register" element={<Register isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} setFarmerToken={setFarmerToken} />} />
         <Route path="/Products" element={<Products />} />
         <Route path="/Products/:id" element={<SingleProduct />} />
