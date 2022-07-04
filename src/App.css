@@ -4,62 +4,6 @@
 }
 
 
-/* Carousel styling */
-
-.carousel-item {
-    height: 20rem;
-    background: #777;
-    color: white;
-    position: relative;
-    background-position: center;
-    background-size: cover;
-}
-
-.container {
-    margin-top: 1px;
-    position: relative;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding-bottom: 50px;
-}
-
-.content {
-    position: relative;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
-    /* Black background with 0.5 opacity */
-    color: #f1f1f1;
-    width: 300px;
-    height: 300px;
-    font-family: "Times New Roman", Times, serif;
-}
-
-.carousel-caption {
-    padding-left: 15px;
-    padding-right: 15px;
-}
-
-.jumbotron {
-    background-color: #1db82c;
-    font-weight: bold;
-}
-
-.overlay-image {
-    position: relative;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    top: 0;
-    background-position: center;
-    background-size: cover;
-    opacity: 0.5;
-}
-
-#demo {
-    box-shadow: 3px 5px 10px #bda4a4;
-    margin-bottom: 10px;
-}
 
 
 /* navbar */
@@ -131,25 +75,6 @@ bs-example {
 
 /* footer  */
 
-.footerContainer {
-    background-color: #1DB82C !important;
-    border-bottom: #165c1c solid 50px;
-    color: rgb(5, 5, 5);
-    font-size: small;
-    padding-top: 35px;
-}
-
-.footer-title {
-    color: rgb(10, 10, 10);
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.nav-footer {
-    color: rgb(15, 15, 15) !important;
-    font-size: small;
-    justify-content: center;
-}
 
 
 /* register */
@@ -200,7 +125,7 @@ bs-example {
 
 .containerLogin {
     padding-bottom: 25px;
-    background: url(./assets/farmers2.jpg);
+    background: url(./assets/farmers2.jpg) no-repeat;
     background-size: cover;
 }
 

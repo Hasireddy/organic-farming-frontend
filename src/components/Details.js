@@ -5,6 +5,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "../App.css";
 import { Navigate } from 'react-router-dom';
+import "../components/Details.css";
 
 
 const Details = ({ isAuthenticated }) => {
@@ -122,9 +123,9 @@ const Details = ({ isAuthenticated }) => {
 
     return (
         <>
-            <div className="container" style={{ backgroundImage: `url(${image}` }}>
+            <div className="container-fluid" style={{ backgroundImage: `url(${image}` }} >
                 <div className="row">
-                    <h1>Products</h1>
+                    <h1 className="font-weight-bold">Products</h1>
                     <p>Please fill in this form to add a Product</p>
                     <hr />
                     <div className="col-8">
@@ -189,20 +190,28 @@ const Details = ({ isAuthenticated }) => {
                             </select>
 
                             <br />
-                            <input
+                            {/* <input
+                                type="file"
+                                id="Image"
+                                onChange={handleFile}
+                                name={Image}
+                                ref={ref}
+                            /> */}
+                            {/* <button onClick={handleApi}>Upload</button> */}>
+                            <div className="row" >
+                            <div className="col10" >
+                                <input
                                 type="file"
                                 id="Image"
                                 onChange={handleFile}
                                 name={Image}
                                 ref={ref}
                             />
-                            {/* <button onClick={handleApi}>Upload</button> */}
-                            <div className="row">
-                                <div className="col text-left">
-                                    <button type="submit" className="registerbtn">
+                            <button type="submit" className="registerbtn">
                                         Submit
                                     </button>
-                                </div>
+                                </div>                                                          
+                                
                             </div>
                         </form>
                     </div>

@@ -1,28 +1,28 @@
-/* #footerContainer {
-    background-color: #1db82c;
-    text-align: center;
-    font-family: "Roboto", sans-serif;
+.footerContainer {
+    background-color: #1DB82C !important;
+    border-bottom: #165c1c solid 50px;
+    color: rgb(5, 5, 5);
+    font-size: small;
+    padding-top: 35px;
 }
 
-#footerRow {
+.footer-title {
+    color: rgb(10, 10, 10);
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.nav-footer {
+    color: rgb(15, 15, 15) !important;
+    font-size: small;
+    justify-content: center;
+}
+
+.bi{
     color: black;
 }
 
-#footerUl {
-    background-color: white;
+#textAreaFooter{
+    width: 600px;
 }
 
-#social-buttons {
-    background-color: orange;
-    margin-top: 1rem;
-    width: 100%;
-    height: 8rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#footerLi {
-    height: 22rem;
-    width: 22rem;
-} */
