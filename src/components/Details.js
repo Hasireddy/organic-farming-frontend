@@ -28,17 +28,17 @@ const Details = ({ isAuthenticated }) => {
         setFormState((prev) => ({ ...prev, [e.target.id]: e.target.value }));
 
     const handleFile = (e) => {
-        console.log("e.target.files here", e.target.files[0]);
+        // console.log("e.target.files here", e.target.files[0]);
         setFormState((prev) => ({ ...prev, Image: e.target.files[0] }));
     };
     const handleSubmit = async (e) => {
-        console.log("check formState image", {
-            ProductName,
-            Description,
-            Price,
-            Category,
-            Image,
-        });
+        // console.log("check formState image", {
+        // ProductName,
+        //     Description,
+        //     Price,
+        //     Category,
+        //     Image,
+        // });
         try {
             e.preventDefault();
             if (
@@ -64,7 +64,7 @@ const Details = ({ isAuthenticated }) => {
             formData.append("Price", Price);
             formData.append("Category", Category);
             formData.append("Image", Image);
-            console.log("formData", formData);
+            //  console.log("formData", formData);
 
             const res = await fetch(process.env.REACT_APP_SERVERURL + "details", {
                 method: "POST",
@@ -74,7 +74,7 @@ const Details = ({ isAuthenticated }) => {
                 body: formData,
             });
             const { _id, error } = await res.json();
-            console.log(_id);
+            //    console.log(_id);
 
             if (_id) {
                 toast.success("Product added successfully.", {
@@ -94,7 +94,7 @@ const Details = ({ isAuthenticated }) => {
 
             }
             if (error) {
-                console.log("details error", error)
+                //  console.log("details error", error)
                 // return toast.error(error, {
                 //     position: "bottom-center",
                 //     autoClose: 3000,

@@ -15,7 +15,8 @@ import FarmerContact from './components/FarmerContact';
 import SingleProduct from './components/SingleProduct';
 import MyMap from "./components/Maps";
 import NotFound from "./components/NotFound";
-// import React, { useContext } from "react";
+// import Firebase from "./Firebase";
+
 
 
 
@@ -25,21 +26,23 @@ function App() {
   const [farmertoken, setFarmerToken] = useState(
     localStorage.getItem("logintoken")
   );
-  const [user, setUser] = useState(null);
+  // const [user, setUser] = useState(null);
   const nav = useNavigate();
 
   useEffect(() => {
     const verifyLogin = async () => {
-      console.log(farmertoken);
+      // console.log(farmertoken);
       const res = await fetch(process.env.REACT_APP_SERVERURL + "auth/me", {
         headers: {
           Authorization: farmertoken,
         },
       });
       const data = await res.json();
-      // console.log(data);
+      // console.log('farmerdata');
+      // console.log(data.firstname + data.lastname);
       if (data.error) return toast.error(data.error);
-      setUser(data);
+      // setUser(data);
+      localStorage.setItem('farmername', data.firstname + ' ' + data.lastname);
       setIsAuthenticated(true);
     };
 
@@ -47,10 +50,10 @@ function App() {
   }, [farmertoken]);
 
   const logOut = () => {
-    // alert("Logout Called from");
+
     localStorage.removeItem("logintoken");
-    // alert(localStorage.getItem('logintoken'));
-    setUser(null);
+    localStorage.removeItem("farmer");
+    // setUser(null);
     setFarmerToken(null);
     setIsAuthenticated(false);
     nav("/");
@@ -59,9 +62,7 @@ function App() {
   return (
     <div
       className="App">
-      {/* <Route path='/' element={<Navbar isAuthenticated={isAuthenticated} logOut={logOut} />} >
 
-      </Route> */}
       <Navbar isAuthenticated={isAuthenticated} logOut={logOut} />
       <Routes>
         <Route path="/" element={<Homepage />} />
@@ -86,6 +87,7 @@ function App() {
           element={<Update isAuthenticated={isAuthenticated} farmertoken={farmertoken} />}
         />
         <Route path="*" element={<NotFound />} />
+        {/* <Route path="/Firebase" element={<Firebase />} /> */}
 
       </Routes>
       <Footer />

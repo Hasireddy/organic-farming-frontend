@@ -12,8 +12,8 @@ const Update = ({ farmertoken, isAuthenticated }) => {
     const location = useLocation();
     const ref = useRef();
     // { location.updatedetails.id }
-    console.log("Product ID:")
-    console.log("Product ID:" + location.state.id)
+    // console.log("Product ID:")
+    // console.log("Product ID:" + location.state.id)
     const [ProductId, setProductId] = useState(location.state.id);
 
     // const [ProductName, setProductName] = useState('');
@@ -42,7 +42,7 @@ const Update = ({ farmertoken, isAuthenticated }) => {
 
         let result = await fetch(process.env.REACT_APP_SERVERURL + `details/${ProductId}`)
         result = await result.json();
-        console.log(result);
+        // console.log(result);
         setFormState({ ProductName: result.ProductName, Description: result.Description, Price: result.Price, Category: result.Category, Image: result.Image });
 
     };
@@ -54,18 +54,18 @@ const Update = ({ farmertoken, isAuthenticated }) => {
 
     const handleFile = (e) => {
         alert("filechange");
-        console.log("e.target.files[0]");
-        console.log(e.target.files[0]);
+        // console.log("e.target.files[0]");
+        // console.log(e.target.files[0]);
         setFormState((prev) => ({ ...prev, Image: e.target.files[0] }));
     };
     const handleSubmit = async (e) => {
-        console.log("check formState image", {
-            ProductName,
-            Description,
-            Price,
-            Category,
-            Image,
-        });
+        // console.log("check formState image", {
+        //     ProductName,
+        //     Description,
+        //     Price,
+        //     Category,
+        //     Image,
+        // });
         try {
             e.preventDefault();
             if (
@@ -91,7 +91,7 @@ const Update = ({ farmertoken, isAuthenticated }) => {
             formData.append("Price", Price);
             formData.append("Category", Category);
             formData.append("Image", Image);
-            console.log("formData", formData);
+            // console.log("formData", formData);
 
             const res = await fetch(process.env.REACT_APP_SERVERURL + `auth/updateProductByFIdPId/${ProductId}`, {
                 method: "PUT",
@@ -101,7 +101,7 @@ const Update = ({ farmertoken, isAuthenticated }) => {
                 body: formData,
             });
             const { _id, error } = await res.json();
-            console.log(_id);
+            // console.log(_id);
 
             if (_id) {
                 toast.success("Product updated successfully.", {
