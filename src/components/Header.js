@@ -1,5 +1,5 @@
 import React from 'react';
-import '../App.css';
+import "../components/Header.css";
 import image1 from "../assets/img_slider-01.jpg";
 import image2 from "../assets/img_slider-02.jpg";
 import image3 from "../assets/img_slider-03.jpg";
@@ -18,28 +18,26 @@ const Header = () => {
                 <div className="carousel-inner">
                     <div className="carousel-item active" style={{ backgroundImage: `url(${image2}` }}>
                         <div className="carousel-caption d-none d-md-block content">
-                            <h1 className="jumbotron">ORGANIC AND NATURAL</h1>
-                            <p className="lead">Organic farming offers an alternative agricultural system.
-                                It initially began in the early in the 20th century.
-                                The advent of pesticides brought in its benefits and pitfalls simultaneously.
+                            <h1 className="jumbotron">Protect yourself, help others </h1>
+                            <p className="lead">Organic farming simply means a farming process where the use of fertilisers 
+                            and pest control are created or acquired from organic materials  
                             </p>
                         </div>
                     </div>
                     <div className="carousel-item" style={{ backgroundImage: `url(${image3}` }}>
                         <div className="carousel-caption d-none d-md-block content">
-                            <h1 className="jumbotron">SAVE OUR SOILS</h1>
-                            <p className="lead">Organic farming offers an alternative agricultural system.
-                                It initially began in the early in the 20th century.
-                                The advent of pesticides brought in its benefits and pitfalls simultaneously.
+                            <h2 className="jumbotron">Protect the Environment, SAVE OUR SOILS</h2>
+                            <p className="lead">Organic farming offers an alternative agricultural system.  
+                            It initially began in the early in the 20th century.  
+                            The advent of pesticides brought in its benefits and pitfalls simultaneously. 
                             </p>
                         </div>
                     </div>
                     <div className="carousel-item" style={{ backgroundImage: `url(${image1}` }}>
                         <div className="carousel-caption d-none d-md-block content">
-                            <h1 className="jumbotron">ORGANIC AND NATURAL</h1>
-                            <p className="lead">Organic farming offers an alternative agricultural system.
-                                It initially began in the early in the 20th century.
-                                The advent of pesticides brought in its benefits and pitfalls simultaneously.
+                            <h1 className="jumbotron">Eat well, live healthy</h1>
+                            <p className="lead">Organic farmingis an agricultural approach that advocates 
+                            healthy products free from components that may harm humans and nature.  
                             </p>
                         </div>
                     </div>
