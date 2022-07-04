@@ -22,25 +22,25 @@ const SingleProduct = () => {
     useEffect(() => {
         axios
             .get(process.env.REACT_APP_SERVERURL + `details/getAllProductsByFarmerId/${farmerId}`)
-            // .then(response => console.log(response))
+            // .then(response => console.log(response))cd 
             .then((response) => {
                 setFarmerOtherProds(response.data.farmerProducts);
             })
     }, [farmerId]);
 
-    console.log("farmerOtherProds");
+    // console.log("farmerOtherProds");
 
-    console.log(farmerOtherProds);
+    // console.log(farmerOtherProds);
 
     return (
         <>
             {
                 product ? (
                     <div className="farmer-contact-container" >
-                        <div class="card-deck">
-                            <div class="card" id="cardCtn" >
-                                <div class="card-header bg-success text-white" id="headerCtn">FARM: {product.farmer.farmName}</div><br></br>
-                                <div class="card-body">
+                        <div className="card-deck">
+                            <div className="card" id="cardCtn" >
+                                <div className="card-header bg-success text-white" id="headerCtn">FARM: {product.farmer.farmName}</div><br></br>
+                                <div className="card-body">
                                     <div className="farm-address font-weight-bold " value="address">{product.farmer.firstname + ' ' + product.farmer.lastname}</div><br></br>
                                     <div className="farm-address font-weight-bold " value="address">{product.farmer.address}</div><br></br>
                                     <div className="farm-postcode font-weight-bold" value="postcode">{product.farmer.postcode}</div><br></br>
@@ -52,9 +52,9 @@ const SingleProduct = () => {
               </div> */}
                             </div>
 
-                            <div class="card" id="cardCtn" >
-                                <div class="card-header bg-success text-white" id="headerCtn">PRODUCT</div><br></br>
-                                <div class="card-body">
+                            <div className="card" id="cardCtn" >
+                                <div className="card-header bg-success text-white" id="headerCtn">PRODUCT</div><br></br>
+                                <div className="card-body">
 
                                     <div className="farm-address font-weight-bold " value="pname">Product : {product.ProductName}</div><br></br>
                                     <div className="farm-address font-weight-bold " value="pname">Category : {product.Category}</div><br></br>

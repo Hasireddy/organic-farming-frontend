@@ -1,10 +1,10 @@
 import React, { useRef, useEffect, useState } from "react";
 import "mapbox-gl/dist/mapbox-gl.css";
 import mapboxgl from "mapbox-gl";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+// import { ToastContainer, toast } from "react-toastify";
+// import "react-toastify/dist/ReactToastify.css";
 import img1 from "../assets/mapbox-marker-icon-20px-blue.png";
-//import img1 from '../assets/logo.png'
+// import img1 from '../assets/logo.png';
 
 mapboxgl.accessToken = process.env.REACT_APP_TOKEN;
 
@@ -15,6 +15,19 @@ const MyMap = () => {
     const [lng, setLng] = useState(11.3861);
     const [lat, setLat] = useState(50.5527);
     const [zoom, setZoom] = useState(4.5);
+
+    // useEffect(() => {
+
+    //     if (mapbox.current) return; // initialize map only once
+    //     mapbox.current = new mapboxgl.Map({
+    //         container: mapContainer.current,
+    //         style: 'mapbox://styles/mapbox/streets-v11',
+    //         center: [lng, lat],
+    //         zoom: zoom
+    //     });
+    //     getFarmers();
+
+    // });
 
     // Initialize map when component mounts
     useEffect(() => {
@@ -34,7 +47,7 @@ const MyMap = () => {
 
             const res = await fetch(process.env.REACT_APP_SERVERURL + "maps");
             const data = await res.json();
-            console.log(data);
+            // console.log(data);
             let locations = {};
             if (data.length > 0) {
                 locations = data.map((item) => {
@@ -50,8 +63,9 @@ const MyMap = () => {
                         properties: {
                             farmName: item.farmName,//label for displaying
                             farmerName: item.firstname + " " + item.lastname,//Label for displaying.
-                            searchItems: item.searchitem + item.address + item.postcode + item.farmName,
+                            searchItems: item.searchitem + " " + item.postcode,
                             address: item.address,
+                            postcode: item.postcode,
                         },
 
                     };
@@ -73,7 +87,7 @@ const MyMap = () => {
 
         }
         catch (error) {
-            console.log("maps.js error", error);
+            console.log("maps.js error2", error);
             // toast.error(error.message, {
             //     position: "bottom-center",
             //     autoClose: 3000,
@@ -86,239 +100,269 @@ const MyMap = () => {
         }
     }
     function loadMap(locations) {
-        const mapbox = new mapboxgl.Map({
-            container: mapContainer.current,
-            style: "mapbox://styles/mapbox/streets-v11",
-            center: [lng, lat],
-            zoom: zoom,
-        });
-        mapbox.on("load", function () {
-            mapbox.loadImage(img1, (error, image) => {
-                if (error) throw error;
-
-                // Add the image to the map style.
-                mapbox.addImage("point", image);
-                // Add a symbol layer
-                mapbox.addLayer({
-                    id: "points",
-                    type: "symbol",
-                    source: {
-                        type: "geojson",
-                        data: {
-                            type: "FeatureCollection",
-                            features: locations
-                            // features: [
-                            //     {
-                            //         type: "Feature",
-                            //         geometry: {
-                            //             type: "Point",
-                            //             coordinates: [11.43048, 48.75334],
-                            //         },
-                            //         properties: {
-                            //             famerName: "Herish 1",
-                            //             icon: "shop",
-                            //         },
-                            //     },
-                            // ],
-                        },
-                    },
-                    layout: {
-                        // "icon-image": "{icon}-15",
-                        // "icon-size": 1,
-                        "text-field": "{farmName}",
-                        "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
-                        "text-offset": [0, 0.9],
-                        "text-anchor": "top",
-                        "icon-image": "point", // reference the image
-                        "icon-size": 1,
-                    },
-
-
-                });
+        try {
+            const mapbox = new mapboxgl.Map({
+                container: mapContainer.current,
+                style: "mapbox://styles/mapbox/streets-v11",
+                center: [lng, lat],
+                zoom: zoom,
             });
-            renderListings(locations); //To display search box initially without mouse movement
-        });
-        //Search code starts
 
-        const filterEl = document.getElementById('feature-filter');
-        const listingEl = document.getElementById('feature-listing');
-        function renderListings(locations) {
-            const empty = document.createElement('p');
-            // Clear any existing listings
-            listingEl.innerHTML = '';
-            if (locations.length) {
+            mapbox.on("load", function () {
+
+                mapbox.loadImage(img1, (error, image) => {
+                    if (error) throw error;
+
+                    // Add the image to the map style.
+                    mapbox.addImage("point", image);
+
+                    // Add a symbol layer
+                    mapbox.addLayer({
+                        id: "points",
+                        type: "symbol",
+                        source: {
+                            type: "geojson",
+                            data: {
+                                type: "FeatureCollection",
+                                features: locations
+                                // features: [
+                                //     {
+                                //         type: "Feature",
+                                //         geometry: {
+                                //             type: "Point",
+                                //             coordinates: [11.43048, 48.75334],
+                                //         },
+                                //         properties: {
+                                //             famerName: "Herish 1",
+                                //             icon: "shop",
+                                //         },
+                                //     },
+                                // ],
+                            },
+                        },
+                        layout: {
+                            // "icon-image": "{icon}-15",
+                            // "icon-size": 1,
+                            "text-field": "{farmName}",
+                            "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
+                            "text-offset": [0, 0.9],
+                            "text-anchor": "top",
+                            "icon-image": "point", // reference the image
+                            "icon-size": 1,
+                            'visibility': 'visible'
+                        },
+
+
+                    });
+                });
+
+                renderListings(locations); //To display search box initially without mouse movement
+            });
+
+
+            //Search code starts
+
+            const filterEl = document.getElementById('feature-filter');
+            const listingEl = document.getElementById('feature-listing');
+            function renderListings(locations) {
+                const empty = document.createElement('p');
+                // Clear any existing listings
+                listingEl.innerHTML = '';
+                if (locations.length) {
+                    for (const feature of locations) {
+                        const itemLink = document.createElement('p');
+                        const label = `${feature.properties.farmName} (${feature.properties.address} ${feature.properties.postcode}) `;
+                        // itemLink.href = '';//feature.properties.wikipedia;
+                        // itemLink.target = ''//'_blank';
+                        itemLink.textContent = label;
+                        itemLink.style.cursor = "pointer"
+                        itemLink.addEventListener('mouseover', () => {
+                            // mapbox.getCanvas().style.cursor = 'pointer';
+                            // Highlight corresponding feature on the map
+                            popup
+                                .setLngLat(feature.geometry.coordinates)
+                                .setHTML(`<h5>${feature.properties.farmName} \n ${feature.properties.address} ${feature.properties.postcode}<h5/>`)
+                                //.setText(label)
+                                .addTo(mapbox);
+                        });
+                        itemLink.addEventListener('mouseleave', () => {
+                            popup.remove();
+                        });
+                        listingEl.appendChild(itemLink);
+                    }
+
+                    // Show the filter input
+                    filterEl.parentNode.style.display = 'block';
+                } else if (locations.length === 0 && filterEl.value !== '') {
+                    empty.textContent = 'No Farms found';
+                    listingEl.appendChild(empty);
+                } else {
+                    empty.textContent = 'Drag the map to populate results';
+                    listingEl.appendChild(empty);
+
+                    // Hide the filter input
+                    filterEl.parentNode.style.display = 'none';
+
+                    // remove features filter
+                    mapbox.setFilter('points', ['has', 'farmName']);
+                }
+            }
+
+            const popup = new mapboxgl.Popup({
+                closeButton: false
+            });
+            function normalize(string) {
+                return string.trim().toLowerCase();
+            }
+            function getUniqueFeatures(features, comparatorProperty) {
+                const uniqueIds = new Set();
+                const uniqueFeatures = [];
+                for (const feature of features) {
+                    const id = feature.properties[comparatorProperty];
+                    if (!uniqueIds.has(id)) {
+                        uniqueIds.add(id);
+                        uniqueFeatures.push(feature);
+                    }
+                }
+                return uniqueFeatures;
+            }
+            mapbox.on('movestart', () => {
+                // reset features filter as the map starts moving
+                mapbox.setFilter('points', ['has', 'farmName']);
+            });
+            mapbox.on('moveend', () => {
+                //  console.log('rendering locations');
+                //const tempfeatures = mapbox.queryRenderedFeatures(e.point);
+
+                const tempfeatures = mapbox.queryRenderedFeatures({ layers: ['points'] });
+                //  const tempfeatures = mapbox.querySourceFeatures(locations, { filter: ['==', 'farmName', '*'] })
+                // .forEach(feature => bounds.extend(feature.geometry.coordinates))
+                console.log(tempfeatures);
+                if (tempfeatures) {
+                    const uniqueFeatures = getUniqueFeatures(tempfeatures, 'farmName');
+                    // Populate features for the listing overlay.
+                    // console.log(uniqueFeatures);
+                    renderListings(uniqueFeatures);
+
+                    // Clear the input container
+                    filterEl.value = '';
+
+                    // Store the current features in sn `airports` variable to
+                    // later use for filtering on `keyup`.
+                    locations = uniqueFeatures;
+                }
+            });
+            mapbox.on('mousemove', 'points', (e) => {
+                // Change the cursor style as a UI indicator.
+                mapbox.getCanvas().style.cursor = 'pointer';
+
+                // Populate the popup and set its coordinates based on the feature.
+                const tempfeature = e.features[0];
+                popup
+                    .setLngLat(tempfeature.geometry.coordinates)
+                    .setHTML(`<h5>${tempfeature.properties.farmName} \n ${tempfeature.properties.address} ${tempfeature.properties.postcode}<h5/>`)
+                    // .setText(
+                    //     `${tempfeature.properties.farmerName} 'here' (${tempfeature.properties.address})`
+                    // )
+                    .addTo(mapbox);
+
+                // new mapboxgl.Popup()
+                //     .setLngLat(coordinates)
+                //     .setHTML(`<h5>${address}<h5/>`)
+                //     .addTo(mapbox);
+            });
+            mapbox.on('mouseleave', 'points', () => {
+                mapbox.getCanvas().style.cursor = '';
+                popup.remove();
+            });
+            filterEl.addEventListener('keyup', (e) => {
+                const value = normalize(e.target.value);
+                popup.remove();
+                // Filter visible features that match the input value.
+                const filtered = [];
                 for (const feature of locations) {
-                    const itemLink = document.createElement('p');
-                    const label = `${feature.properties.farmName} (${feature.properties.address})`;
-                    // itemLink.href = '';//feature.properties.wikipedia;
-                    // itemLink.target = ''//'_blank';
-                    itemLink.textContent = label;
-                    itemLink.style.cursor = "pointer"
-                    itemLink.addEventListener('mouseover', () => {
-                        // mapbox.getCanvas().style.cursor = 'pointer';
-                        // Highlight corresponding feature on the map
-                        popup
-                            .setLngLat(feature.geometry.coordinates)
-                            .setHTML(`<h5>${feature.properties.farmName} \n ${feature.properties.address}<h5/>`)
-                            //.setText(label)
-                            .addTo(mapbox);
-                    });
-                    itemLink.addEventListener('mouseleave', () => {
-                        popup.remove();
-                    });
-                    listingEl.appendChild(itemLink);
+                    const searchItems = normalize(feature.properties.searchItems);
+                    const address = normalize(feature.properties.address);
+                    const farmName = normalize(feature.properties.farmName);
+
+
+                    if (searchItems.includes(value) || address.includes(value) || farmName.includes(value)) {
+                        filtered.push(feature);
+                    }
                 }
 
-                // Show the filter input
-                filterEl.parentNode.style.display = 'block';
-            } else if (locations.length === 0 && filterEl.value !== '') {
-                empty.textContent = 'No results found';
-                listingEl.appendChild(empty);
-            } else {
-                empty.textContent = 'Drag the map to populate results';
-                listingEl.appendChild(empty);
+                // Populate the sidebar with filtered results
+                renderListings(filtered);
 
-                // Hide the filter input
-                filterEl.parentNode.style.display = 'none';
-
-                // remove features filter
-                mapbox.setFilter('points', ['has', 'searchItems']);
-            }
-        }
-        const popup = new mapboxgl.Popup({
-            closeButton: false
-        });
-        function normalize(string) {
-            return string.trim().toLowerCase();
-        }
-        function getUniqueFeatures(features, comparatorProperty) {
-            const uniqueIds = new Set();
-            const uniqueFeatures = [];
-            for (const feature of features) {
-                const id = feature.properties[comparatorProperty];
-                if (!uniqueIds.has(id)) {
-                    uniqueIds.add(id);
-                    uniqueFeatures.push(feature);
+                // Set the filter to populate features into the layer.
+                if (filtered.length) {
+                    mapbox.setFilter('points', [
+                        'match',
+                        ['get', 'farmName'],
+                        filtered.map((feature) => {
+                            return feature.properties.farmName;
+                        }),
+                        true,
+                        false
+                    ]);
                 }
-            }
-            return uniqueFeatures;
-        }
-        mapbox.on('movestart', () => {
-            // reset features filter as the map starts moving
-            mapbox.setFilter('points', ['has', 'searchItems']);
-        });
-        mapbox.on('moveend', () => {
-            //  console.log('rendering locations');
+            });
 
-            const tempfeatures = mapbox.queryRenderedFeatures({ layers: ['points'] });
-            // console.log(tempfeatures);
-            if (tempfeatures) {
-                const uniqueFeatures = getUniqueFeatures(tempfeatures, 'searchItems');
-                // Populate features for the listing overlay.
-                // console.log(uniqueFeatures);
-                renderListings(uniqueFeatures);
+            // Add navigation control (the +/- zoom buttons)
+            mapbox.addControl(new mapboxgl.NavigationControl(), "top-right");
 
-                // Clear the input container
-                filterEl.value = '';
 
-                // Store the current features in sn `airports` variable to
-                // later use for filtering on `keyup`.
-                locations = uniqueFeatures;
-            }
-        });
-        mapbox.on('mousemove', 'points', (e) => {
-            // Change the cursor style as a UI indicator.
-            mapbox.getCanvas().style.cursor = 'pointer';
 
-            // Populate the popup and set its coordinates based on the feature.
-            const tempfeature = e.features[0];
-            popup
-                .setLngLat(tempfeature.geometry.coordinates)
-                .setHTML(`<h5>${tempfeature.properties.farmName} \n ${tempfeature.properties.address}<h5/>`)
-                // .setText(
-                //     `${tempfeature.properties.farmerName} 'here' (${tempfeature.properties.address})`
-                // )
-                .addTo(mapbox);
+            mapbox.on("click", "points", (e) => {
+                // Copy coordinates array.
+                const coordinates = e.features[0].geometry.coordinates.slice();
+                const address = e.features[0].properties.address;
+                const farmName = e.features[0].properties.farmName;
+                const postcode = e.features[0].properties.postcode;
 
-            // new mapboxgl.Popup()
-            //     .setLngLat(coordinates)
-            //     .setHTML(`<h5>${address}<h5/>`)
-            //     .addTo(mapbox);
-        });
-        mapbox.on('mouseleave', 'points', () => {
-            mapbox.getCanvas().style.cursor = '';
-            popup.remove();
-        });
-        filterEl.addEventListener('keyup', (e) => {
-            const value = normalize(e.target.value);
-            popup.remove();
-            // Filter visible features that match the input value.
-            const filtered = [];
-            for (const feature of locations) {
-                const name = normalize(feature.properties.searchItems);
-                const code = normalize(feature.properties.address);
-
-                if (name.includes(value) || code.includes(value)) {
-                    filtered.push(feature);
+                // Ensure that if the map is zoomed out such that multiple
+                // copies of the feature are visible, the popup appears
+                // over the copy being pointed to.
+                while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+                    coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
                 }
-            }
 
-            // Populate the sidebar with filtered results
-            renderListings(filtered);
+                new mapboxgl.Popup()
+                    .setLngLat(coordinates)
+                    .setHTML(`<h5>${farmName} \n ${address} ${postcode}<h5/>`)
+                    .addTo(mapbox);
+            });
 
-            // Set the filter to populate features into the layer.
-            if (filtered.length) {
-                mapbox.setFilter('points', [
-                    'match',
-                    ['get', 'searchItems'],
-                    filtered.map((feature) => {
-                        return feature.properties.searchItems;
-                    }),
-                    true,
-                    false
-                ]);
-            }
-        });
-        // Add navigation control (the +/- zoom buttons)
-        mapbox.addControl(new mapboxgl.NavigationControl(), "top-right");
+            // Change the cursor to a pointer when the mouse is over the places layer.
+            mapbox.on("mouseenter", "points", () => {
+                mapbox.getCanvas().style.cursor = "pointer";
+            });
 
+            // Change it back to a pointer when it leaves.
+            mapbox.on("mouseleave", "points", () => {
+                mapbox.getCanvas().style.cursor = "";
+                popup.remove();
+            });
+            renderListings([]);
+            ////
 
 
-        mapbox.on("click", "points", (e) => {
-            // Copy coordinates array.
-            const coordinates = e.features[0].geometry.coordinates.slice();
-            const address = e.features[0].properties.address;
-            const farmName = e.features[0].properties.farmName;
+            // Clean up on unmount
+            //  return () => mapbox.remove();
 
-            // Ensure that if the map is zoomed out such that multiple
-            // copies of the feature are visible, the popup appears
-            // over the copy being pointed to.
-            while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-                coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
-            }
-
-            new mapboxgl.Popup()
-                .setLngLat(coordinates)
-                .setHTML(`<h5>${address} \n ${address}<h5/>`)
-                .addTo(mapbox);
-        });
-
-        // Change the cursor to a pointer when the mouse is over the places layer.
-        mapbox.on("mouseenter", "points", () => {
-            mapbox.getCanvas().style.cursor = "pointer";
-        });
-
-        // Change it back to a pointer when it leaves.
-        mapbox.on("mouseleave", "points", () => {
-            mapbox.getCanvas().style.cursor = "";
-            popup.remove();
-        });
-        renderListings([]);
-        ////
-
-
-        // Clean up on unmount
-        return () => mapbox.remove();
+        }
+        catch (error) {
+            //     console.log("maps.js error", error);
+            // toast.error(error.message, {
+            //     position: "bottom-center",
+            //     autoClose: 3000,
+            //     hideProgressBar: false,
+            //     closeOnClick: true,
+            //     pauseOnHover: true,
+            //     draggable: true,
+            //     progress: undefined,
+            // });
+        }
     }
     return (
         <div ><h1 className="dispaly-4 text-center">

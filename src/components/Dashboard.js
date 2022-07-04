@@ -22,7 +22,7 @@ const Dashboard = ({ isAuthenticated, farmertoken }) => {
     try {
 
       // e.preventDefault();
-      console.log('here');
+      // console.log('here');
       const res = await fetch(process.env.REACT_APP_SERVERURL + 'auth/getProductsByFarmerId', {
         method: "GET",
         headers: {
@@ -118,7 +118,7 @@ const Dashboard = ({ isAuthenticated, farmertoken }) => {
       < div className="container">
         <div>
           <h3 className="farmer">Welcome <b>{localStorage.getItem('farmername')}</b></h3>
-          <a class="button" href="/Details">Add Product</a>
+          <a className="button" href="/Details">Add Product</a>
         </div>
         {
           products ? (products.map(item =>
@@ -126,14 +126,14 @@ const Dashboard = ({ isAuthenticated, farmertoken }) => {
 
               <div className="col">
 
-                <div className="card h-100" class="shadow p-3 mb-5 bg-body rounded">
+                <div className="card h-100" className="shadow p-3 mb-5 bg-body rounded">
 
                   <img src={process.env.REACT_APP_SERVERURL + item.Image.path} className="card-img-top" alt="salad leaf" style={{ width: "100px", height: "100px" }} />
                   <div className="card-body">
-                    <h5 className="card-title fw-bold">{item.ProductName} {item.farmer.firstname}</h5>
-                    <p className="card-text">{item.Description}</p>
-                    <p className="card-text">{item.Category}</p>
-                    <p className="card-text">{item.Price} euros</p>
+                    <h5 className="card-title fw-bold">Product : {item.ProductName} {item.farmer.firstname}</h5>
+                    <p className="card-text fw-bold">Description : {item.Description}</p>
+                    <p className="card-text fw-bold">Category : {item.Category}</p>
+                    <p className="card-text fw-bold">Price : {item.Price} euros</p>
                   </div>
                   <div className="card-footer bg-success">
                     {/* <a href="#" className="text-white">Read More

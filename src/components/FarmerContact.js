@@ -6,8 +6,7 @@ const FarmerContact = () => {
 
   const location = useLocation();
 
-  console.log("Farmer details")
-  console.log(location.state.farmerObject);
+  // console.log(location.state.farmerObject);
   const [FarmDetails, setFarmDetails] = useState(location.state.farmerObject);
 
   return (
@@ -15,10 +14,10 @@ const FarmerContact = () => {
       {
         FarmDetails ? (
           <div className="farmer-contact-container" >
-            <div class="card-deck">
-              <div class="card" id="cardCtn" >
-                <div class="card-header bg-success text-white" id="headerCtn">{FarmDetails.farmName}</div><br></br>
-                <div class="card-body">
+            <div className="card-deck">
+              <div className="card" id="cardCtn" >
+                <div className="card-header bg-success text-white" id="headerCtn">{FarmDetails.farmName}</div><br></br>
+                <div className="card-body">
                   <div className="farm-address font-weight-bold " value="address">{FarmDetails.firstname + ' ' + FarmDetails.lastname}</div><br></br>
                   <div className="farm-address font-weight-bold " value="address">{FarmDetails.address}</div><br></br>
                   <div className="farm-postcode font-weight-bold" value="postcode">{FarmDetails.postcode}</div><br></br>
