@@ -197,7 +197,7 @@ const Details = ({ isAuthenticated }) => {
                                 name={Image}
                                 ref={ref}
                             /> */}
-                            {/* <button onClick={handleApi}>Upload</button> */}
+                            {/* <button onClick={handleApi}>Upload</button> */}>
                             <div className="row" >
                             <div className="col10" >
                                 <input
@@ -216,7 +216,7 @@ const Details = ({ isAuthenticated }) => {
                         </form>
                     </div>
                     <div
-                        className="col-2"
+                        className="col-3"
                         id="farmer"
                         style={{ backgroundImage: `url(${image1}` }}
                     ></div>
