@@ -16,7 +16,7 @@ function Footer() {
                     Organic Farming Community
                   </span>
                 </li>
-                  <a className="navbar-footer" href="#">
+                <a className="navbar-footer" href="#">
                   <img
                     src={logo}
                     alt=""
@@ -26,7 +26,7 @@ function Footer() {
                     className="d-inline-block align-text-center"
                   />
                 </a>
-                </ul>
+              </ul>
             </div>
             <div className="col-md-4 footer-column">
               <ul className="nav flex-column">
@@ -44,26 +44,26 @@ function Footer() {
                     relying on meaningful content. Lorem ipsum may be <br />
                   </p>
                 </li>
-                </ul>
+              </ul>
             </div>
             <div className="col-md-4 footer-column">
               <ul className="nav flex-column">
                 <div className="contactLink">
-                <li className="nav-item">
-                  <span className="footer-title">Contact </span>
-                </li>
-                <li className="nav-item">
-                  <span className="nav-footer">
-                    <i className="fas fa-phone"></i>+49 45 80 80 80
-                  </span>
-                </li>
                   <li className="nav-item">
-                  <a className="nav-footer" href="/#">
-                    <i className="fas fa-envelope"></i>info@organicfarming.com
-                  </a>
-                </li>
+                    <span className="footer-title">Contact </span>
+                  </li>
+                  <li className="nav-item">
+                    <span className="nav-footer">
+                      <i className="fas fa-phone"></i>+49 45 80 80 80
+                    </span>
+                  </li>
+                  <li className="nav-item">
+                    <a className="nav-footer" href="/#">
+                      <i className="fas fa-envelope"></i>info@organicfarming.com
+                    </a>
+                  </li>
                 </div>
-                
+
                 <div className="input-group mb-2">
                   <input
                     type="text"
@@ -76,12 +76,12 @@ function Footer() {
                     className="btnFooter btn-outline-secondary btn-lg"
                     type="button"
                     id="button-addon2"
-                    btn-sm
+                  // btn-sm
                   >
                     Submit
                   </button>
                 </div>
-                </ul>
+              </ul>
             </div>
           </div>
 

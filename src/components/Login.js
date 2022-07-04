@@ -1,6 +1,6 @@
 import '../App.css';
 import { useState } from 'react';
-import { useNavigate, Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -26,7 +26,7 @@ const Login = ({ setFarmerToken, isAuthenticated, setIsAuthenticated }) => {
                 draggable: true,
                 progress: undefined,
             });
-            const res = await fetch('http://localhost:5000/auth/signin', {
+            const res = await fetch(process.env.REACT_APP_SERVERURL + 'auth/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -95,7 +95,7 @@ const Login = ({ setFarmerToken, isAuthenticated, setIsAuthenticated }) => {
                                         <input className="form-control form-control-sm" type="password" placeholder="Password" aria-label=".form-control-sm" id="password" value={password} onChange={handleChange}></input><br />
                                         <div className="row">
                                             <div className="col text-center">
-                                                <button type="submit" className="registerbtn">Sign-in</button>
+                                                <button type="submit" className="loginbtn">Sign-in</button>
                                             </div>
                                         </div>
                                     </form>

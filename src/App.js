@@ -2,45 +2,47 @@ import React, { useState, useEffect } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Navbar from "./components/Navbar";
-
+import About from "./components/About";
 import Homepage from "./components/Homepage";
 import Register from "./components/Register";
 import Footer from "./components/Footer";
 import Dashboard from "./components/Dashboard";
 import Login from "./components/Login";
 import Details from "./components/Details";
+import Update from "./components/Update";
 import Products from "./components/ProductsCatalog";
-import About from "./components/ABOUT-PAGE/About";
+import FarmerContact from './components/FarmerContact';
+import SingleProduct from './components/SingleProduct';
 import MyMap from "./components/Maps";
 import NotFound from "./components/NotFound";
-// import React, { useContext } from "react";
-import { themeContext } from "./components/ABOUT-PAGE/Context";
-import { useContext } from "react";
+// import Firebase from "./Firebase";
+
+
 
 
 function App() {
-  const theme = useContext(themeContext);
-  const darkMode = theme.state.darkMode;
 
   const [isAuthenticated, setIsAuthenticated] = useState("false");
   const [farmertoken, setFarmerToken] = useState(
     localStorage.getItem("logintoken")
   );
-  const [user, setUser] = useState(null);
+  // const [user, setUser] = useState(null);
   const nav = useNavigate();
 
   useEffect(() => {
     const verifyLogin = async () => {
-      console.log(farmertoken);
-      const res = await fetch("http://localhost:5000/auth/me", {
+      // console.log(farmertoken);
+      const res = await fetch(process.env.REACT_APP_SERVERURL + "auth/me", {
         headers: {
           Authorization: farmertoken,
         },
       });
       const data = await res.json();
-      // console.log(data);
+      // console.log('farmerdata');
+      // console.log(data.firstname + data.lastname);
       if (data.error) return toast.error(data.error);
-      setUser(data);
+      // setUser(data);
+      localStorage.setItem('farmername', data.firstname + ' ' + data.lastname);
       setIsAuthenticated(true);
     };
 
@@ -48,10 +50,10 @@ function App() {
   }, [farmertoken]);
 
   const logOut = () => {
-    // alert("Logout Called from");
+
     localStorage.removeItem("logintoken");
-    // alert(localStorage.getItem('logintoken'));
-    setUser(null);
+    localStorage.removeItem("farmer");
+    // setUser(null);
     setFarmerToken(null);
     setIsAuthenticated(false);
     nav("/");
@@ -59,21 +61,16 @@ function App() {
 
   return (
     <div
-      className="App"
-    style={{
-      background: darkMode ? "black" : "",
-      color: darkMode ? "white" : "",
-    }}
-    >
-      {/* <Route path='/' element={<Navbar isAuthenticated={isAuthenticated} logOut={logOut} />} >
+      className="App">
 
-      </Route> */}
       <Navbar isAuthenticated={isAuthenticated} logOut={logOut} />
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/About" element={<About />} />
+        <Route path="/FarmerContact" element={<FarmerContact />} />
         <Route path="/Register" element={<Register isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} setFarmerToken={setFarmerToken} />} />
         <Route path="/Products" element={<Products />} />
+        <Route path="/Products/:id" element={<SingleProduct />} />
         <Route path="/Login" element={<Login isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} setFarmerToken={setFarmerToken} />} />
         <Route path="/Maps" element={<MyMap />} />
         <Route
@@ -84,10 +81,17 @@ function App() {
           path="/Dashboard"
           element={<Dashboard isAuthenticated={isAuthenticated} farmertoken={farmertoken} />}
         />
+
+        <Route
+          path="/Update"
+          element={<Update isAuthenticated={isAuthenticated} farmertoken={farmertoken} />}
+        />
         <Route path="*" element={<NotFound />} />
+        {/* <Route path="/Firebase" element={<Firebase />} /> */}
 
       </Routes>
-      {<Footer />}
+      <Footer />
+
     </div>
   );
 }

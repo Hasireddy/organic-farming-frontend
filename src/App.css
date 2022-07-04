@@ -7,7 +7,7 @@
 /* Carousel styling */
 
 .carousel-item {
-    height: 32rem;
+    height: 20rem;
     background: #777;
     color: white;
     position: relative;
@@ -25,13 +25,13 @@
 }
 
 .content {
-    position: absolute;
+    position: relative;
     bottom: 0;
     background: rgba(0, 0, 0, 0.5);
     /* Black background with 0.5 opacity */
     color: #f1f1f1;
     width: 300px;
-    height: 520px;
+    height: 300px;
     font-family: "Times New Roman", Times, serif;
 }
 
@@ -278,11 +278,11 @@ bs-example {
 
 .map-container {
     height: 600px;
-    position: absolute;
+    /* position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
-    right: 0;
+    right: 0; */
 }
 
 .sidebar {
