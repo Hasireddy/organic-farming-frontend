@@ -55,7 +55,7 @@ const Products = () => {
                     <option value="Fruits">Fruits</option>
                     <option value="Vegetables">Vegetables</option>
                     <option value="DairyProd">Dairy Products</option>
-                </select>
+                </select><br></br>
 
                 <a href="/Maps">Click here to search for nearby Farms</a>
 

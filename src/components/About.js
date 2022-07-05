@@ -23,7 +23,7 @@ const About = () => {
               alt="Card cap"
             />
           </div>
-          <div className="card-body" id="cardBody">
+          <div className="card-body-about" id="cardBody">
             <div className="card-title" id="aboutTitle1">
               Uma Maheswari Malikireddy
             </div>
@@ -58,7 +58,7 @@ const About = () => {
               alt="Card cap"
             />
           </div>
-          <div className="card-body">
+          <div className="card-body-about">
             <div className="card-title" id="aboutTitle2">
               Ercan Yanmaz
             </div>
@@ -93,7 +93,7 @@ const About = () => {
               alt="Card cap"
             />
           </div>
-          <div className="card-body">
+          <div className="card-body-about">
             <div className="card-title" id="aboutTitle3">
               Isaiah Umukoro
             </div>
