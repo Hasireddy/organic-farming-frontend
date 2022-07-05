@@ -9,7 +9,7 @@ import img1 from "../assets/mapbox-marker-icon-20px-blue.png";
 mapboxgl.accessToken = process.env.REACT_APP_TOKEN;
 
 const MyMap = () => {
-
+    console.log(mapboxgl.accessToken);
     const mapContainer = useRef(null);
     const mapbox = useRef(null);
     const [lng, setLng] = useState(11.3861);
@@ -47,7 +47,7 @@ const MyMap = () => {
 
             const res = await fetch(process.env.REACT_APP_SERVERURL + "maps");
             const data = await res.json();
-            // console.log(data);
+            console.log(data);
             let locations = {};
             if (data.length > 0) {
                 locations = data.map((item) => {
@@ -119,41 +119,65 @@ const MyMap = () => {
                     // Add a symbol layer
                     mapbox.addLayer({
                         id: "points",
-                        type: "symbol",
+                        type: "circle",
                         source: {
                             type: "geojson",
                             data: {
                                 type: "FeatureCollection",
                                 features: locations
-                                // features: [
-                                //     {
-                                //         type: "Feature",
-                                //         geometry: {
-                                //             type: "Point",
-                                //             coordinates: [11.43048, 48.75334],
-                                //         },
-                                //         properties: {
-                                //             famerName: "Herish 1",
-                                //             icon: "shop",
-                                //         },
-                                //     },
-                                // ],
                             },
                         },
-                        layout: {
-                            // "icon-image": "{icon}-15",
-                            // "icon-size": 1,
-                            "text-field": "{farmName}",
-                            "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
-                            "text-offset": [0, 0.9],
-                            "text-anchor": "top",
-                            "icon-image": "point", // reference the image
-                            "icon-size": 0.7,
-                            'visibility': 'visible'
-                        },
-
-
+                        paint: {
+                            "circle-color": "hsl(240, 100%, 50%)",
+                            "circle-stroke-width": 1,
+                            "circle-stroke-color": "white",
+                            'circle-radius': {
+                                'base': 5,
+                                'stops': [
+                                    [10, 7],
+                                    [50, 180]
+                                ]
+                            },
+                        }
                     });
+
+                    // mapbox.addLayer({
+                    //     id: "points",
+                    //     type: "symbol",
+                    //     source: {
+                    //         type: "geojson",
+                    //         data: {
+                    //             type: "FeatureCollection",
+                    //             features: locations
+                    //             // features: [
+                    //             //     {
+                    //             //         type: "Feature",
+                    //             //         geometry: {
+                    //             //             type: "Point",
+                    //             //             coordinates: [11.43048, 48.75334],
+                    //             //         },
+                    //             //         properties: {
+                    //             //             famerName: "Herish 1",
+                    //             //             icon: "shop",
+                    //             //         },
+                    //             //     },
+                    //             // ],
+                    //         },
+                    //     },
+                    //     layout: {
+                    //         // "icon-image": "{icon}-15",
+                    //         // "icon-size": 1,
+                    //         "text-field": "{farmName}",
+                    //         "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
+                    //         "text-offset": [0, 0.9],
+                    //         "text-anchor": "top",
+                    //         "icon-image": "point", // reference the image
+                    //         "icon-size": 0.5,
+                    //         'visibility': 'visible'
+                    //     },
+
+
+                    // });
                 });
 
                 renderListings(locations); //To display search box initially without mouse movement
@@ -352,7 +376,7 @@ const MyMap = () => {
 
         }
         catch (error) {
-            //     console.log("maps.js error", error);
+            console.log("maps.js error", error);
             // toast.error(error.message, {
             //     position: "bottom-center",
             //     autoClose: 3000,
