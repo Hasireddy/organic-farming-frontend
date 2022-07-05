@@ -71,7 +71,7 @@ const Register = ({ isAuthenticated, setIsAuthenticated, setFarmerToken }) => {
                     countrycode
                 })
             });
-            const { token, error } = await res.json();
+            const { token } = await res.json();
             if (token) {
                 toast.success('Registered successfully.', {
                     position: "top-center",
