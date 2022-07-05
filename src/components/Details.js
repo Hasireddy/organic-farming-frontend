@@ -4,7 +4,6 @@ import image1 from "../assets/farmer.jpg";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "../App.css";
-import { Navigate } from 'react-router-dom';
 import "../components/Details.css";
 
 
@@ -197,21 +196,21 @@ const Details = ({ isAuthenticated }) => {
                                 name={Image}
                                 ref={ref}
                             /> */}
-                            {/* <button onClick={handleApi}>Upload</button> */}>
+                            {/* <button onClick={handleApi}>Upload</button> */}
                             <div className="row" >
-                            <div className="col10" >
-                                <input
-                                type="file"
-                                id="Image"
-                                onChange={handleFile}
-                                name={Image}
-                                ref={ref}
-                            />
-                            <button type="submit" className="registerbtn">
+                                <div className="col10" >
+                                    <input
+                                        type="file"
+                                        id="Image"
+                                        onChange={handleFile}
+                                        name={Image}
+                                        ref={ref}
+                                    />
+                                    <button type="submit" className="registerbtn">
                                         Submit
                                     </button>
-                                </div>                                                          
-                                
+                                </div>
+
                             </div>
                         </form>
                     </div>

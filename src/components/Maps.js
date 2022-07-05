@@ -148,7 +148,7 @@ const MyMap = () => {
                             "text-offset": [0, 0.9],
                             "text-anchor": "top",
                             "icon-image": "point", // reference the image
-                            "icon-size": 0.5,
+                            "icon-size": 0.7,
                             'visibility': 'visible'
                         },
 

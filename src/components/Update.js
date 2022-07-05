@@ -53,7 +53,7 @@ const Update = ({ farmertoken, isAuthenticated }) => {
     };
 
     const handleFile = (e) => {
-        alert("filechange");
+        // alert("filechange");
         // console.log("e.target.files[0]");
         // console.log(e.target.files[0]);
         setFormState((prev) => ({ ...prev, Image: e.target.files[0] }));

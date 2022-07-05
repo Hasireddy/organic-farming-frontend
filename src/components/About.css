@@ -1,10 +1,10 @@
-#aboutCtn{
+#aboutCtn {
     background: url(../assets/slidecoffee.jpg) no-repeat;
     background-size: cover;
     opacity: 0.9;
 }
 
-#cardAbout{
+#cardAbout {
     background-color: rgb(241, 241, 184) !important;
     border-radius: 10px;
     box-shadow: 3px 5px 10px #bda4a4;
@@ -13,8 +13,7 @@
     margin-right: 75px !important;
 }
 
-
-#aboutTitle1{
+#aboutTitle1 {
     background-color: rgb(173, 46, 68);
     border-radius: 5px;
     color: white;
@@ -22,7 +21,7 @@
     font-family: Gothic;
 }
 
-#aboutTitle2{
+#aboutTitle2 {
     background-color: rgb(6, 92, 6);
     border-radius: 5px;
     color: white;
@@ -30,7 +29,7 @@
     font-family: Gothic;
 }
 
-#aboutTitle3{
+#aboutTitle3 {
     background-color: rgb(83, 55, 161);
     border-radius: 5px;
     color: white;
@@ -38,7 +37,7 @@
     font-family: Gothic;
 }
 
-#cardHeader{
+#cardHeader {
     background-color: rgb(6, 99, 6) !important;
     height: 200px;
     color: white;
@@ -48,14 +47,14 @@
     font-size: 75px;
 }
 
-#umaPic{
+#uma {
     border-radius: 50%;
     background-color: white;
     width: 200px;
     padding-top: 20px;
 }
 
-#isaiahPic{
+#isaiah {
     border-radius: 50%;
     width: 200px;
     height: 200px;
@@ -63,34 +62,33 @@
     background-color: white;
 }
 
-#ercanPic{
+#ercan {
     border-radius: 50%;
     background-color: white;
     width: 200px;
 }
 
-.linkedIn{
-    color:blue
+.linkedIn {
+    color: blue
 }
 
-
-.textAreaContainer{
-    display: flex;  
+.textAreaContainer {
+    display: flex;
     flex-direction: column;
     margin-top: 75px;
     padding-top: 100px;
     padding-bottom: 100px;
-    color:white;
+    color: white;
     /* font-weight: bold; */
     letter-spacing: .1rem;
 }
 
-#textAreaFooter{
+#textAreaFooter {
     margin: auto;
     font-size: 18px;
 }
 
-.card-header{
+.card-header {
     font-size: 75px;
     background: none;
     background-color: rgb(13, 14, 13) !important;
@@ -101,6 +99,6 @@
     margin-bottom: 200px;
 }
 
-.{
+. {
     padding-top: 250px;
 }
