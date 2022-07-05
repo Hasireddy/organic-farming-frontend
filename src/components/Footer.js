@@ -4,7 +4,7 @@ import "../assets/Facebook.png";
 import logo from "../assets/logo.png";
 
 
- 
+
 function Footer() {
 
   return (
@@ -19,7 +19,7 @@ function Footer() {
                     Organic Farming Community
                   </span>
                 </li>
-                <a className="navbar-footer" href="#">
+                <a className="navbar-footer" href="#/">
                   <img
                     src={logo}
                     alt=""

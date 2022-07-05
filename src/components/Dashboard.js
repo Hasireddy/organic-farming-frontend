@@ -4,7 +4,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 
-import Update from './Update.js';
+
 
 // accessToken2.Dashboard = process.env.REACT_APP_LINK1; 
 

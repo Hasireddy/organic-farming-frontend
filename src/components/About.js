@@ -18,9 +18,9 @@ const About = () => {
           <div>
             <img
               className="card-img-top img-fluid"
-              id="umaPic"
+              id="uma"
               src={Uma}
-              alt="Card image cap"
+              alt="Card cap"
             />
           </div>
           <div className="card-body" id="cardBody">
@@ -53,9 +53,9 @@ const About = () => {
           <div>
             <img
               className="card-img-top img-fluid"
-              id="ercanPic"
+              id="ercan"
               src={Ercan}
-              alt="Card image cap"
+              alt="Card cap"
             />
           </div>
           <div className="card-body">
@@ -88,9 +88,9 @@ const About = () => {
           <div>
             <img
               className="card-img-top img-fluid"
-              id="isaiahPic"
+              id="isaiah"
               src={Isaiah}
-              alt="Card image cap"
+              alt="Card cap"
             />
           </div>
           <div className="card-body">
@@ -121,21 +121,21 @@ const About = () => {
       </div>
       <div className="textAreaContainer">
         <h2 className="text-center">Organic Farming</h2>
-      <div className="text-left" id="textAreaFooter">
-      In 2019, 34.110 farms (12.9 per cent of all German farms) met the
+        <div className="text-left" id="textAreaFooter">
+          In 2019, 34.110 farms (12.9 per cent of all German farms) met the
           requirements qualifying them as organic farms. The amount of farmland
           being used for organic farming increased by 0,8 per cent, bringing the
           proportion of German farmland being used for organic farming to 9,7
           per cent.
-      </div><br></br>
-      <div className="text-left" id="textAreaFooter">
-      These figures vary from one regional-state to another Organic farming
+        </div><br></br>
+        <div className="text-left" id="textAreaFooter">
+          These figures vary from one regional-state to another Organic farming
           in <strong>Brandenburg, Saarland, Hesse and Mecklenburg-West</strong> Pomerania greatly
           exceeded the national average, in contrast to Lower Saxony, Saxony and
           Schleswig-Holstein
-      </div><br></br>
-      <div className="text-left" id="textAreaFooter">
-      The demand for organic products is growing in Germany, which is
+        </div><br></br>
+        <div className="text-left" id="textAreaFooter">
+          The demand for organic products is growing in Germany, which is
           Europe’s largest organic product market and organic food producer,
           with sales amounting to 11.97 billion € in 2019. Despite the increase
           in the amount of farmland being used for organic farming, the demand
@@ -143,18 +143,18 @@ const About = () => {
           of these imports could also be produced at home, although this would
           entail greater effort in terms of the planning certainty and
           reliability of subsidy policies.
-          
+
           <div className="text-right">
-          <small>- Copied from Umwelt Bundesamt</small> 
+            <small>- Copied from Umwelt Bundesamt</small>
           </div>
-          
+
+        </div>
       </div>
-      </div>   
-          
-          
-          
-        
-      
+
+
+
+
+
     </div>
   );
 };
