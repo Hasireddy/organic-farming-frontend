@@ -1,0 +1,42 @@
+.farmer-contact-container{
+    background-color: coral;
+    display: flex;
+    flex-direction: row;
+
+}
+
+#headerCtn{
+    background-color: blue !important;
+}
+
+#cardDeck{
+    display: flex;
+    flex-direction: column;
+}
+
+.card-body{
+    display: flex;
+    flex-direction: row;
+    
+}
+
+#description{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#card-body{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+/* #ourProducts{
+    background-color: blueviolet;
+} */
+
+

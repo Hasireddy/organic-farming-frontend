@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from 'axios';
+import "../components/SingleProduct.css";
 
 const SingleProduct = () => {
     const { id } = useParams();
@@ -37,16 +38,12 @@ const SingleProduct = () => {
             {
                 product ? (
                     <div className="farmer-contact-container" >
-                        <div className="card-deck">
+                        <div className="card-deck" id="cardDeck">
                             <div className="card" id="cardCtn" >
                                 <div className="card-header bg-success text-white" id="headerCtn">FARM: {product.farmer.farmName}</div><br></br>
-                                <div className="card-body">
-                                    <div className="farm-address font-weight-bold " value="address">{product.farmer.firstname + ' ' + product.farmer.lastname}</div><br></br>
-                                    <div className="farm-address font-weight-bold " value="address">{product.farmer.address}</div><br></br>
-                                    <div className="farm-postcode font-weight-bold" value="postcode">{product.farmer.postcode}</div><br></br>
-
-                                    <div className="farm-email text-primary" value="email">E-mail:{product.farmer.email}</div>
-                                </div>
+                               
+                                
+                                    
                                 {/* <div class="card-footer">
                 <button href="/" id="farmerCtn" class="text-white">Check Location</button>
               </div> */}
@@ -56,13 +53,19 @@ const SingleProduct = () => {
                                 <div className="card-header bg-success text-white" id="headerCtn">PRODUCT</div><br></br>
                                 <div className="card-body">
 
-                                    <div className="farm-address font-weight-bold " value="pname">Product : {product.ProductName}</div><br></br>
-                                    <div className="farm-address font-weight-bold " value="pname">Category : {product.Category}</div><br></br>
-                                    <div className="farm-address font-weight-bold " value="pdescription"> Description : {product.Description}</div><br></br>
-                                    <div className="farm-postcode font-weight-bold" value="price">Price : {product.Price}euros</div><br></br>
-
+                                <div id="mainImage">
                                     <div className="farm-email text-primary" value="email"><img src={product.Image.publicUrl} alt="product" /></div>
                                 </div>
+
+                                    <div id="description">
+                                    <div className="farm-address font-weight-bold" value="pname" id="prodId"><h3>Product:</h3>  {product.ProductName}</div><br></br>
+                                    <div className="farm-address font-weight-bold" value="pname"><h3>Category </h3> {product.Category}</div><br></br>
+                                    <div className="farm-address font-weight-bold" value="pdescription"><h3>Description :</h3>  {product.Description}</div><br></br>
+                                    </div>
+
+                                    
+                                    </div>
+                                   
                                 {/* <div class="card-footer">
                 <button href="/" id="farmerCtn" class="text-white">Check Location</button>
               </div> */}
@@ -73,8 +76,20 @@ const SingleProduct = () => {
 
                     </div >) : (<div><h1>No Farms found</h1></div>)}
 
+                    <div id="card-body">
+                                    <div>
+                                    <div className="farm-address font-weight-bold " value="address">{product.farmer.firstname + ' ' + product.farmer.lastname}</div><br></br>
+                                    <div className="farm-address font-weight-bold " value="address">{product.farmer.address}</div><br></br>
+                                    <div className="farm-postcode font-weight-bold" value="postcode">{product.farmer.postcode}</div><br></br>
+                                    </div>
+                                    
+                                    <div>
+                                    <div className="farm-email text-primary" value="email" id="selectedProduct">E-mail:{product.farmer.email}</div>
+                                </div>
+                                    </div>
+
             <div className="row row-1 row-cols-md-3 g-4">
-                <h1>Our Products</h1>
+                <div className="title"><h1>Our Products</h1></div>
                 {farmerOtherProds ? (
                     farmerOtherProds.map((item) => (
 
