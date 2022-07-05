@@ -15,7 +15,10 @@ const Dashboard = ({ isAuthenticated, farmertoken }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    getFarmerProducts()
+    if (farmertoken) {
+      getFarmerProducts(farmertoken);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [farmertoken]);
 
   const getFarmerProducts = async e => {
