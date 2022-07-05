@@ -44,7 +44,7 @@ const Products = () => {
 
     return (
         <>
-            <div className="container">
+            <div className="containerProduct">
                 <select
                     name="category-list"
                     id="Category"
