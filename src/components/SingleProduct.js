@@ -40,17 +40,27 @@ const SingleProduct = () => {
                     <div className="farmer-contact-container" >
                         <div className="card-deck" id="cardDeck">
                             <div className="card" id="cardCtn" >
-                                <div className="card-header bg-success text-white" id="headerCtn">FARM: {product.farmer.farmName}</div><br></br>
+                                <div className="card-header bg-success text-white" id="headerCtn">FARM: {product.farmer.farmName}
 
-
-
-                                {/* <div class="card-footer">
+                                    {/* <div class="card-footer">
                 <button href="/" id="farmerCtn" class="text-white">Check Location</button>
               </div> */}
-                            </div>
+                                </div>
 
+                                <div id="card-body">
+                                    <div>
+                                        <div className="farm-address font-weight-bold " value="address">{product.farmer.firstname + ' ' + product.farmer.lastname}</div><br></br>
+                                        <div className="farm-address font-weight-bold " value="address">{product.farmer.address}</div><br></br>
+                                        <div className="farm-postcode font-weight-bold" value="postcode">{product.farmer.postcode}</div><br></br>
+                                    </div>
+
+                                    <div>
+                                        <div className="farm-email text-primary" value="email" id="selectedProduct">E-mail:{product.farmer.email}</div>
+                                    </div>
+                                </div>
+                            </div>
                             <div className="card" id="cardCtn" >
-                                <div className="card-header bg-success text-white" id="headerCtn">PRODUCT</div><br></br>
+                                <div className="card-header text-white" id="headerCtn">PRODUCT</div><br></br>
                                 <div className="card-body">
 
                                     <div id="mainImage">
@@ -73,62 +83,54 @@ const SingleProduct = () => {
 
 
                         </div>
-                        <div id="card-body">
-                            <div>
-                                <div className="farm-address font-weight-bold " value="address">{product.farmer.firstname + ' ' + product.farmer.lastname}</div><br></br>
-                                <div className="farm-address font-weight-bold " value="address">{product.farmer.address}</div><br></br>
-                                <div className="farm-postcode font-weight-bold" value="postcode">{product.farmer.postcode}</div><br></br>
-                            </div>
 
-                            <div>
-                                <div className="farm-email text-primary" value="email" id="selectedProduct">E-mail:{product.farmer.email}</div>
-                            </div>
-                        </div>
                     </div >) : (<div><h1>No Farms found</h1></div>)}
 
 
-
-            <div className="row row-1 row-cols-md-3 g-4">
+            <div id="product1">
                 <div className="title"><h1>Our Products</h1></div>
-                {farmerOtherProds ? (
-                    farmerOtherProds.map((item) => (
+                <div className="row row-1 row-cols-md-3 g-4">
+
+                    {farmerOtherProds ? (
+                        farmerOtherProds.map((item) => (
 
 
-                        <div className="col-12 col-md-3 col-lg-3" key={item._id}>
+                            <div className="col-12 col-md-3 col-lg-3" key={item._id}>
 
-                            <div
-                                id="rowProductCatalog"
-                                style={{
-                                    backgroundImage: `url(${process.env.REACT_APP_SERVERURL} +${item.Image.path}`,
-                                }}
-                            >
-                                <img
-                                    src={item.Image.publicUrl}
-                                    alt="salad leaf"
-                                    style={{ width: "25vh", height: "25vh" }}
-                                />
+                                <div
+                                    id="rowProductCatalog"
+                                    style={{
+                                        backgroundImage: `url(${process.env.REACT_APP_SERVERURL} +${item.Image.path}`,
+                                    }}
+                                >
+                                    <img
+                                        src={item.Image.publicUrl}
+                                        alt="salad leaf"
+                                        style={{ width: "100%", height: "100%" }}
+                                    />
+                                </div>
+                                <div
+                                    className="col col-10"
+                                    id="product-catalog"
+                                >
+                                    <h3 className="card-title-catalog">Product Name: {item.ProductName}</h3>
+                                    <h3 className="card-title-catalog">Category: {item.Category}</h3>
+
+                                    <p className="card-text-catalog">Description: {item.Description} euros</p>
+
+                                    <p className="card-text-catalog">Price: {item.Price} euros</p>
+
+                                </div>
+
                             </div>
-                            <div
-                                className="col col-9 row-cols-md-3 g-4 "
-                                id="product-catalog"
-                            >
-                                <h3 className="card-title-catalog">{item.ProductName}</h3>
-                                <h3 className="card-title-catalog">{item.Category}</h3>
 
-                                <p className="card-text-catalog">Price:{item.Description} euros</p>
-
-                                <p className="card-text-catalog">Price:{item.Price} euros</p>
-
-                            </div>
-
+                        ))
+                    ) : (
+                        <div>
+                            <h1>Sorry No Products added Yet</h1>
                         </div>
-
-                    ))
-                ) : (
-                    <div>
-                        <h1>Sorry No Products added Yet</h1>
-                    </div>
-                )}
+                    )}
+                </div>
             </div>
         </>
 
