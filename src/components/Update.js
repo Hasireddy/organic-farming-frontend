@@ -14,7 +14,8 @@ const Update = ({ farmertoken, isAuthenticated }) => {
     // { location.updatedetails.id }
     // console.log("Product ID:")
     // console.log("Product ID:" + location.state.id)
-    const [ProductId, setProductId] = useState(location.state.id);
+    const [ProductId, setProductId] = useState(null);
+    setProductId(location.state.id);
 
     // const [ProductName, setProductName] = useState('');
     // const [Description, setDescription] = useState('');

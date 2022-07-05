@@ -1,17 +1,15 @@
-.containerReg{
-    background-color: #4cfc4c56!important;
+.containerReg {
+    background-color: #4cfc4c56 !important;
     padding-bottom: 25px;
     /* background: url(../assets/farmers2.jpg) no-repeat;
     background-size: cover; */
 }
 
-
-#code{
+#code {
     display: flex;
     flex-direction: row;
-    justify-content: start;
+    justify-content: flex-start;
 }
-
 
 .form-control {
     width: 100%;
@@ -36,21 +34,19 @@
     padding-bottom: 25px;
     /* background: url(./assets/fattoria-banner-2.jpg) no-repeat; */
     background-size: cover;
-} 
+}
 
 .regHeader {
     padding-top: 100px;
     font-weight: bolder;
-} 
-
-.col-5{
-  display: flex;
-  padding-left: 100px;
-
-   
 }
 
-.col-7{
+.col-5 {
+    display: flex;
+    padding-left: 100px;
+}
+
+.col-7 {
     padding-left: 50px;
     padding-right: 35px;
 }
