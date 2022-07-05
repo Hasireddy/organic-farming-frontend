@@ -1,13 +1,25 @@
+<<<<<<< HEAD
 // import React, { useState } from "react";
 // import "../components/FarmerContact.css";
 // import { useParams, useLocation } from 'react-router-dom';
+=======
+import React, { useState } from "react";
+import "../components/FarmerContact.css";
+import { useLocation } from 'react-router-dom';
+>>>>>>> origin/master
 
 // const FarmerContact = () => {
 
 //   const location = useLocation();
 
+<<<<<<< HEAD
 //   // console.log(location.state.farmerObject);
 //   const [FarmDetails, setFarmDetails] = useState(location.state.farmerObject);
+=======
+  // console.log(location.state.farmerObject);
+  const [FarmDetails, setFarmDetails] = useState(null);
+  setFarmDetails(location.state.farmerObject);
+>>>>>>> origin/master
 
 //   return (
 //     <>
