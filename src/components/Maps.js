@@ -88,7 +88,7 @@ const MyMap = () => {
 
         }
         catch (error) {
-            console.log("maps.js error2", error);
+            // console.log("maps.js error2", error);
             // toast.error(error.message, {
             //     position: "bottom-center",
             //     autoClose: 3000,
