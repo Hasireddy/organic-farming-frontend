@@ -2,6 +2,7 @@ import React from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useState, useEffect } from "react";
+import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import "../components/Dashboard.css";
 
@@ -122,7 +123,7 @@ const Dashboard = ({ isAuthenticated, farmertoken }) => {
       < div className="container">
         <div>
           <h3 className="farmer">Welcome <b>{localStorage.getItem('farmername')}</b></h3>
-          <a className="button" href="/Details">Add Product</a>
+          <Link to="/Details">Add Product</Link>
         </div>
         {
           products ? (products.map(item =>
