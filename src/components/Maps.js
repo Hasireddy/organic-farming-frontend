@@ -6,6 +6,7 @@ import mapboxgl from "mapbox-gl";
 // import img1 from "../assets/mapbox-marker-icon-20px-blue.png";
 // import img1 from '../assets/logo.png';
 
+
 mapboxgl.accessToken = process.env.REACT_APP_TOKEN;
 
 const MyMap = () => {
