@@ -2,6 +2,7 @@ import React from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useState, useEffect } from "react";
+import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
 
@@ -121,7 +122,7 @@ const Dashboard = ({ isAuthenticated, farmertoken }) => {
       < div className="container">
         <div>
           <h3 className="farmer">Welcome <b>{localStorage.getItem('farmername')}</b></h3>
-          <a className="button" href="/Details">Add Product</a>
+          <Link to="/Details">Add Product</Link>
         </div>
         {
           products ? (products.map(item =>
@@ -139,8 +140,7 @@ const Dashboard = ({ isAuthenticated, farmertoken }) => {
                     <p className="card-text fw-bold">Price : {item.Price} euros</p>
                   </div>
                   <div className="card-footer bg-success">
-                    {/* <a href="#" className="text-white">Read More
-                    </a> */}
+
                     <button onClick={async () => { await UpdateProduct(item._id); }}>Update</button>
                     <button onClick={async () => { await deleteProduct(item._id); }}>Delete</button>
                   </div>

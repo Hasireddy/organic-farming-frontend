@@ -3,7 +3,7 @@ import "mapbox-gl/dist/mapbox-gl.css";
 import mapboxgl from "mapbox-gl";
 // import { ToastContainer, toast } from "react-toastify";
 // import "react-toastify/dist/ReactToastify.css";
-import img1 from "../assets/mapbox-marker-icon-20px-blue.png";
+// import img1 from "../assets/mapbox-marker-icon-20px-blue.png";
 // import img1 from '../assets/logo.png';
 
 mapboxgl.accessToken = process.env.REACT_APP_TOKEN;
@@ -16,24 +16,21 @@ const MyMap = () => {
     const [lat, setLat] = useState(50.5527);
     const [zoom, setZoom] = useState(4.5);
 
-    // useEffect(() => {
+    useEffect(() => {
 
-    //     if (mapbox.current) return; // initialize map only once
-    //     mapbox.current = new mapboxgl.Map({
-    //         container: mapContainer.current,
-    //         style: 'mapbox://styles/mapbox/streets-v11',
-    //         center: [lng, lat],
-    //         zoom: zoom
-    //     });
-    //     getFarmers();
+        if (mapbox.current) return; // initialize map only once
+        mapbox.current = new mapboxgl.Map({
+            container: mapContainer.current,
+            style: 'mapbox://styles/mapbox/streets-v11',
+            center: [lng, lat],
+            zoom: zoom
+        });
+        getFarmers();
 
-    // });
+    });
 
     // Initialize map when component mounts
     useEffect(() => {
-
-        getFarmers();
-
         if (!mapbox.current) return; // wait for map to initialize
         mapbox.current.on("move", () => {
             setLng(mapbox.current.getCenter().lng.toFixed(4));
@@ -47,7 +44,7 @@ const MyMap = () => {
 
             const res = await fetch(process.env.REACT_APP_SERVERURL + "maps");
             const data = await res.json();
-            console.log(data);
+            // console.log(data);
             let locations = {};
             if (data.length > 0) {
                 locations = data.map((item) => {
@@ -83,6 +80,7 @@ const MyMap = () => {
                     }`;
             }
 
+            // setTimeout(() => loadMap(locations), 10000);
             loadMap(locations);
 
         }
@@ -108,84 +106,35 @@ const MyMap = () => {
                 zoom: zoom,
             });
 
+
             mapbox.on("load", function () {
-
-                mapbox.loadImage(img1, (error, image) => {
-                    if (error) throw error;
-
-                    // Add the image to the map style.
-                    mapbox.addImage("point", image);
-
-                    // Add a symbol layer
-                    mapbox.addLayer({
-                        id: "points",
-                        type: "circle",
-                        source: {
-                            type: "geojson",
-                            data: {
-                                type: "FeatureCollection",
-                                features: locations
-                            },
+                // Add a symbol layer
+                mapbox.addLayer({
+                    id: "points",
+                    type: "circle",
+                    source: {
+                        type: "geojson",
+                        data: {
+                            type: "FeatureCollection",
+                            features: locations
                         },
-                        paint: {
-                            "circle-color": "hsl(240, 100%, 50%)",
-                            "circle-stroke-width": 1,
-                            "circle-stroke-color": "white",
-                            'circle-radius': {
-                                'base': 5,
-                                'stops': [
-                                    [10, 7],
-                                    [50, 180]
-                                ]
-                            },
-                        }
-                    });
-
-                    // mapbox.addLayer({
-                    //     id: "points",
-                    //     type: "symbol",
-                    //     source: {
-                    //         type: "geojson",
-                    //         data: {
-                    //             type: "FeatureCollection",
-                    //             features: locations
-                    //             // features: [
-                    //             //     {
-                    //             //         type: "Feature",
-                    //             //         geometry: {
-                    //             //             type: "Point",
-                    //             //             coordinates: [11.43048, 48.75334],
-                    //             //         },
-                    //             //         properties: {
-                    //             //             famerName: "Herish 1",
-                    //             //             icon: "shop",
-                    //             //         },
-                    //             //     },
-                    //             // ],
-                    //         },
-                    //     },
-                    //     layout: {
-                    //         // "icon-image": "{icon}-15",
-                    //         // "icon-size": 1,
-                    //         "text-field": "{farmName}",
-                    //         "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
-                    //         "text-offset": [0, 0.9],
-                    //         "text-anchor": "top",
-                    //         "icon-image": "point", // reference the image
-                    //         "icon-size": 0.5,
-                    //         'visibility': 'visible'
-                    //     },
-
-
-                    // });
+                    },
+                    paint: {
+                        "circle-color": "hsl(240, 100%, 50%)",
+                        "circle-stroke-width": 1,
+                        "circle-stroke-color": "white",
+                        'circle-radius': {
+                            'base': 5,
+                            'stops': [
+                                [10, 7],
+                                [50, 180]
+                            ]
+                        },
+                    }
                 });
-
                 renderListings(locations); //To display search box initially without mouse movement
             });
-
-
             //Search code starts
-
             const filterEl = document.getElementById('feature-filter');
             const listingEl = document.getElementById('feature-listing');
             function renderListings(locations) {
@@ -231,7 +180,6 @@ const MyMap = () => {
                     mapbox.setFilter('points', ['has', 'farmName']);
                 }
             }
-
             const popup = new mapboxgl.Popup({
                 closeButton: false
             });
@@ -255,25 +203,18 @@ const MyMap = () => {
                 mapbox.setFilter('points', ['has', 'farmName']);
             });
             mapbox.on('moveend', () => {
-                //  console.log('rendering locations');
-                //const tempfeatures = mapbox.queryRenderedFeatures(e.point);
-
                 const tempfeatures = mapbox.queryRenderedFeatures({ layers: ['points'] });
-                //  const tempfeatures = mapbox.querySourceFeatures(locations, { filter: ['==', 'farmName', '*'] })
-                // .forEach(feature => bounds.extend(feature.geometry.coordinates))
-                console.log(tempfeatures);
+                // console.log(tempfeatures);
                 if (tempfeatures) {
                     const uniqueFeatures = getUniqueFeatures(tempfeatures, 'farmName');
                     // Populate features for the listing overlay.
                     // console.log(uniqueFeatures);
                     renderListings(uniqueFeatures);
-
                     // Clear the input container
                     filterEl.value = '';
-
                     // Store the current features in sn `airports` variable to
                     // later use for filtering on `keyup`.
-                    locations = uniqueFeatures;
+                    // locations = uniqueFeatures;
                 }
             });
             mapbox.on('mousemove', 'points', (e) => {
@@ -289,7 +230,6 @@ const MyMap = () => {
                     //     `${tempfeature.properties.farmerName} 'here' (${tempfeature.properties.address})`
                     // )
                     .addTo(mapbox);
-
                 // new mapboxgl.Popup()
                 //     .setLngLat(coordinates)
                 //     .setHTML(`<h5>${address}<h5/>`)
@@ -372,7 +312,7 @@ const MyMap = () => {
 
 
             // Clean up on unmount
-            //  return () => mapbox.remove();
+            return () => mapbox.remove();
 
         }
         catch (error) {

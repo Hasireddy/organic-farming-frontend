@@ -3,6 +3,7 @@ import "../components/About.css";
 import Uma from "../assets/uma.png";
 import Isaiah from "../assets/isaiah.jpeg";
 import Ercan from "../assets/ercan4.jpg";
+import { Link } from 'react-router-dom';
 
 const About = () => {
   return (
@@ -23,7 +24,7 @@ const About = () => {
               alt="Card cap"
             />
           </div>
-          <div className="card-body" id="cardBody">
+          <div className="card-body-about" id="cardBody">
             <div className="card-title" id="aboutTitle1">
               Uma Maheswari Malikireddy
             </div>
@@ -34,17 +35,14 @@ const About = () => {
             <div className="institute font-weight-bold">WBS Coding School</div>
             <div className="addressAbout font-weight-bold">Berlin, Germany</div>
             <br></br>
-            <a
-              href="https://www.linkedin.com/in/malikireddyuma/"
+            <Link to="https://www.linkedin.com/in/malikireddyuma/"
               className="linkedIn font-weight-bold"
             >
               <i className="bi bi-linkedin"></i>
-            </a>
+            </Link>
             <br></br>
             <div className="card-text">
-              <strong>Passion</strong>: This is a longer card with supporting
-              text below as a natural lead-in to additional content. This
-              content is a little bit longer.
+              <strong>Passion</strong>: Passionate, Motivated and Dynamic Full-Stack Web Developer !
             </div>
           </div>
         </div>
@@ -58,7 +56,7 @@ const About = () => {
               alt="Card cap"
             />
           </div>
-          <div className="card-body">
+          <div className="card-body-about">
             <div className="card-title" id="aboutTitle2">
               Ercan Yanmaz
             </div>
@@ -69,17 +67,14 @@ const About = () => {
             <div className="institute font-weight-bold">WBS Coding School</div>
             <div className="addressAbout font-weight-bold">Berlin, Germany</div>
             <br></br>
-            <a
-              href="https://www.linkedin.com/in/ercan-yanmaz-425232234/"
+            <Link to="https://www.linkedin.com/in/ercan-yanmaz-425232234/"
               className="linkedIn font-weight-bold"
             >
               <i className="bi bi-linkedin"></i>
-            </a>
+            </Link>
             <br></br>
             <div className="card-text">
-              <strong>Passion</strong>: This is a longer card with supporting
-              text below as a natural lead-in to additional content. This
-              content is a little bit longer.
+              <strong>Passion</strong>: My passion were only Swimming, Football, DIY (mandala)..etc, Until recently I came across to the Coding and it become my main  passion.
             </div>
           </div>
         </div>
@@ -93,7 +88,7 @@ const About = () => {
               alt="Card cap"
             />
           </div>
-          <div className="card-body">
+          <div className="card-body-about">
             <div className="card-title" id="aboutTitle3">
               Isaiah Umukoro
             </div>
@@ -104,17 +99,14 @@ const About = () => {
             <div className="institute font-weight-bold">WBS Coding School</div>
             <div className="addressAbout font-weight-bold">Berlin, Germany</div>
             <br></br>
-            <a
-              href="https://www.linkedin.com/in/isaiah-umukoro-387a8523a/"
+            <Link to="https://www.linkedin.com/in/isaiah-umukoro-387a8523a/"
               className="linkedIn font-weight-bold"
             >
               <i className="bi bi-linkedin"></i>
-            </a>
+            </Link>
             <br></br>
             <div className="card-text">
-              <strong>Passion</strong>: This is a longer card with supporting
-              text below as a natural lead-in to additional content. This
-              content is a little bit longer.
+              <strong>Passion</strong>: Passionate and Ambitious about creativity, especially in the area of Web and App development!
             </div>
           </div>
         </div>
@@ -150,11 +142,6 @@ const About = () => {
 
         </div>
       </div>
-
-
-
-
-
     </div>
   );
 };

@@ -57,7 +57,7 @@ const Products = () => {
                     <option value="DairyProd">Dairy Products</option>
                 </select>
 
-                <a href="/Maps">Click here to search for nearby Farms</a>
+                <Link to="/Maps">Click here to search for nearby Farms</Link>
 
                 {/* cards row 1  */}
                 <div className="row row-1 row-cols-md-3 g-4">

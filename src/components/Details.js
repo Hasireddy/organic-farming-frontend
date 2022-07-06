@@ -222,6 +222,7 @@ const Details = ({ isAuthenticated }) => {
                 </div>
             </div>
             <ToastContainer />
+            <br />
         </>
     );
 };

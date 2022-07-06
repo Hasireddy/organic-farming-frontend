@@ -8,9 +8,9 @@ const Navbar = ({ isAuthenticated, logOut }) => {
   return (
     <div id='navBarContainer'>
       <nav className='navbar navbar-expand-lg navbar-light bg-light'>
-        <a className="navbar-brand" href="/">
+        <Link to="/">
           <img src={logo} alt="" width="70px" height="70px" className="d-inline-block align-text-center" />
-        </a>
+        </Link>
         <Link className='navbar-brand' to='/'>
           ORGANIC FARMING COMMUNITY
 
