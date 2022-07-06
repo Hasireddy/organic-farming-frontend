@@ -5,6 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 // import image from "../assets/fattoria-banner-1.jpg";
 import image1 from "../assets/farmer.jpg";
 import "../components/Register.css";
+import { Link } from 'react-router-dom';
 
 const Register = ({ isAuthenticated, setIsAuthenticated, setFarmerToken }) => {
 
@@ -143,27 +144,28 @@ const Register = ({ isAuthenticated, setIsAuthenticated, setFarmerToken }) => {
                             <input className="form-control form-control-sm" type="text" placeholder="LastName" aria-label=".form-control-sm" id='lastname' value={lastname} onChange={handleChange}></input><br />
                             <input autoComplete="off" className="form-control form-control-sm" type="email" placeholder="Email" aria-label=".form-control-sm" id='email' name="email" value={email} onChange={handleChange}></input><br />
                             <input autoComplete="new-password"
-                            className="form-control form-control-sm" type="password" placeholder="Password" aria-label=".form-control-sm" id='password' value={password} onChange={handleChange}></input><br />
+                                className="form-control form-control-sm" type="password" placeholder="Password" aria-label=".form-control-sm" id='password' value={password} onChange={handleChange}></input><br />
                             <input className="form-control form-control-sm" type="text" placeholder="FarmName" aria-label=".form-control-sm" id='farmName' value={farmName} onChange={handleChange}></input><br />
                             <input className="form-control form-control-sm" type="text" placeholder="Address" aria-label=".form-control-sm" id='address' value={address} onChange={handleChange}></input><br />
-                            
+
                             <div id="code">
-                            <div id="postcode" className="col-3">
-                            <input className="form-control form-control-sm" type="text" placeholder="Postcode" aria-label=".form-control-sm" id='postcode' value={postcode} onChange={handleChange}></input><br />
-                            </div>
-                            <div id="countrycode" className="col-3">
-                            <input className="form-control form-control-sm" type="text" placeholder="Countrycode" aria-label=".form-control-sm" id='countrycode' value={countrycode} onChange={handleChange}></input>
-                            </div>                        
-                            <div className="col-3 text-left">
+                                <div id="postcode" className="col-3">
+                                    <input className="form-control form-control-sm" type="text" placeholder="Postcode" aria-label=".form-control-sm" id='postcode' value={postcode} onChange={handleChange}></input><br />
+                                </div>
+                                <div id="countrycode" className="col-3">
+                                    <input className="form-control form-control-sm" type="text" placeholder="Countrycode" aria-label=".form-control-sm" id='countrycode' value={countrycode} onChange={handleChange}></input>
+                                </div>
+                                <div className="col-3 text-left">
                                     <button type="submit" className="registerbtn  btn-sm">Register</button>
                                 </div>
                                 <div className="col-3" id="containerReg signin">
-                                    <p className="signin text-black">Already have an account? <a href="/Login">Sign in</a>.</p>
+                                    <p className="signin text-black">Already have an account?
+                                        <Link to="/Login">Sign in</Link>.</p>
                                 </div>
-                            </div> 
+                            </div>
                         </form>
                     </div>
-                    <div className="col-5" id="farmer" style={{ backgroundImage: `url(${image1}`, backgroundRepeat: "no-repeat"}} >
+                    <div className="col-5" id="farmer" style={{ backgroundImage: `url(${image1}`, backgroundRepeat: "no-repeat" }} >
                     </div>
                     <ToastContainer />
                 </div>
