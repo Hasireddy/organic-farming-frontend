@@ -18,7 +18,9 @@ const Dashboard = ({ isAuthenticated, farmertoken }) => {
 
   useEffect(() => {
     if (farmertoken) {
+      if (!products) {
       getFarmerProducts(farmertoken);
+      }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [farmertoken]);
@@ -85,7 +87,7 @@ const Dashboard = ({ isAuthenticated, farmertoken }) => {
       },
     });
     const { success, error } = await res.json();
-    console.log(success);
+    // console.log(success);
     if (success) {
       toast.success("success", {
         position: "bottom-center",
@@ -116,7 +118,9 @@ const Dashboard = ({ isAuthenticated, farmertoken }) => {
   };
   const UpdateProduct = async (id) => {
 
-    navigate('/Update', { state: { id: id, farmertoken: farmertoken } });
+    navigate('/Update', {replace: true, state: { id: id, farmertoken: farmertoken } });
+
+    // <Link to="Update" params={{ testvalue: "hello" }}>Create Idea</Link>
   };
   return (
     <>
@@ -139,17 +143,17 @@ const Dashboard = ({ isAuthenticated, farmertoken }) => {
                   <div className="col-6">
                   <div className="card-body" id="dashboardCb" >
                     <div className="col-4">
-                    <p className="card-title "><h4 id="dbtitle">Product:</h4>  {item.ProductName} {item.farmer.firstname} </p>
+                    <p className="card-title "><b id="dbtitle">Product:</b>  {item.ProductName} {item.farmer.firstname} </p>
                     </div>
                     <div>
-                    <p className="card-text"><h4 id="dbtitle">Description :</h4> {item.Description}</p>
+                    <p className="card-text"><b id="dbtitle">Description :</b> {item.Description}</p>
                     </div>
                     <div>
-                    <p className="card-text"><h4 id="dbtitle">Category :</h4>  {item.Category}</p>
+                   <p className="card-text"><b id="dbtitle">Category :</b>  {item.Category}</p>
 
                     </div>
                     <div>
-                    <p className="card-text"><h4 id="dbtitle">Price :</h4> {item.Price} euros</p>
+                    <p className="card-text"><b id="dbtitle">Price :</b> {item.Price} euros</p>
                     </div>              
                   </div>
                   

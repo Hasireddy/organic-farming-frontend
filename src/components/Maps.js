@@ -1,4 +1,3 @@
-
 import React, { useRef, useEffect, useState } from "react";
 import "mapbox-gl/dist/mapbox-gl.css";
 import mapboxgl from "mapbox-gl";
@@ -10,7 +9,7 @@ import mapboxgl from "mapbox-gl";
 mapboxgl.accessToken = process.env.REACT_APP_TOKEN;
 
 const MyMap = () => {
-    console.log(mapboxgl.accessToken);
+    //console.log(mapboxgl.accessToken);
     const mapContainer = useRef(null);
     const mapbox = useRef(null);
     const [lng, setLng] = useState(11.3861);
@@ -358,5 +357,3 @@ const MyMap = () => {
 };
 
 export default MyMap;
-
-

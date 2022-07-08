@@ -53,6 +53,7 @@ function App() {
 
     localStorage.removeItem("logintoken");
     localStorage.removeItem("farmer");
+    localStorage.removeItem("farmername");
     // setUser(null);
     setFarmerToken(null);
     setIsAuthenticated(false);
