@@ -1,3 +1,4 @@
+
 import React, { useRef, useEffect, useState } from "react";
 import "mapbox-gl/dist/mapbox-gl.css";
 import mapboxgl from "mapbox-gl";
@@ -5,7 +6,6 @@ import mapboxgl from "mapbox-gl";
 // import "react-toastify/dist/ReactToastify.css";
 // import img1 from "../assets/mapbox-marker-icon-20px-blue.png";
 // import img1 from '../assets/logo.png';
-
 
 mapboxgl.accessToken = process.env.REACT_APP_TOKEN;
 
@@ -358,3 +358,5 @@ const MyMap = () => {
 };
 
 export default MyMap;
+
+
