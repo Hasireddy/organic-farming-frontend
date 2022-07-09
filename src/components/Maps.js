@@ -6,11 +6,10 @@ import mapboxgl from "mapbox-gl";
 // import img1 from "../assets/mapbox-marker-icon-20px-blue.png";
 // import img1 from '../assets/logo.png';
 
-
 mapboxgl.accessToken = process.env.REACT_APP_TOKEN;
 
 const MyMap = () => {
-    console.log(mapboxgl.accessToken);
+    //console.log(mapboxgl.accessToken);
     const mapContainer = useRef(null);
     const mapbox = useRef(null);
     const [lng, setLng] = useState(11.3861);

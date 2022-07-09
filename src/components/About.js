@@ -74,7 +74,7 @@ const About = () => {
             </Link>
             <br></br>
             <div className="card-text">
-              <strong>Passion</strong>: My passion were only Swimming, Football, DIY (mandala)..etc, Until recently I came across to the Coding and it become my main  passion.
+              <strong>Passion</strong>: My passions were only Swimming, Football, DIY (mandala)..etc, Until recently I came across to the Coding and it become my main  passion.
             </div>
           </div>
         </div>

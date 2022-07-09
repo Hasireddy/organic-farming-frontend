@@ -12,7 +12,7 @@ import Details from "./components/Details";
 // import Update from "./components/Update";
 import Products from "./components/ProductsCatalog";
 import SingleProduct from './components/SingleProduct';
-import MyMap from "./components/Maps";
+// import MyMap from "./components/Maps";
 import NotFound from "./components/NotFound";
 
 
@@ -53,6 +53,7 @@ function App() {
 
     localStorage.removeItem("logintoken");
     localStorage.removeItem("farmer");
+    localStorage.removeItem("farmername");
     // setUser(null);
     setFarmerToken(null);
     setIsAuthenticated(false);
@@ -71,7 +72,7 @@ function App() {
         <Route path="/Products" element={<Products />} />
         <Route path="/Products/:id" element={<SingleProduct />} />
         <Route path="/Login" element={<Login isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} setFarmerToken={setFarmerToken} />} />
-        <Route path="/Maps" element={<MyMap />} />
+        {/* <Route path="/Maps" element={<MyMap />} /> */}
         <Route
           path="/Details"
           element={<Details isAuthenticated={isAuthenticated} />}

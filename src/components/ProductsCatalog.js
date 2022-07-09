@@ -44,7 +44,7 @@ const Products = () => {
 
     return (
         <>
-            <div className="containerProduct">
+            <div className="container">
                 <select
                     name="category-list"
                     id="Category"
@@ -55,7 +55,7 @@ const Products = () => {
                     <option value="Fruits">Fruits</option>
                     <option value="Vegetables">Vegetables</option>
                     <option value="DairyProd">Dairy Products</option>
-                </select><br></br>
+                </select>
 
                 <Link to="/Maps">Click here to search for nearby Farms</Link>
 
