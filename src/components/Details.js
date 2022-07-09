@@ -197,7 +197,7 @@ const Details = ({ isAuthenticated }) => {
                                 ref={ref}
                             /> */}
                             {/* <button onClick={handleApi}>Upload</button> */}
-                            <div className="row" >
+                          
                                 <div className="col10" >
                                     <input
                                         type="file"
@@ -206,12 +206,18 @@ const Details = ({ isAuthenticated }) => {
                                         name={Image}
                                         ref={ref}
                                     />
+                                    
+                                </div>
+                                <label></label>
+                                <br/>
+                               <div>
+                                
                                     <button type="submit" className="registerbtn">
                                         Submit
                                     </button>
-                                </div>
-
-                            </div>
+</div>
+                          
+                            <br/>
                         </form>
                     </div>
                     {/* <div

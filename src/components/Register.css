@@ -1,7 +1,6 @@
 .containerReg {
     background-color: #4cfc4c56 !important;
     padding-bottom: 25px;
-    margin-bottom: 25px;
     /* background: url(../assets/farmers2.jpg) no-repeat;
     background-size: cover; */
 }
@@ -23,11 +22,11 @@
 .registerbtn {
     background-color: #006400;
     color: white;
-    padding: 12px 20px;
+    padding: 12px 12px;
     /* margin: 40px 20px; */
     border: none;
     cursor: pointer;
-    width: 25%;
+    width: 100%;
     border-radius: 12px;
 }
 
@@ -50,9 +49,4 @@
 .col-7 {
     padding-left: 50px;
     padding-right: 35px;
-}
-
-.row{
-    padding-top: 30px;
-    padding-bottom: 30px;
 }

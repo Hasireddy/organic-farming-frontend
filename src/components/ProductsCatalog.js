@@ -44,7 +44,7 @@ const Products = () => {
 
     return (
         <>
-            <div className="containerProduct">
+            <div className="container">
                 <select
                     name="category-list"
                     id="Category"
@@ -55,7 +55,7 @@ const Products = () => {
                     <option value="Fruits">Fruits</option>
                     <option value="Vegetables">Vegetables</option>
                     <option value="DairyProd">Dairy Products</option>
-                </select><br></br>
+                </select>
 
                 <Link to="/Maps">Click here to search for nearby Farms</Link>
 
@@ -63,7 +63,7 @@ const Products = () => {
                 <div className="row row-1 row-cols-md-3 g-4">
                     {filteredList ? (
                         filteredList.map((item) => (
-                            <div className=" col col-5 col-md-3 col-lg-3" key={item._id}>
+                            <div className="col-12 col-md-3 col-lg-3" key={item._id}>
                                 <Link to={`/Products/${item._id}`}>
                                     {/* <div className="card" >
                            <img class="card-img-top" src={process.env.REACT_APP_SERVERURL  + item.Image.path} alt="Card image cap" />
