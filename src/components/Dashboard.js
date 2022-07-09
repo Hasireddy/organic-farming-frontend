@@ -2,9 +2,11 @@ import React from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useState, useEffect } from "react";
+import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import "../components/Dashboard.css";
 
-import Update from './Update.js';
+
 
 // accessToken2.Dashboard = process.env.REACT_APP_LINK1; 
 
@@ -15,7 +17,12 @@ const Dashboard = ({ isAuthenticated, farmertoken }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    getFarmerProducts()
+    if (farmertoken) {
+      if (!products) {
+      getFarmerProducts(farmertoken);
+      }
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [farmertoken]);
 
   const getFarmerProducts = async e => {
@@ -80,7 +87,7 @@ const Dashboard = ({ isAuthenticated, farmertoken }) => {
       },
     });
     const { success, error } = await res.json();
-    console.log(success);
+    // console.log(success);
     if (success) {
       toast.success("success", {
         position: "bottom-center",
@@ -111,14 +118,16 @@ const Dashboard = ({ isAuthenticated, farmertoken }) => {
   };
   const UpdateProduct = async (id) => {
 
-    navigate('/Update', { state: { id: id, farmertoken: farmertoken } });
+    navigate('/Update', {replace: true, state: { id: id, farmertoken: farmertoken } });
+
+    // <Link to="Update" params={{ testvalue: "hello" }}>Create Idea</Link>
   };
   return (
     <>
       < div className="container">
         <div>
           <h3 className="farmer">Welcome <b>{localStorage.getItem('farmername')}</b></h3>
-          <a className="button" href="/Details">Add Product</a>
+          <Link to="/Details">Add Product</Link>
         </div>
         {
           products ? (products.map(item =>
@@ -126,21 +135,38 @@ const Dashboard = ({ isAuthenticated, farmertoken }) => {
 
               <div className="col">
 
-                <div className="card h-100 shadow p-3 mb-5 bg-body rounded" >
-
-                  <img src={item.Image.publicUrl || process.env.REACT_APP_SERVERURL + item.Image.path} className="card-img-top" alt="salad leaf" style={{ width: "100px", height: "100px" }} />
-                  <div className="card-body">
-                    <h5 className="card-title fw-bold">Product : {item.ProductName} {item.farmer.firstname}</h5>
-                    <p className="card-text fw-bold">Description : {item.Description}</p>
-                    <p className="card-text fw-bold">Category : {item.Category}</p>
-                    <p className="card-text fw-bold">Price : {item.Price} euros</p>
+                <div className="card h-100 shadow p-3 mb-5 rounded" id="dashboardCard" >
+                  <div id="imageMain">
+                  <img src={item.Image.publicUrl || process.env.REACT_APP_SERVERURL + item.Image.path} className="card-img-top" alt="salad leaf" style={{ width: "400px", height: "375px" }} />
                   </div>
-                  <div className="card-footer bg-success">
+                  
+                  <div className="col-6">
+                  <div className="card-body" id="dashboardCb" >
+                    <div className="col-4">
+                    <p className="card-title "><b id="dbtitle">Product:</b>  {item.ProductName} {item.farmer.firstname} </p>
+                    </div>
+                    <div>
+                    <p className="card-text"><b id="dbtitle">Description :</b> {item.Description}</p>
+                    </div>
+                    <div>
+                   <p className="card-text"><b id="dbtitle">Category :</b>  {item.Category}</p>
+
+                    </div>
+                    <div>
+                    <p className="card-text"><b id="dbtitle">Price :</b> {item.Price} euros</p>
+                    </div>              
+                  </div>
+                  
+                  
+                  <div className="card-footer" id="dashboardFooter">
                     {/* <a href="#" className="text-white">Read More
                     </a> */}
-                    <button onClick={async () => { await UpdateProduct(item._id); }}>Update</button>
-                    <button onClick={async () => { await deleteProduct(item._id); }}>Delete</button>
+                    <button id="dashboardBtn" onClick={async () => { await UpdateProduct(item._id); }}>Update</button>
+                    <button id="dashboardBtn" onClick={async () => { await deleteProduct(item._id); }}>Delete</button>
                   </div>
+                  </div>
+
+
                 </div>
               </div>
             </div>)) : (<div><h1>No Prodcuts found</h1></div>)

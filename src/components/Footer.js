@@ -3,7 +3,10 @@ import "./Footer.css";
 import "../assets/Facebook.png";
 import logo from "../assets/logo.png";
 
+
+
 function Footer() {
+
   return (
     <div>
       <footer>
@@ -16,7 +19,7 @@ function Footer() {
                     Organic Farming Community
                   </span>
                 </li>
-                <a className="navbar-footer" href="#">
+                <a className="navbar-footer" href="#/">
                   <img
                     src={logo}
                     alt=""
@@ -64,23 +67,24 @@ function Footer() {
                   </li>
                 </div>
 
-                <div className="input-group mb-2">
+                {/* <div className="input-group mb-2">
                   <input
                     type="text"
                     className="form-control1"
                     placeholder="Enter email address"
                     aria-label="Recipient's username"
                     aria-describedby="button-addon2"
-                  />
-                  <button
-                    className="btnFooter btn-outline-secondary btn-lg"
+                    />
+                  <button 
+                    className="btnFooter btn-outline-success btn-lg"
                     type="button"
                     id="button-addon2"
                   // btn-sm
                   >
                     Submit
                   </button>
-                </div>
+                 
+                </div> */}
               </ul>
             </div>
           </div>

@@ -14,7 +14,8 @@ const Update = ({ farmertoken, isAuthenticated }) => {
     // { location.updatedetails.id }
     // console.log("Product ID:")
     // console.log("Product ID:" + location.state.id)
-    const [ProductId, setProductId] = useState(location.state.id);
+    const [ProductId, setProductId] = useState(null);
+    setProductId(location.state.id);
 
     // const [ProductName, setProductName] = useState('');
     // const [Description, setDescription] = useState('');
@@ -53,7 +54,7 @@ const Update = ({ farmertoken, isAuthenticated }) => {
     };
 
     const handleFile = (e) => {
-        alert("filechange");
+        // alert("filechange");
         // console.log("e.target.files[0]");
         // console.log(e.target.files[0]);
         setFormState((prev) => ({ ...prev, Image: e.target.files[0] }));

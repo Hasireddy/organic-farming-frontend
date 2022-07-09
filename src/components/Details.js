@@ -1,10 +1,10 @@
 import React, { useState, useRef } from "react";
 import image from "../assets/fattoria-banner-1.jpg";
-import image1 from "../assets/farmer.jpg";
+// import image1 from "../assets/farmer.jpg";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "../App.css";
-import { Navigate } from 'react-router-dom';
+import "../components/Details.css";
 
 
 const Details = ({ isAuthenticated }) => {
@@ -122,9 +122,9 @@ const Details = ({ isAuthenticated }) => {
 
     return (
         <>
-            <div className="container" style={{ backgroundImage: `url(${image}` }}>
+            <div className="container-fluid" style={{ backgroundImage: `url(${image}`, backgroundRepeat: "no-repeat" }} >
                 <div className="row">
-                    <h1>Products</h1>
+                    <h1 className="font-weight-bold">Products</h1>
                     <p>Please fill in this form to add a Product</p>
                     <hr />
                     <div className="col-8">
@@ -189,31 +189,46 @@ const Details = ({ isAuthenticated }) => {
                             </select>
 
                             <br />
-                            <input
+                            {/* <input
                                 type="file"
                                 id="Image"
                                 onChange={handleFile}
                                 name={Image}
                                 ref={ref}
-                            />
+                            /> */}
                             {/* <button onClick={handleApi}>Upload</button> */}
-                            <div className="row">
-                                <div className="col text-left">
+                          
+                                <div className="col10" >
+                                    <input
+                                        type="file"
+                                        id="Image"
+                                        onChange={handleFile}
+                                        name={Image}
+                                        ref={ref}
+                                    />
+                                    
+                                </div>
+                                <label></label>
+                                <br/>
+                               <div>
+                                
                                     <button type="submit" className="registerbtn">
                                         Submit
                                     </button>
-                                </div>
-                            </div>
+</div>
+                          
+                            <br/>
                         </form>
                     </div>
-                    <div
+                    {/* <div
                         className="col-3"
                         id="farmer"
                         style={{ backgroundImage: `url(${image1}` }}
-                    ></div>
+                    ></div> */}
                 </div>
             </div>
             <ToastContainer />
+            <br />
         </>
     );
 };
